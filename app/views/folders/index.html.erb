@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <% @folders.each do |folder|  %>
+      <div class="col-4">
+        <%= folder.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <hr>
+      <div class="form">
+        <h3>Add a new folder</h3>
+        <%= simple_form_for(@folder) do |f| %>
+          <%= f.input :name, placeholder: 'Add a folder name' %>
+          <%= f.submit "Add folder", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
