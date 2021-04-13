@@ -14,7 +14,6 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
-    raise
     if @folder.save
     redirect_to root_path
     else
@@ -44,7 +43,7 @@ class FoldersController < ApplicationController
   end
 
   def folder_params
-    params.require(:folder).permit(:name, :importance, :coverimg)
+    params.require(:folder).permit(:name, :importance, :coverimg, :user_id)
   end
 
 end
