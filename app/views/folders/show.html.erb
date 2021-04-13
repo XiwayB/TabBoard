@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-6">
       <%= @folder.name %>
+      <%= cl_image_tag @folder.photo.key, alt: "Folder Cover Image", width: 400, height: 300 %>
       <hr>
     </div>
   </div>

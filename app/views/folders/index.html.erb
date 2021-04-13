@@ -15,7 +15,7 @@
         <%= simple_form_for(@folder) do |f| %>
           <%= f.input :name, placeholder: 'Add a folder name' %>
           <%= f.input :user_id, placeholder: 'For test purpose', as: :integer %>
-
+          <%= f.input :photo, as: :file %>
           <%= f.submit "Add folder", class: "btn btn-primary" %>
         <% end %>
       </div>
