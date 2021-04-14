@@ -1,6 +1,6 @@
 class TabsController < ApplicationController
   before_action :set_tab, only: [:show, :update]
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
 
   def index
     @tabs = Tab.all
@@ -27,6 +27,10 @@ class TabsController < ApplicationController
       render_error
     end
   end
+
+  # def create
+
+  # end
 
   def update
     if @tab.update(tab_params)
