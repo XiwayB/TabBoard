@@ -3,7 +3,7 @@ class FoldersController < ApplicationController
   def index
     @folders = Folder.all
     @folder = Folder.new
-    @folder.destroy
+    # @folder.destroy
   end
 
   def show
@@ -19,7 +19,7 @@ class FoldersController < ApplicationController
     if @folder.save
     redirect_to root_path
     else
-      render :index
+      render :new
     end
   end
 
