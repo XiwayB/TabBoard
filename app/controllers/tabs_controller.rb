@@ -1,6 +1,7 @@
 class TabsController < ApplicationController
   before_action :set_tab, only: %i[ show edit update destroy ]
 
+
   def index
     @tabs = Tab.all
   end
@@ -10,7 +11,7 @@ class TabsController < ApplicationController
   def new
     @tab = Tab.new
   end
-
+  
   def edit
   end
 
