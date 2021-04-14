@@ -6,7 +6,9 @@ class FoldersController < ApplicationController
     @folder.destroy
   end
 
-  def show; end
+  def show
+    @tab = Tab.new
+  end
 
   def new
     @folder = Folder.new

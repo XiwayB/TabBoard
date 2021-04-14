@@ -29,8 +29,6 @@ pets = Folder.create!(name: 'Pets', user: desmond)
 
 songs = Folder.create!(name: 'Songs', user: xiway)
 
-default = Folder.create!(name: 'Default', importance: false, user: xiway)
-
 Tab.create!(title: 'Rose', url: 'rose.com', folder: default)
 
 Tab.create!(title: 'Hamburger', url: 'hamburger.com', folder: food)

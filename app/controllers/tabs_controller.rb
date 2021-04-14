@@ -1,5 +1,5 @@
 class TabsController < ApplicationController
-  before_action :set_tabs, only: %i[ show edit update destroy ]
+  before_action :set_tab, only: %i[ show edit update destroy ]
 
   def index
     @tabs = Tab.all
@@ -16,17 +16,35 @@ class TabsController < ApplicationController
 
   def create
     @tab = Tab.new(tab_params)
-
-    respond_to do |format|
       if @tab.save
-        render json: { html: render_to_string(partial: 'random') }
+        render root_path
       else
         render_error
       end
     end
   end
 
+  def update
+    if @tab.update(tab_params)
+      render :show
+    else
+      render_error
+  end
+
+  def destroy
+    @tab.destroy
+    redirect_to root_path
+  end
+
   private
+
+  def set_tab
+    @tab = Tab.find(params[:id])
+  end
+
+  def tab_params
+    params.require(:tab).permit(:title, :url, :icon, :folder_id)
+  end
 
   def render_error
     render json: { errors: @tab.errors.full_messages },
