@@ -8,6 +8,7 @@ class TabsController < ApplicationController
   def show; end
 
   def new
+    # ignore
     @tab = Tab.new
   end
 
