@@ -3,10 +3,12 @@ class FoldersController < ApplicationController
   def index
     @folders = Folder.all
     @folder = Folder.new
-    @folder.destroy
+    # @folder.destroy
   end
 
-  def show; end
+  def show
+    @tab = Tab.new
+  end
 
   def new
     @folder = Folder.new
@@ -17,7 +19,7 @@ class FoldersController < ApplicationController
     if @folder.save
     redirect_to root_path
     else
-      render :index
+      render :new
     end
   end
 

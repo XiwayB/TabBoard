@@ -6,3 +6,15 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <% @folder.tabs.each do |tab|  %>
+      <%= tab.icon %>
+      <%= tab.title %>
+      <%= tab.url %>
+      <% end  %>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'rest-client'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -32,6 +33,13 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
+# Use Devise for authentication
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'omniauth-rails_csrf_protection', '~> 1.0' # used for omniauth v2, extra security protection as the methods are using :post
+gem 'omniauth-google-oauth2'
+# Use Omniauth Google plugin
+# gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'activerecord-session_store'
 
 group :development, :test do
   gem 'pry-byebug'
