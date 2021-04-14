@@ -19,7 +19,7 @@ xiway = User.create!(name: 'Xiway', email: 'xiway@gmail.com', password: '1234')
 
 Folder.destroy_all if Rails.env.development?
 
-flower = Folder.create!(name: 'Flower', importance: true, user: marshall)
+default = Folder.create!(name: 'default', importance: true, user: marshall)
 
 food = Folder.create!(name: 'Food', importance: true, user: kevin)
 
