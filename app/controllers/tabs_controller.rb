@@ -1,5 +1,5 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: %i[ show edit update destroy ]
+  before_action :set_tab, only: [:show, :update]
 
   def index
     @tabs = Tab.all
@@ -17,11 +17,10 @@ class TabsController < ApplicationController
 
   def create
     @tab = Tab.new(tab_params)
-      if @tab.save
-        render root_path
-      else
-        render_error
-      end
+    if @tab.save
+      render root_path
+    else
+      render_error
     end
   end
 
@@ -30,6 +29,7 @@ class TabsController < ApplicationController
       render :show
     else
       render_error
+    end
   end
 
   def destroy
