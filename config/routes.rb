@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #   end
   # end
   resources :folders do
-    resources :tabs
+    resources :tabs, shallow: true
   end
   get 'auth/request', to:'users#google_oauth2'
 end
