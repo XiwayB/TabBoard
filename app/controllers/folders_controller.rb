@@ -1,9 +1,14 @@
 class FoldersController < ApplicationController
   before_action :set_folder, only: [ :show, :edit, :update, :destroy ]
+
   def index
     @folders = Folder.all
     @folder = Folder.new
     # @folder.destroy
+    respond_to do |format|
+      format.html
+      format.json { render json: @folders }
+    end
   end
 
   def show

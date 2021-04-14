@@ -13,8 +13,7 @@ class TabsController < ApplicationController
     @tab = Tab.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @tab = Tab.new(tab_params)
