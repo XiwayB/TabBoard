@@ -1,5 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-def google_oauth2
+  skip_before_action :verify_authenticity_token
+
+  def google_oauth2
     @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
       sign_in @user
@@ -14,6 +16,7 @@ def google_oauth2
     #   redirect_to new_user_registration_url
     end
   end
+
   def failure
     respond_to do |format|
       format.html { redirect_to new_user_session_path }
