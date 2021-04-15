@@ -2,7 +2,12 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @folders = Folder.all
+    if params[:query].present?
+      @folders = Folder.search_folder(params[:query])
+    else
+      @folders = Folder.all
+    end
+    # @folders = Folder.all
     @folder = Folder.new
     # @folder.destroy
     respond_to do |format|
