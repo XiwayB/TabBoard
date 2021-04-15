@@ -1,5 +1,6 @@
 class FoldersController < ApplicationController
   before_action :set_folder, only: [ :show, :edit, :update, :destroy ]
+
   def index
     if params[:query].present?
       @folders = Folder.search_folder(params[:query])
@@ -9,6 +10,10 @@ class FoldersController < ApplicationController
     # @folders = Folder.all
     @folder = Folder.new
     # @folder.destroy
+    respond_to do |format|
+      format.html
+      format.json { render json: @folders }
+    end
   end
 
   def show
@@ -22,8 +27,12 @@ class FoldersController < ApplicationController
   def create
     @folder = Folder.new(folder_params)
     if @folder.save
-    redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json { render json: { msg: 'success', folder: @folder } }
+      end
     else
+      puts @folder.errors.full_messages
       render :new
     end
   end

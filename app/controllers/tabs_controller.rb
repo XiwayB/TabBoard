@@ -1,5 +1,6 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: %i[ show edit update destroy ]
+  before_action :set_tab, only: [:show, :update]
+  # skip_before_action :verify_authenticity_token
 
   def index
     @tabs = Tab.all
@@ -12,24 +13,31 @@ class TabsController < ApplicationController
     @tab = Tab.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @tab = Tab.new(tab_params)
-      if @tab.save
-        render root_path
-      else
-        render_error
+    if @tab.save
+      # render root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json { render json: { msg: 'success' } }
       end
+    else
+      render_error
     end
   end
+
+  # def create
+
+  # end
 
   def update
     if @tab.update(tab_params)
       render :show
     else
       render_error
+    end
   end
 
   def destroy
