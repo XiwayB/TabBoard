@@ -24,9 +24,10 @@ class FoldersController < ApplicationController
     if @folder.save
       respond_to do |format|
         format.html { redirect_to root_path }
-        format.json { render json: { msg: 'success' } }
+        format.json { render json: { msg: 'success', folder: @folder } }
       end
     else
+      puts @folder.errors.full_messages
       render :new
     end
   end
