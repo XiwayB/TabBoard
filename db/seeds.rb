@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # User.destroy_all if Rails.env.development?
 
+p "planting seeding"
+
+Tab.destroy_all
+Folder.destroy_all
+User.destroy_all
+
 marshall = User.create!(name: 'Marshall', email: 'marshall@gmail.com', password: '123456')
 
 kevin = User.create!(name: 'Kevin', email: 'kevin@gmail.com', password: '123456')
