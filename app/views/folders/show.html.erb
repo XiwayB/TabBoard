@@ -1,6 +1,6 @@
-<div class="show-page">
 
-  <div class="container">
+<div class="show-page">
+  <div class="container-folder">
       <div class="show-header">
         <div class="show-title">
           <h1><%= @folder.name %></h1>
@@ -9,11 +9,15 @@
         <a class=share href="#">
           <i class="fas fa-share"></i>
         </a>
+       <!--  <a class="undo" href=""> -->
+       <!--  # <%= link_to 'Back', folders_path, class: "undo" %> -->
+          <!-- <i class="fas fa-undo-alt"></i> -->
+        <!-- </a> -->
   </div>
 
   <hr class="show-line">
 
-  <div class="container">
+  <div class="container-tabs">
     <% @folder.tabs.each do |tab|  %>
     <div class="tab">
       <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
@@ -23,4 +27,8 @@
     </div>
     <% end  %>
   </div>
+  <a class="undo" href="">
+      <%= link_to 'Back', folders_path %>
+          <!-- <i class="fas fa-undo-alt"></i> -->
+  </a>
 </div>
