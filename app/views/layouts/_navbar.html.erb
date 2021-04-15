@@ -1,4 +1,11 @@
-<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content;">
+
+  <%= link_to root_path do %>
+    <div class='home-icon'>
+      <i class="fas fa-home"></i>
+    </div>
+  <% end %>
+
+<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content">
 
   <form action="/folders" class="form-pink" method="get">
     <input type="search_query" placeholder="Type to search">
@@ -11,13 +18,23 @@
     <div id="bottom"></div>
   </div>
 
+<!--   <div id="box-tabs">
+    <div id="items">
+        <div class="item">Item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+    </div>
+  </div> -->
+
   <div id="box-tabs">
     <div id="items">
-      <div class="item">Item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1</div>
-      <div class="item">Item 2</div>
-      <div class="item">Item 3</div>
-      <div class="item">Item 4</div>
-      <div class="item">Item 5</div>
+      <% @folders.each do |folder| %>
+        <div class="home-tab">
+          <%= folder.name %>
+        </div>
+      <% end  %>
     </div>
   </div>
 

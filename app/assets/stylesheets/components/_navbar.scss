@@ -161,3 +161,37 @@
     background: #DF4B14;
     color: white;
 }
+
+.home-icon {
+  color: #DF4B14;
+  opacity: 50%;
+  margin-top: 11px;
+  margin-left: 22px;
+  font-size: 26px;
+}
+
+.home-icon:hover{
+  color: #FF6D37;
+  opacity: 1;
+}
+
+.home-tab {
+  background: rgba(223, 75, 20, 0.5);
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 14px 205px 14px 5px;
+  margin: 25px auto;
+  color:white;
+}
+
+.home-tab:hover {
+  background: #FF6D37;
+}
+
+.tab-icon {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  margin-right: 18px;
+}
