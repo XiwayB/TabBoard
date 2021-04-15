@@ -1,20 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= @folder.name %>
-      <hr>
-    </div>
-  </div>
-</div>
+<div class="show-page">
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <% @folder.tabs.each do |tab|  %>
+  <div class="container">
+      <div class="show-header">
+        <div class="show-title">
+          <h1><%= @folder.name %></h1>
+        </div>
+      </div>
+        <a class=share href="#">
+          <i class="fas fa-share"></i>
+        </a>
+  </div>
+
+  <hr class="show-line">
+
+  <div class="container">
+    <% @folder.tabs.each do |tab|  %>
+    <div class="tab">
+      <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
       <%= tab.icon %>
-      <%= tab.title %>
+      <%= tab.title %> -
       <%= tab.url %>
-      <% end  %>
     </div>
+    <% end  %>
   </div>
 </div>
