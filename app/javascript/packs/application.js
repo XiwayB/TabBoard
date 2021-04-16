@@ -10,13 +10,13 @@ require("channels")
 
 import "bootstrap";
 import { expandSidebar } from '../scripts/sidebar'
-import { search, select } from '../scripts/search'
+import { search } from '../scripts/search'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   expandSidebar();
   search();
-  select();
 
 
 });
+

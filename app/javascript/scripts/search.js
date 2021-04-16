@@ -63,7 +63,7 @@ const search = () => {
       let allList = suggBox.querySelectorAll("li");
       for (let i = 0; i < allList.length; i++) {
         //adding onclick attribute in all li tag
-        // allList[i].setAttribute("onclick", 'select(this)');
+        allList[i].setAttribute("onclick", 'select(this)');
         allList[i].setAttribute("id", 'search_select');
       }
     } else {
@@ -91,36 +91,4 @@ const showSuggestions = (list, suggBox) => {
   suggBox.innerHTML = listData;
 }
 
-const select = () => {
-  const el = document.getElementById("search_select")
-  console.log({el})
-  if (el) {
-    el.addEventListener('click', e => {
-      console.log(567, e)
-    })
-  }
-  const inputBox = document.getElementById("search");
-  // let selectData = element.textContent;
-  // inputBox.value = selectData;
-  // icon.onclick = () => {
-  //   webLink = "https://www.google.com/search?q=" + selectData;
-  //   linkTag.setAttribute("href", webLink);
-  //   linkTag.click();
-  // }
-  // searchWrapper.classList.remove("active");
-}
-
-// const select = (element) => {
-//   const inputBox = document.getElementById("search");
-//   console.log('el', element)
-//   let selectData = element.textContent;
-//   inputBox.value = selectData;
-//   icon.onclick = () => {
-//     webLink = "https://www.google.com/search?q=" + selectData;
-//     linkTag.setAttribute("href", webLink);
-//     linkTag.click();
-//   }
-//   searchWrapper.classList.remove("active");
-// }
-
-export { search, select }
+export { search }
