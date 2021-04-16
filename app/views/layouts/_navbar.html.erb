@@ -6,11 +6,22 @@
   <% end %>
 
 <div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content">
+  <div class="wrapper">
+    <div class="search-input">
+      <a href="" target="_blank" hidden></a>
+      <form action="/folders" class="form-pink" method="get">
+        <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
+         <i class="fa fa-search"></i>
+        <div class="autocom-box"></div>
 
-  <form action="/folders" class="form-pink" method="get">
-    <input type="search_query" placeholder="Type to search">
+      </form>
+    </div>
+  </div>
+
+<!--   <form action="/folders" class="form-pink" method="get">
+    <input id="search" type="text" placeholder="Type to search">
     <i class="fa fa-search"></i>
-  </form>
+  </form> -->
 
   <div id="btn-tabs">
     <div id="top"></div>
