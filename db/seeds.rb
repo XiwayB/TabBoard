@@ -29,19 +29,40 @@ default = Folder.create!(name: 'Default', importance: true, user: marshall, cove
 
 food = Folder.create!(name: 'Food', importance: true, user: kevin, coverimg: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg")
 
-tvshows = Folder.create!(name: 'TV Shows', user: nico, coverimg: "https://static1.colliderimages.com/wordpress/wp-content/uploads/2020/11/Best-tv-shows-Netflix-V3.png")
+work = Folder.create!(name: 'Work', user: nico, coverimg: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80")
 
 pets = Folder.create!(name: 'Pets', user: desmond, coverimg: "https://res.cloudinary.com/xiway/image/upload/v1618560558/Heizi_kftmot.jpg")
 
-songs = Folder.create!(name: 'Songs', user: xiway,coverimg: "https://api.time.com/wp-content/uploads/2018/05/best-albums-so-far-2018.jpg")
+nsfw = Folder.create!(name: 'NSFW', user: xiway,coverimg: "https://images.unsplash.com/photo-1447501614729-24781f73c2f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80")
 
 Tab.create!(title: 'Rose', url: 'rose.com', folder: default)
 
 Tab.create!(title: 'Hamburger', url: 'hamburger.com', folder: food)
 
-Tab.create!(title: 'Seinfeld', url: 'seinfeld.com', folder: tvshows)
+Tab.create!(title: 'Javascript', url: 'Javascript.com', folder: work)
+
+Tab.create!(title: 'Ruby', url: 'ruby.com', folder: work)
+
+Tab.create!(title: 'SQL', url: 'sql.com', folder: work)
+
+Tab.create!(title: 'C-for-dummies', url: 'dummy.com', folder: work)
+
+Tab.create!(title: 'How-to-use-self', url: 'real-dummy.com', folder: work)
+
+Tab.create!(title: 'Step sister stuck in the washing machine', url: 'beeeeep.com', folder: work)
+
+Tab.create!(title: 'Thank god she is alive', url: 'beeeeep.com', folder: work)
+
+Tab.create!(title: 'How to remove plunger from b**t', url: 'how-to.com', folder: work)
+
+Tab.create!(title: 'Hospital Direction', url: 'maps.google.com', folder: work)
+
+Tab.create!(title: 'Insurance', url: 'manulife.com', folder: work)
+
 
 Tab.create!(title: 'Heizi', url: 'heizi-lifestyle.com', folder: pets)
 
-Tab.create!(title: 'Shallow', url: 'a-star-is-born.com', folder: songs)
+Tab.create!(title: 'Where-to-eat', url: 'eat-there.com', folder: nsfw)
+
+Tab.create!(title: 'Video-games', url: 'games.com', folder: nsfw)
 
