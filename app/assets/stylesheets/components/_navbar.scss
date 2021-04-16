@@ -3,8 +3,8 @@
 #btn-tabs {
   position: fixed;
   z-index: 5;
-  top: 160px;
-  left: 15px;
+  top: 143px;
+  left: 20px;
   cursor: pointer;
   -webkit-transition: left 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
   transition: left 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
@@ -63,8 +63,9 @@
 
 #box-tabs.active {
   left: 0px;
-  opacity: 1;
-  // width: 200px;
+  opacity: 0.8;
+  background: white;
+  width: 800px;
 }
 #items {
   position: relative;
@@ -112,7 +113,7 @@
 
 .form-pink {
     position: relative;
-    top: 15px;
+    top: -31px;
     left: 13px;
     // transform: translate(0%,0%);
     transition: all 1s;
@@ -172,12 +173,18 @@
     color: white;
 }
 
+.back-home {
+  z-index: 900;
+  position: relative
+}
+
 .home-icon {
   color: #DF4B14;
   opacity: 50%;
   margin-top: 11px;
-  margin-left: 22px;
-  font-size: 26px;
+  margin-left: 19px;
+  height: 36px;
+  padding-right: 13px;
 }
 
 .home-icon:hover{
@@ -186,16 +193,17 @@
 }
 
 .home-tab {
-  background: rgba(223, 75, 20, 0.5);
-  opacity: 0.8;
+  opacity: 0.6;
   border-radius: 5px;
-  padding: 14px 205px 14px 5px;
-  margin: 25px auto;
   color:white;
 }
 
+img .home-icon {
+  height: 34px;
+}
+
 .home-tab:hover {
-  background: #FF6D37;
+  opacity: 1;
 }
 
 .tab-icon {
