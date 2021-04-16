@@ -2,11 +2,16 @@ body {
   background-color: #E5E5E5
 }
 
+.show-page {
+  margin-left: 483px;
+}
+
 .share {
   color: #DF4B14;
   opacity: 50%;
-  margin-top: -200px;
-  margin-left: 800px;
+  margin-top: -56px;
+  margin-left: 951px;
+
   position: absolute;
   font-size: 25px;
 }
@@ -14,23 +19,4 @@ body {
 .share:hover{
   color: #FF6D37;
   opacity: 1;
-}
-
-a {
-  color: #DF4B14;
-  opacity: 50%;
-  margin-top: 20px;
-  margin-left: 20px;
-  position: absolute;
-  font-size: 25px;
-}
-
-a:hover{
-  color: #FF6D37;
-  opacity: 1;
-}
-
-.show-page {
-  padding-left: 40%;
-  padding-top: 100px;
 }
