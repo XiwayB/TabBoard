@@ -25,15 +25,15 @@ xiway = User.create!(name: 'Xiway', email: 'xiway@gmail.com', password: '123456'
 
 Folder.destroy_all if Rails.env.development?
 
-default = Folder.create!(name: 'Default', importance: true, user: marshall)
+default = Folder.create!(name: 'Default', importance: true, user: marshall, coverimg: "https://images.unsplash.com/photo-1492269682833-cd80f8a20b08?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80")
 
-food = Folder.create!(name: 'Food', importance: true, user: kevin)
+food = Folder.create!(name: 'Food', importance: true, user: kevin, coverimg: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg")
 
-tvshows = Folder.create!(name: 'TV Shows', user: nico)
+tvshows = Folder.create!(name: 'TV Shows', user: nico, coverimg: "https://static1.colliderimages.com/wordpress/wp-content/uploads/2020/11/Best-tv-shows-Netflix-V3.png")
 
-pets = Folder.create!(name: 'Pets', user: desmond)
+pets = Folder.create!(name: 'Pets', user: desmond, coverimg: "Heizi.jpeg")
 
-songs = Folder.create!(name: 'Songs', user: xiway)
+songs = Folder.create!(name: 'Songs', user: xiway,coverimg: "https://api.time.com/wp-content/uploads/2018/05/best-albums-so-far-2018.jpg")
 
 Tab.create!(title: 'Rose', url: 'rose.com', folder: default)
 
@@ -44,3 +44,4 @@ Tab.create!(title: 'Seinfeld', url: 'seinfeld.com', folder: tvshows)
 Tab.create!(title: 'Heizi', url: 'heizi-lifestyle.com', folder: pets)
 
 Tab.create!(title: 'Shallow', url: 'a-star-is-born.com', folder: songs)
+

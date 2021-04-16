@@ -1,1 +1,53 @@
 // Specific CSS for your home-page
+.card {
+  margin: 12px;
+  background-size: cover;
+  height: 240px;
+  width: 350px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  h3 {
+    margin-top: 90px;
+  }
+    a {
+      text-decoration: none;
+      text-align: center;
+      color: white;
+    }
+}
+.card-show-title {
+  margin-top: 25px;
+  text-align: center;
+}
+.card-folder {
+  margin: 12px;
+  border-radius: 5px;
+  width: 350px;
+  height: 450px;
+}
+.card-poster {
+  object-position: center top;
+  object-fit: cover;
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+
+}
+.card-description-b {
+  padding: 12px;
+  background-color: #F8F8F8;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h5 {
+    font-weight: bold;
+  }
+
+}
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+
