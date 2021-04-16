@@ -31,7 +31,7 @@ food = Folder.create!(name: 'Food', importance: true, user: kevin, coverimg: "ht
 
 tvshows = Folder.create!(name: 'TV Shows', user: nico, coverimg: "https://static1.colliderimages.com/wordpress/wp-content/uploads/2020/11/Best-tv-shows-Netflix-V3.png")
 
-pets = Folder.create!(name: 'Pets', user: desmond, coverimg: "Heizi.jpeg")
+pets = Folder.create!(name: 'Pets', user: desmond, coverimg: "https://res.cloudinary.com/xiway/image/upload/v1618560558/Heizi_kftmot.jpg")
 
 songs = Folder.create!(name: 'Songs', user: xiway,coverimg: "https://api.time.com/wp-content/uploads/2018/05/best-albums-so-far-2018.jpg")
 
