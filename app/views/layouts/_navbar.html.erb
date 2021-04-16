@@ -1,4 +1,11 @@
-<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content;">
+
+  <%= link_to root_path do %>
+    <div class='home-icon'>
+      <i class="fas fa-home"></i>
+    </div>
+  <% end %>
+
+<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content">
   <div class="wrapper">
     <div class="search-input">
       <a href="" target="_blank" hidden></a>
@@ -10,11 +17,27 @@
       </form>
     </div>
   </div>
+
+<!--   <form action="/folders" class="form-pink" method="get">
+    <input id="search" type="text" placeholder="Type to search">
+    <i class="fa fa-search"></i>
+  </form> -->
+
   <div id="btn-tabs">
     <div id="top"></div>
     <div id="middle"></div>
     <div id="bottom"></div>
   </div>
+
+<!--   <div id="box-tabs">
+    <div id="items">
+        <div class="item">Item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+    </div>
+  </div> -->
 
   <div id="box-tabs">
     <div id="items">
@@ -23,10 +46,41 @@
       <div class="item">Item 3</div>
       <div class="item">Item 4</div>
       <div class="item">Item 5</div>
+      <% @folders.each do |folder| %>
+        <div class="home-tab">
+          <%= folder.name %>
+        </div>
+      <% end  %>
     </div>
   </div>
 
 </div>
+
+<script>
+  function select(element) {
+    const searchWrapper = document.querySelector(".search-input");
+    const inputBox = document.getElementById("search");
+    const suggBox = document.querySelector(".autocom-box");
+    const icon = document.querySelector(".fa");
+    let linkTag = document.querySelector("a");
+    let webLink;
+
+
+    let selectData = element.textContent;
+    inputBox.value = selectData;
+    console.log(5678, selectData)
+    window.location.href = "https://www.google.com/search?q=" + selectData
+    // icon.onclick = () => {
+    //   console.log(8888)
+    //   webLink = "https://www.google.com/search?q=" + selectData;
+    //   linkTag.setAttribute("href", webLink);
+    //   linkTag.click();
+    // }
+    searchWrapper.classList.remove("active");
+    }
+</script>
+
+
 
 
 
