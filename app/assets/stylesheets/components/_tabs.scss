@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .tab {
   background: rgba(223, 75, 20, 0.5);
   opacity: 0.8;
@@ -5,10 +9,13 @@
   padding: 14px 205px 14px 5px;
   margin: 25px auto;
   color:white;
+  display: flex;
 }
 
 .tab:hover {
   background: #FF6D37;
+  text-decoration: none;
+  color: white;
 }
 
 .icon {

@@ -22,12 +22,12 @@
 
   <div class="container-tabs">
     <% @folder.tabs.each do |tab|  %>
-    <div class="tab">
-      <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
-      <%= tab.icon %>
-      <%= tab.title %> -
-      <%= tab.url %>
-    </div>
+          <%= link_to tab.url, class: "tab" do%>
+          <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
+          <%= tab.icon %>
+          <%= tab.title %> -
+          <%= tab.url %>
+          <% end  %>
     <% end  %>
   </div>
   <a class="undo" href="">
