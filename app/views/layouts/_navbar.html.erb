@@ -1,32 +1,48 @@
-<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content;">
-  <div class="wrapper">
-    <div class="search-input">
-      <a href="" target="_blank" hidden></a>
-      <form action="/folders" class="form-pink" method="get">
-        <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
-         <i class="fa fa-search"></i>
-        <div class="autocom-box"></div>
 
-      </form>
+  <%= link_to root_path do %>
+    <div class='home-icon'>
+      <i class="fas fa-home"></i>
     </div>
-  </div>
+  <% end %>
+
+<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content">
+
+  <form action="/folders" class="form-pink" method="get">
+    <input type="search_query" placeholder="Type to search">
+    <i class="fa fa-search"></i>
+  </form>
+
   <div id="btn-tabs">
     <div id="top"></div>
     <div id="middle"></div>
     <div id="bottom"></div>
   </div>
 
+<!--   <div id="box-tabs">
+    <div id="items">
+        <div class="item">Item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+    </div>
+  </div> -->
+
   <div id="box-tabs">
     <div id="items">
-      <div class="item">Item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1</div>
-      <div class="item">Item 2</div>
-      <div class="item">Item 3</div>
-      <div class="item">Item 4</div>
-      <div class="item">Item 5</div>
+      <% @folders.each do |folder| %>
+        <div class="home-tab">
+          <%= folder.name %>
+        </div>
+      <% end  %>
     </div>
   </div>
 
 </div>
+
+
+
+
 
 
 

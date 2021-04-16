@@ -1,5 +1,5 @@
 
-//  hamburger button
+
 #btn-tabs {
   position: fixed;
   z-index: 5;
@@ -71,6 +71,14 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+#items-show {
+  position: relative;
+  top: 217px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 #items .item {
   position: relative;
   cursor: pointer;
@@ -99,7 +107,7 @@
 // .navbar-lewagon .navbar-brand img {
 //   width: 40px;
 // }
-// search button
+
 .form-pink {
     position: relative;
     top: 15px;
@@ -149,7 +157,7 @@
 }
 
 .form-pink:hover{
-    width: 780px;
+    width: 800px;
     cursor: pointer;
 }
 
@@ -162,41 +170,52 @@
     color: white;
 }
 
-//  content box
-
-.search-input .autocom-box{
-  padding: 0;
-  opacity: 0;
-  pointer-events: none;
-  max-height: 280px;
-  overflow-y: auto;
+.home-icon {
+  color: #DF4B14;
+  opacity: 50%;
+  margin-top: 11px;
+  margin-left: 22px;
+  font-size: 26px;
 }
 
-.search-input.active .autocom-box{
-  padding: 10px 8px;
+.home-icon:hover{
+  color: #FF6D37;
   opacity: 1;
-  pointer-events: auto;
 }
-.autocom-box li{
-  list-style: none;
-  padding: 8px 12px;
-  display: none;
-  width: 800px;
-  cursor: default;
-  border-radius: 3px;
+
+.home-tab {
+  background: rgba(223, 75, 20, 0.5);
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 14px 205px 14px 5px;
+  margin: 25px auto;
+  color:white;
+}
+
+.home-tab:hover {
+  background: #FF6D37;
+}
+
+.tab-icon {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
   background-color: white;
+  margin-right: 18px;
 }
 
-.search-input.active .autocom-box li{
-  display: block;
-}
-.autocom-box li:hover{
-  background: #efefef;
+.show-tab {
+  background: rgba(223, 75, 20, 0.5);
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 14px 205px 14px 5px;
+  margin-top: 25px;
+  margin-left: 13px;
+  margin-right: 138px;
+  color:white;
 }
 
-
-.search-input.active input{
-  border-radius: 5px 5px 0 0;
+.show-tab:hover {
+  background: #FF6D37;
 }
-
 
