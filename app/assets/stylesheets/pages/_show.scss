@@ -5,8 +5,8 @@ body {
 .share {
   color: #DF4B14;
   opacity: 50%;
-  margin-top: -112px;
-  margin-left: 1260px;
+  margin-top: -200px;
+  margin-left: 800px;
   position: absolute;
   font-size: 25px;
 }
@@ -14,4 +14,23 @@ body {
 .share:hover{
   color: #FF6D37;
   opacity: 1;
+}
+
+a {
+  color: #DF4B14;
+  opacity: 50%;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+  font-size: 25px;
+}
+
+a:hover{
+  color: #FF6D37;
+  opacity: 1;
+}
+
+.show-page {
+  padding-left: 40%;
+  padding-top: 100px;
 }
