@@ -12,26 +12,18 @@
         <a class="share" href="#">
           <i class="fas fa-share"></i>
         </a>
-       <!--  <a class="undo" href=""> -->
-       <!--  # <%= link_to 'Back', folders_path, class: "undo" %> -->
-          <!-- <i class="fas fa-undo-alt"></i> -->
-        <!-- </a> -->
   </div>
 
   <hr class="show-line">
 
-  <div class="container-tabs">
+  <div class="container-tabs" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
     <% @folder.tabs.each do |tab|  %>
-          <%= link_to tab.url, class: "tab" do%>
+          <%= link_to URI::HTTP.build({:host => tab.url }).to_s, target: "_blank", class: "tab"  do %>
           <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
           <%= tab.icon %>
           <%= tab.title %> -
           <%= tab.url %>
+          <div class="preview"></div>
           <% end  %>
     <% end  %>
   </div>
-  <a class="undo" href="">
-      <%= link_to 'Back', folders_path %>
-          <!-- <i class="fas fa-undo-alt"></i> -->
-  </a>
-</div>

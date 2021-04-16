@@ -1,4 +1,10 @@
-<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content">
+<div class="position-absolute vh-100" style="z-index: 5; left: 0; top:0; margin-right: 100px; width: fit-content; background: white; opacity: 0.8">
+
+  <div class="back-home">
+      <%= link_to root_path, class: "home-tab" do %>
+        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
+      <% end %>
+  </div>
 
   <form action="/folders" class="form-pink" method="get">
     <input type="search_query" placeholder="Type to search">

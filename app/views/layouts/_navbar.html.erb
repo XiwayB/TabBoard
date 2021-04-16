@@ -1,11 +1,12 @@
 
-  <%= link_to root_path do %>
-    <div class='home-icon'>
-      <i class="fas fa-home"></i>
-    </div>
-  <% end %>
+<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content; background: white">
 
-<div class="position-absolute vh-100" style="z-index: 100; left: 0; top:0; margin-right: 100px; width: fit-content">
+   <div class="back-home">
+      <%= link_to root_path, class: "home-tab" do %>
+        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
+      <% end %>
+    </div>
+
   <div class="wrapper">
     <div class="search-input">
       <a href="" target="_blank" hidden></a>
@@ -17,6 +18,7 @@
       </form>
     </div>
   </div>
+
 
 <!--   <form action="/folders" class="form-pink" method="get">
     <input id="search" type="text" placeholder="Type to search">
