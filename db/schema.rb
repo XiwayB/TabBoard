@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_000302) do
+ActiveRecord::Schema.define(version: 2021_04_16_023943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,13 @@ ActiveRecord::Schema.define(version: 2021_04_14_000302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "importance", default: false
+    t.boolean "is_private", default: true
     t.index ["user_id"], name: "index_folders_on_user_id"
+  end
+
+  create_table "shares", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tabs", force: :cascade do |t|

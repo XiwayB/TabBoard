@@ -21,7 +21,7 @@
 
 #btn-tabs:hover > div { box-shadow: 0 0 1px #00DFFC; }
 
-#btn-tabs.active { left: 675px; }
+#btn-tabs.active { left: 200px; }
 
 #btn-tabs.active div { background-color: #343838; }
 
@@ -50,7 +50,8 @@
   overflow: auto;
   top: 0px;
   left: -275px;
-  width: 800px;
+  // width: 800px;
+  width: 150px;
   opacity: 0;
   padding: 20px 0px;
   height: 100%;
@@ -63,6 +64,7 @@
 #box-tabs.active {
   left: 0px;
   opacity: 1;
+  width: 200px;
 }
 #items {
   position: relative;
