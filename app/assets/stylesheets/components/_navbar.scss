@@ -71,6 +71,14 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+#items-show {
+  position: relative;
+  top: 217px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 #items .item {
   position: relative;
   cursor: pointer;
@@ -194,4 +202,19 @@
   height: 25px;
   background-color: white;
   margin-right: 18px;
+}
+
+.show-tab {
+  background: rgba(223, 75, 20, 0.5);
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 14px 205px 14px 5px;
+  margin-top: 25px;
+  margin-left: 13px;
+  margin-right: 138px;
+  color:white;
+}
+
+.show-tab:hover {
+  background: #FF6D37;
 }
