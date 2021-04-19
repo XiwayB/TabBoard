@@ -8,6 +8,7 @@
 # User.destroy_all if Rails.env.development?
 
 p "nuking database"
+Share.destroy_all
 Tab.destroy_all
 Folder.destroy_all
 User.destroy_all

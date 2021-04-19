@@ -2,7 +2,22 @@
 @import "home";
 
 
-// .container-home {
-//   margin-top: 24px;
-//   margin-left: 163px;
-// }
+#new-share-form {
+  height: 400px;
+  width: 600px;
+  position: absolute;
+  left: 75%;
+  margin-left: -40%;
+  top: 500px;
+  margin-top: -30%;
+
+  border-radius: 5px;
+  background-color: rgba(236, 169, 80, 0.8);
+  padding: 40px;
+
+}
+
+.hidden{
+  display: none;
+}
+

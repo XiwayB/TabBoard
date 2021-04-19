@@ -39,43 +39,46 @@ const search = () => {
   let webLink;
 
   // if user press any key and release
-  inputBox.onkeyup = (e) => {
-    console.log(1234)
-    let userData = e.target.value; //user enetered data
-    let emptyArray = [];
-    if (userData) {
-      icon.onclick = () => {
-        webLink = "https://www.google.com/search?q=" + userData;
-        linkTag.setAttribute("href", webLink);
-        console.log(webLink);
-        linkTag.click();
+  if (inputBox) {
+    inputBox.onkeyup = (e) => {
+      console.log(1234)
+      let userData = e.target.value; //user enetered data
+      let emptyArray = [];
+      if (userData) {
+        icon.onclick = () => {
+          webLink = "https://www.google.com/search?q=" + userData;
+          linkTag.setAttribute("href", webLink);
+          console.log(webLink);
+          linkTag.click();
+        }
+        emptyArray = suggestions.filter((data) => {
+          //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+          return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+        });
+        emptyArray = emptyArray.map((data) => {
+          // passing return data inside li tag
+          return data = '<li>' + data + '</li>';
+        });
+        searchWrapper.classList.add("active"); //show autocomplete box
+        showSuggestions(emptyArray, suggBox);
+        let allList = suggBox.querySelectorAll("li");
+        for (let i = 0; i < allList.length; i++) {
+          //adding onclick attribute in all li tag
+          allList[i].setAttribute("onclick", 'select(this)');
+          allList[i].setAttribute("id", 'search_select');
+        }
+      } else {
+        searchWrapper.classList.remove("active"); //hide autocomplete box
       }
-      emptyArray = suggestions.filter((data) => {
-        //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
-        return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
-      });
-      emptyArray = emptyArray.map((data) => {
-        // passing return data inside li tag
-        return data = '<li>' + data + '</li>';
-      });
-      searchWrapper.classList.add("active"); //show autocomplete box
-      showSuggestions(emptyArray, suggBox);
-      let allList = suggBox.querySelectorAll("li");
-      for (let i = 0; i < allList.length; i++) {
-        //adding onclick attribute in all li tag
-        allList[i].setAttribute("onclick", 'select(this)');
-        allList[i].setAttribute("id", 'search_select');
-      }
-    } else {
-      searchWrapper.classList.remove("active"); //hide autocomplete box
     }
+
+    inputBox.onblur = function() {
+      setTimeout(function() {
+        searchWrapper.classList.remove('active');
+      }, 300);
+    };
   }
 
-  inputBox.onblur = function() {
-    setTimeout(function() {
-      searchWrapper.classList.remove('active');
-    }, 300);
-  };
 }
 
 
