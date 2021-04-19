@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :tabs, shallow: true
   end
   get 'auth/request', to:'users#google_oauth2'
+  resources :tabs, only: [:index]
 end
