@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
 
   def login_from_ext
     redirect_to user_google_oauth2_omniauth_authorize_path
