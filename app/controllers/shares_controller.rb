@@ -15,6 +15,8 @@ class SharesController < ApplicationController
 
   def create
     @share = Share.new(share_params)
+    # @share.user = User.find_by(email: share_params[:email])
+    @share.user = User.find(share_params[:user_id])
     @share.folder = @folder
     if @share.save
       redirect_to folder_path(@share.folder)
@@ -33,7 +35,7 @@ class SharesController < ApplicationController
   end
 
   def share_params
-    params.require(:share).permit(:user_id)
+    params.require(:share).permit(:user_id, :email)
   end
 
 
