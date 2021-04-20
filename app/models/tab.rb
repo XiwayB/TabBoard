@@ -12,4 +12,11 @@ class Tab < ApplicationRecord
     # partial words allowed
     tsearch: { prefix: true }
   }
+
+  def to_hashy
+    h = serializable_hash
+    # { id: ..., title: ...}
+    h['folder'] = self.folder.serializable_hash
+    h
+  end
 end

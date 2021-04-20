@@ -7,9 +7,11 @@ class TabsController < ApplicationController
 
     @tabs = Tab.search_tab(params[:query]) if params[:query].present?
 
+    tabs = @tabs.map{|tab| tab.to_hashy }
+
     respond_to do |format|
       format.html
-      format.json { render json: @tabs }
+      format.json { render json: tabs }
     end
   end
 

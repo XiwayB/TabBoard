@@ -13,7 +13,6 @@ const search = () => {
     console.log(1234)
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
-
     const url =  `http://localhost:3000/tabs?format=json&query=${userData}`
     if(userData) {
       fetch(url).then(response => response.json())
@@ -23,21 +22,21 @@ const search = () => {
         let listString = ''
         data.forEach((result) => {
           console.log(result)
-          const list = `<li onclick="select(this)" data-folder-id="${result.folder_id}">
+          const list = `
+          <li onclick="select(this)" data-folder-id="${result.folder_id}">
           <p>${result.title} | ${result.url} </p>
-
+          <button type="submit">${result.folder.name}</button>
           </li>`
           listString += list
-            // console.log("list", list)
           })
-          // console.log('listString:', listString)
+          console.log('listString:', listString)
           let tabs = results.innerHTML = listString
           searchWrapper.classList.add("active"); //show autocomplete box
           // showSuggestions(tabs, suggBox);
           // let allList = suggBox.querySelectorAll("li");
           // for (let i = 0; i < allList.length; i++) {
           //   //adding onclick attribute in all li tag
-          //   allList[i].setAttribute("onclick", 'select(this)');
+            // allList[i].setAttribute("onclick", 'select(this)');
           //   allList[i].setAttribute("data-folder-id", result.folder_id);
           //   // allList[i].setAttribute("id", 'search_select');
           // };
