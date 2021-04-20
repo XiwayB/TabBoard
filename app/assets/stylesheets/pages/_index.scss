@@ -21,3 +21,15 @@
   display: none;
 }
 
+#new-folder-form {
+  height: 400px;
+  width: 600px;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  border-radius: 5px;
+  background-color: rgba(236, 169, 80, 0.8);
+  padding: 40px;
+  z-index: 10;
+
+}
