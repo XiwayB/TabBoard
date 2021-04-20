@@ -1,7 +1,7 @@
 const sharePopup = () => {
-  console.log("share popping up");
+  // console.log("share popping up");
     const showForm = document.getElementById("show-share-form");
-    console.log({showForm})
+    // console.log({showForm})
     if (showForm) {
       showForm.addEventListener('click', ()=>{
         console.log('showForm is clicked')
@@ -11,7 +11,7 @@ const sharePopup = () => {
 }
 
 const closeSharePopup = () => {
-  console.log("closing share popup");
+  // console.log("closing share popup");
   const closeBtn = document.getElementById("close-share-form");
   if (closeBtn) {
     closeBtn.addEventListener('click', ()=>{
