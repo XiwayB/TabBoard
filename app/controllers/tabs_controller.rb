@@ -1,15 +1,19 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: [:show, :update]
+  before_action :set_tab, only: [:show, :update, :destroy]
+  # after_action :verify_authorized, except: [:index]
   # skip_before_action :verify_authenticity_token
 
   def index
-    @tabs = Tab.all
+    # skip_authorization
+    @tabs = policy_scope(Tab)
 
-    @tabs = Tab.search_tab(params[:query]) if params[:query].present?
+    @tabs = @tabs.search_tab(params[:query]) if params[:query].present?
+
+    tabs = @tabs.map{|tab| tab.to_hashy }
 
     respond_to do |format|
       format.html
-      format.json { render json: @tabs }
+      format.json { render json: tabs }
     end
   end
 
@@ -35,19 +39,34 @@ class TabsController < ApplicationController
     end
   end
 
-  # def create
+  def save_all
+    tabs = params.require(:tabs)[:content]
+    puts "tabs?? #{tabs}"
+    @tabs = tabs.map do |tab|
+      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl], folder_id: tab[:folder_id])
+      @tab.save
+    end
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: { msg: 'success', tabs: @tabs } }
+    end
+  end
 
+# DO NOT REMOVE COMMENT BELOW - INVISIBLE BUG
+  # def create
   # end
 
   def update
+    authorize @tab
     if @tab.update(tab_params)
-      render :show
+      redirect_to root_path
     else
       render_error
     end
   end
 
   def destroy
+    authorize @tab
     @tab.destroy
     redirect_to root_path
   end
@@ -65,5 +84,9 @@ class TabsController < ApplicationController
   def render_error
     render json: { errors: @tab.errors.full_messages },
       status: :unprocessable_entity
+  end
+
+  def many_tabs_params
+    params.require(:tabs).permit(:content => [])
   end
 end

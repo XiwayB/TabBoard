@@ -1,0 +1,5 @@
+ <h3>Add a new folder</h3>
+<%= simple_form_for([@folder, @share]) do |f| %>
+  <%= f.input :user_id, as: :integer, placeholder: 'For test purpose' %>
+  <%= f.submit "Add folder", class: "btn btn-primary" %>
+<% end %>

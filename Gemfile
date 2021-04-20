@@ -42,6 +42,7 @@ gem 'omniauth-google-oauth2'
 # gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'activerecord-session_store'
 gem 'tiddle'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'

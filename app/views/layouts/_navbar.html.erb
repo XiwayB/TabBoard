@@ -13,8 +13,10 @@
       <form id="search-tabs" action="/folders" class="form-pink" method="get">
         <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
          <i class="fa fa-search"></i>
+         <!-- <button class="close-icon" type="reset"></button> -->
         <div class="autocom-box">
           <ul id="results">
+
           </ul>
         </div>
 
@@ -22,11 +24,6 @@
     </div>
   </div>
 
-
-<!--   <form action="/folders" class="form-pink" method="get">
-    <input id="search" type="text" placeholder="Type to search">
-    <i class="fa fa-search"></i>
-  </form> -->
 
   <div id="btn-tabs">
     <div id="top"></div>
@@ -37,14 +34,19 @@
 
   <div id="box-tabs">
     <div id="items">
-      <!-- <div class="item">Item 1</div>
-      <div class="item">Item 2</div>
-      <div class="item">Item 3</div>
-      <div class="item">Item 4</div>
-      <div class="item">Item 5</div> -->
-      <% @folders.each do |folder| %>
-        <div class="home-tab">
-          <%= folder.name %>
+      <% @unsaved_tabs.each do |tab| %>
+        <div class="item">
+          <h4><%= link_to tab.title, tab.url, target: '_blank' %></h4>
+          <p class="unsaved_tabs_options"><%= link_to '🗑️', tab_path(tab), method: :delete %></p>
+          <p class="unsaved_tabs_options">Add to folder</p>
+          <div style="display: block;">
+            <%= form_with(model: tab) do |f| %>
+              <%= f.collection_select :folder_id, policy_scope(Folder), :id, :name, { prompt: "Select..."}, { 'data-behavior' => 'choicesjs' } %>
+              <%= f.submit 'Save to folder' %>
+            <% end %>
+
+          </div>
+
         </div>
       <% end  %>
     </div>
@@ -54,7 +56,7 @@
 
 <script>
   function select(element) {
-    console.log({element})
+    console.log("element", {element})
     const searchWrapper = document.querySelector(".search-input");
     const inputBox = document.getElementById("search");
     const suggBox = document.querySelector(".autocom-box");
@@ -65,18 +67,16 @@
 
 
     let selectData = element.textContent;
-    inputBox.value = selectData;
-    console.log(5678, selectData)
-    window.location.href = `/folders`//"https://www.google.com/search?q=" + selectData
-    // icon.onclick = () => {
-    //   console.log(8888)
-    //   webLink = "https://www.google.com/search?q=" + selectData;
-    //   linkTag.setAttribute("href", webLink);
-    //   linkTag.click();
-    // }
+
     searchWrapper.classList.remove("active");
     }
 </script>
+
+<style>
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+  }
+</style>
 
 
 

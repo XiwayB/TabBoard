@@ -7,24 +7,29 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # User.destroy_all if Rails.env.development?
 
-p "nuking database"
+p "Nuking database.........."
+Share.destroy_all
 Tab.destroy_all
 Folder.destroy_all
 User.destroy_all
+p "Confirmed: database is in ruins"
 
-p "planting seeds"
-marshall = User.create!(name: 'Marshall', email: 'marshall@gmail.com', password: '123456')
+p "Planting seeds ............"
+p "Seeds will take root in database"
+p "     Moulding Users from dirt"
+marshall = User.create!(name: 'Marshall', email: 'marshall@sz573lw.com', password: '123456')
 
-kevin = User.create!(name: 'Kevin', email: 'kevin@gmail.com', password: '123456')
+kevin = User.create!(name: 'Kevin', email: 'kevin@sz573lw.com', password: '123456')
 
-nico = User.create!(name: 'Nico', email: 'nico@gmail.com', password: '123456')
+nico = User.create!(name: 'Nico', email: 'nico@sz573lw.com', password: '123456')
 
-desmond = User.create!(name: 'Desmond', email: 'desmond@gmail.com', password: '123456')
+desmond = User.create!(name: 'Desmond', email: 'desmond@sz573lw.com', password: '123456')
 
-xiway = User.create!(name: 'Xiway', email: 'xiway@gmail.com', password: '123456')
+xiway = User.create!(name: 'Xiway', email: 'xiway@sz573lw.com', password: '123456')
 
 Folder.destroy_all if Rails.env.development?
-
+p "     Users are working ............"
+p "          Users are creating folders"
 default = Folder.create!(name: 'Default', importance: true, user: marshall, coverimg: "https://images.unsplash.com/photo-1492269682833-cd80f8a20b08?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80")
 
 food = Folder.create!(name: 'Food', importance: true, user: kevin, coverimg: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg")
@@ -35,6 +40,7 @@ pets = Folder.create!(name: 'Pets', user: desmond, coverimg: "https://res.cloudi
 
 nsfw = Folder.create!(name: 'NSFW', user: xiway,coverimg: "https://images.unsplash.com/photo-1447501614729-24781f73c2f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80")
 
+p "          Users are creating Tabs"
 Tab.create!(title: 'Rose', url: 'rose.com', folder: default)
 
 Tab.create!(title: 'Hamburger', url: 'hamburger.com', folder: food)
@@ -65,4 +71,5 @@ Tab.create!(title: 'Heizi', url: 'heizi-lifestyle.com', folder: pets)
 Tab.create!(title: 'Where-to-eat', url: 'eat-there.com', folder: nsfw)
 
 Tab.create!(title: 'Video-games', url: 'games.com', folder: nsfw)
-
+p "Confirmed: seeds of humanity are planted"
+p "Database civilization entering: Stage 2"

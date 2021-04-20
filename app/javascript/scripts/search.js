@@ -8,59 +8,46 @@ let linkTag = document.querySelector("a");
 let webLink;
 
 
+
 const search = () => {
   inputBox.onkeyup = (e) => {
-    console.log(1234)
+    console.log("eee",e)
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
-
+    console.log("target", e.target)
     const url =  `http://localhost:3000/tabs?format=json&query=${userData}`
+    const folderUrl = `http://localhost:3000/folders`
     if(userData) {
       fetch(url).then(response => response.json())
       .then((data) => {
-        console.log(123, data)
+        // console.log(123, data)
         results.innerHTML = '';
         let listString = ''
         data.forEach((result) => {
-          console.log(result)
-          const list = `<li onclick="select(this)" data-folder-id="${result.folder_id}">
-          <p>${result.title} | ${result.url} </p>
 
+          // console.log(result)
+
+          let url = result.url.includes("http") ? result.url : `https://${result.url}`
+
+          const list = `
+          <li onclick="select(this)" data-folder-id="${result.folder_id}">
+          <p>${result.title} | <a rel="stylesheet" target="_blank" href="${url}">${url}</a></p>
+          <a rel="stylesheet" href="${folderUrl}/${result.folder.id}">${result.folder.name}</a>
           </li>`
           listString += list
-            // console.log("list", list)
           })
-          // console.log('listString:', listString)
+
           let tabs = results.innerHTML = listString
           searchWrapper.classList.add("active"); //show autocomplete box
-          // showSuggestions(tabs, suggBox);
-          // let allList = suggBox.querySelectorAll("li");
-          // for (let i = 0; i < allList.length; i++) {
-          //   //adding onclick attribute in all li tag
-          //   allList[i].setAttribute("onclick", 'select(this)');
-          //   allList[i].setAttribute("data-folder-id", result.folder_id);
-          //   // allList[i].setAttribute("id", 'search_select');
-          // };
         })
       } else {
         searchWrapper.classList.remove("active")
       };
 
 
-
   }
 }
 
-
-
-
-
-// icon.onclick = () => {
-//   webLink = "https://www.google.com/search?q=" + userData;
-//   linkTag.setAttribute("href", webLink);
-//   console.log(webLink);
-//   linkTag.click();
-// }
 
 
 

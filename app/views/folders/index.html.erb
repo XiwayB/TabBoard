@@ -1,35 +1,50 @@
 <%= render 'layouts/navbar' %>
 
 <div class="container-home">
-  <div class="row">
-    <% @folders.each do |folder| %>
-      <div class="col-4">
-        <% if folder.coverimg.nil? %>
-          <div class="card" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2040&q=80')">
-            <h3><%= link_to folder.name, folder_path(folder)%></h3>
-          </div>
-          <% else %>
-          <div class="card" style= "background-image: url('<%= folder.coverimg %>')">
-          <h3><%= link_to folder.name, folder_path(folder)%></h3>
-        </div>
-        <% end %>
-        </div>
+  <%= link_to destroy_user_session_path, method: :delete do  %>
+    <button>Sign out</button>
+  <% end %>
+  <button class="btn-primary btn-lg" id="show-folder-form">Create a folder</button>
+  <div id="new-folder-form" class="hidden">
+    <div class="form">
+      <button id="close-folder-form" class="btn-primary btn-sm">close</button>
+      <h3>Create Folder</h3>
+      <%= simple_form_for(@folder) do |f| %>
+        <%= f.input :name, placeholder: 'Add a folder name' %>
+        <%= f.input :user_id, as: :integer, placeholder: 'For test purpose' %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Add folder", class: "btn btn-primary" %>
       <% end %>
     </div>
+  </div>
+  <div class="row">
+    <% @folders.each do |folder| %>
+      <%= link_to folder_path(folder) do  %>
+        <div class="col-4">
+          <% if folder.coverimg.nil? %>
+            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2040&q=80')">
+              <h3><%= folder.name %></h3>
+              <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
+            </div>
+          <% else %>
+            <div class="card" style= "background-image: url('<%= folder.coverimg %>')">
+              <h3><%= folder.name %></h3>
+              <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
 
   <div class="row">
     <div class="col-12">
       <hr>
-      <div class="form">
-        <h3>Add a new folder</h3>
-        <%= simple_form_for(@folder) do |f| %>
-          <%= f.input :name, placeholder: 'Add a folder name' %>
-          <%= f.input :user_id, as: :integer, placeholder: 'For test purpose' %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit "Add folder", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+
+
+      <!-- insert hidden class -->
+
     </div>
   </div>
 </div>
