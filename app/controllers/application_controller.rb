@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
 
   def unsaved_tabs
     @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
+  end
 
   private
 
