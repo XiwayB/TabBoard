@@ -41,6 +41,7 @@ gem 'omniauth-google-oauth2'
 # Use Omniauth Google plugin
 # gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'activerecord-session_store'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'
