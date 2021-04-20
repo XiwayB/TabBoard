@@ -13,6 +13,7 @@
       <form id="search-tabs" action="/folders" class="form-pink" method="get">
         <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
          <i class="fa fa-search"></i>
+         <!-- <button class="close-icon" type="reset"></button> -->
         <div class="autocom-box">
           <ul id="results">
 
@@ -23,10 +24,6 @@
     </div>
   </div>
 
-<!--   <form action="/folders" class="form-pink" method="get">
-    <input id="search" type="text" placeholder="Type to search">
-    <i class="fa fa-search"></i>
-  </form> -->
 
   <div id="btn-tabs">
     <div id="top"></div>
@@ -70,18 +67,16 @@
 
 
     let selectData = element.textContent;
-    inputBox.value = selectData;
-    // console.log(5678, selectData)
-    // window.location.href = "url" + selectData
-    // icon.onclick = () => {
-    //   console.log(8888)
-    //   webLink = "https://www.google.com/search?q=" + selectData;
-    //   linkTag.setAttribute("href", webLink);
-    //   linkTag.click();
-    // }
+
     searchWrapper.classList.remove("active");
     }
 </script>
+
+<style>
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+  }
+</style>
 
 
 
