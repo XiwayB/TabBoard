@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # end
   resources :folders do
     resources :tabs, shallow: true
+    post "saveall", to: 'tabs#save_all', as: 'save_all'
     resources :shares, shallow: true
   end
   get 'auth/request', to:'users#google_oauth2'
