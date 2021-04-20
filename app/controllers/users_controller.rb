@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  # skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def login_from_ext
     # Receive the email
+    authorize :user, :login_from_ext?
     user_email = params[:user][:email]
     # Search this email in db
     # If exist, sign in (check devise method)
@@ -24,10 +25,11 @@ class UsersController < ApplicationController
     end
 
     # render json:@user
+    token = Tiddle.create_and_return_token(@user, request)
 
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.json { render msg: 'success', json: @user }
+      format.json { render json: { msg: 'success', user: @user, token: token } }
     end
 
   end
