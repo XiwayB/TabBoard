@@ -8,7 +8,7 @@ class FoldersController < ApplicationController
     #   @folders = Folder.joins(:shares).where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
 
     # else
-      @folders = Folder.joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
+      @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
 
       # @folders = Folder.where(user_id: 4).or(Folder.where(user_id: 1))
     # end
@@ -26,6 +26,7 @@ class FoldersController < ApplicationController
     @tab = Tab.new
     @share = Share.new
     @users = User.all
+    authorize @folder
     # raise
   end
 

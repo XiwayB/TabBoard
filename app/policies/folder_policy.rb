@@ -1,11 +1,11 @@
 class FolderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin
-        scope.all
-      else
-        scope.where(user: user)
-      end
+      # if user.admin
+      scope.all
+      # else
+      #   scope.where(user: user)
+      # end
     end
   end
 
@@ -28,6 +28,6 @@ class FolderPolicy < ApplicationPolicy
   private
 
   def user_is_owner?
-    record.user == user || user.admin
+    record.user == user
   end
 end
