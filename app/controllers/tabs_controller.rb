@@ -1,5 +1,5 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: [:show, :update]
+  before_action :set_tab, only: [:show, :update, :destroy]
   # after_action :verify_authorized, except: [:index]
   # skip_before_action :verify_authenticity_token
 
@@ -44,14 +44,16 @@ class TabsController < ApplicationController
   # end
 
   def update
+    authorize @tab
     if @tab.update(tab_params)
-      render :show
+      redirect_to root_path
     else
       render_error
     end
   end
 
   def destroy
+    authorize @tab
     @tab.destroy
     redirect_to root_path
   end

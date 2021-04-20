@@ -30,12 +30,14 @@ class FoldersController < ApplicationController
     # raise
   end
 
-  def new
-    @folder = Folder.new
-  end
+  # def new
+  #   authorize @folder
+  #   @folder = Folder.new
+  # end
 
   def create
     @folder = Folder.new(folder_params)
+    authorize @folder
     if @folder.save
       # returns a response to the post request
       # to confirm success. To create new folder
@@ -61,6 +63,7 @@ class FoldersController < ApplicationController
   end
 
   def destroy
+    authorize @folder
     @folder.destroy
     redirect_to root_path
   end
