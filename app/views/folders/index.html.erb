@@ -24,10 +24,12 @@
           <% if folder.coverimg.nil? %>
             <div class="card" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2040&q=80')">
               <h3><%= folder.name %></h3>
+              <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
             </div>
           <% else %>
             <div class="card" style= "background-image: url('<%= folder.coverimg %>')">
               <h3><%= folder.name %></h3>
+              <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
             </div>
           <% end %>
         </div>

@@ -1,6 +1,6 @@
 class Folder < ApplicationRecord
   belongs_to :user
-  has_many :tabs
+  has_many :tabs, dependent: :destroy
   validates :name, presence: true
   has_one_attached :photo
 

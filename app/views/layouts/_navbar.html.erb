@@ -39,8 +39,17 @@
     <div id="items">
       <% @unsaved_tabs.each do |tab| %>
         <div class="item">
-          <h4><%= link_to tab.title, tab.url%></h4>
-          <p class="delete_unsaved_tab">Delete</p>
+          <h4><%= link_to tab.title, tab.url, target: '_blank' %></h4>
+          <p class="unsaved_tabs_options"><%= link_to '🗑️', tab_path(tab), method: :delete %></p>
+          <p class="unsaved_tabs_options">Add to folder</p>
+          <div style="display: block;">
+            <%= form_with(model: tab) do |f| %>
+              <%= f.collection_select :folder_id, policy_scope(Folder), :id, :name, { prompt: "Select..."}, { 'data-behavior' => 'choicesjs' } %>
+              <%= f.submit 'Save to folder' %>
+            <% end %>
+
+          </div>
+
         </div>
       <% end  %>
     </div>
