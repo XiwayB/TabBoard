@@ -8,6 +8,7 @@ let linkTag = document.querySelector("a");
 let webLink;
 
 
+
 const search = () => {
   inputBox.onkeyup = (e) => {
     console.log(1234)
@@ -44,7 +45,6 @@ const search = () => {
       } else {
         searchWrapper.classList.remove("active")
       };
-
 
 
   }

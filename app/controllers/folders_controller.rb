@@ -18,6 +18,7 @@ class FoldersController < ApplicationController
 
   def show
     @tab = Tab.new
+    @share = Share.new
   end
 
   def new
