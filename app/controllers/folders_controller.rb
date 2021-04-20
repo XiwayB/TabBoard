@@ -1,15 +1,21 @@
 class FoldersController < ApplicationController
-  before_action :set_folder, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @folders = Folder.search_folder(params[:query])
-    else
-      @folders = Folder.all
-    end
-    # @folders = Folder.all
+    @share = Share.all
+    # if params[:query].present?
+      # @folders = Folder.search_folder(params[:query])
+    #   @folders = Folder.joins(:shares).where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
+
+    # else
+      @folders = Folder.joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
+
+      # @folders = Folder.where(user_id: 4).or(Folder.where(user_id: 1))
+    # end
     @folder = Folder.new
-    # @folder.destroy
+    # returns a response to the get request
+    # to confirm success. To display all folders
+    # in chrome extension
     respond_to do |format|
       format.html
       format.json { render json: @folders }
@@ -19,6 +25,8 @@ class FoldersController < ApplicationController
   def show
     @tab = Tab.new
     @share = Share.new
+    @users = User.all
+    # raise
   end
 
   def new
@@ -28,6 +36,9 @@ class FoldersController < ApplicationController
   def create
     @folder = Folder.new(folder_params)
     if @folder.save
+      # returns a response to the post request
+      # to confirm success. To create new folder
+      # from chrome extension
       respond_to do |format|
         format.html { redirect_to root_path }
         format.json { render json: { msg: 'success', folder: @folder } }
@@ -62,5 +73,4 @@ class FoldersController < ApplicationController
   def folder_params
     params.require(:folder).permit(:name, :importance, :coverimg, :user_id, :photo)
   end
-
 end

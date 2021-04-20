@@ -27,19 +27,18 @@
       <% end  %>
 
       <button class="btn-primary" id="show-share-form">Share</button>
-      <%#= link_to "Share with your friends", new_folder_share_path(@folder) %>
-
       <div id="new-share-form" class="hidden">
-          <button id="close-share-form" class="btn-primary btn-sm">close</button>
-          <h3>Who to share with?</h3>
+        <button id="close-share-form" class="btn-primary btn-sm">close</button>
+        <h3>Who to share with?</h3>
         <%= simple_form_for([@folder, @share]) do |f| %>
-          <%= f.input :user_id, as: :integer, placeholder: 'For test purpose' %>
+          <select name="share[user_id]" id="" data_behavior="choicesjs">
+            <%= @users.each do |user| %>
+             <option value="<%= user.id %>"><%= user.email %></option>
+            <% end %>
+          </select>
           <%= f.submit "Add folder", class: "btn btn-primary" %>
         <% end %>
       </div>
-
-
-
     </div>
   </div>
 </div>
