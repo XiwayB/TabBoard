@@ -18,19 +18,29 @@ const search = () => {
     if(userData) {
       fetch(url).then(response => response.json())
       .then((data) => {
-        console.log(123, data)
+        // console.log(123, data)
         results.innerHTML = '';
         let listString = ''
         data.forEach((result) => {
-          console.log(result)
+          // console.log(result)
           const list = `
           <li onclick="select(this)" data-folder-id="${result.folder_id}">
-          <p>${result.title} | ${result.url} </p>
+          <p>${result.title} | ${result.url }</p>
+          <a rel="stylesheet" type="text/css" href="${result.url}">LiNK</a>
           <button type="submit">${result.folder.name}</button>
           </li>`
           listString += list
           })
-          console.log('listString:', listString)
+
+
+
+          let folderPath = suggBox.querySelectorAll('button');
+          for(let i=0; i < folderPath.length; i++) {
+            folderPath[i].setAttribute("onclick", "select(this)");
+          }
+
+          console.log("folder_path", folderPath)
+          // console.log('listString:', listString)
           let tabs = results.innerHTML = listString
           searchWrapper.classList.add("active"); //show autocomplete box
           // showSuggestions(tabs, suggBox);
