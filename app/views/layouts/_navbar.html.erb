@@ -15,13 +15,13 @@
          <i class="fa fa-search"></i>
         <div class="autocom-box">
           <ul id="results">
+
           </ul>
         </div>
 
       </form>
     </div>
   </div>
-
 
 <!--   <form action="/folders" class="form-pink" method="get">
     <input id="search" type="text" placeholder="Type to search">
@@ -37,9 +37,19 @@
 
   <div id="box-tabs">
     <div id="items">
-      <% @folders.each do |folder| %>
+      <% @unsaved_tabs.each do |tab| %>
         <div class="item">
-          <h4><%= link_to folder.name, folder_path(folder)%></h4>
+          <h4><%= link_to tab.title, tab.url, target: '_blank' %></h4>
+          <p class="unsaved_tabs_options"><%= link_to '🗑️', tab_path(tab), method: :delete %></p>
+          <p class="unsaved_tabs_options">Add to folder</p>
+          <div style="display: block;">
+            <%= form_with(model: tab) do |f| %>
+              <%= f.collection_select :folder_id, policy_scope(Folder), :id, :name, { prompt: "Select..."}, { 'data-behavior' => 'choicesjs' } %>
+              <%= f.submit 'Save to folder' %>
+            <% end %>
+
+          </div>
+
         </div>
       <% end  %>
     </div>
@@ -62,7 +72,7 @@
     let selectData = element.textContent;
     inputBox.value = selectData;
     // console.log(5678, selectData)
-    // window.location.href = `/folders`//"https://www.google.com/search?q=" + selectData
+    // window.location.href = "url" + selectData
     // icon.onclick = () => {
     //   console.log(8888)
     //   webLink = "https://www.google.com/search?q=" + selectData;

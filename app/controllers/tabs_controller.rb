@@ -1,11 +1,15 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: [:show, :update]
+  before_action :set_tab, only: [:show, :update, :destroy]
+  # after_action :verify_authorized, except: [:index]
   # skip_before_action :verify_authenticity_token
 
   def index
-    @tabs = Tab.all
-    @tabs = Tab.search_tab(params[:query]) if params[:query].present?
-    tabs = @tabs.map { |tab| tab.to_hashy }
+    # skip_authorization
+    @tabs = policy_scope(Tab)
+
+    @tabs = @tabs.search_tab(params[:query]) if params[:query].present?
+
+    tabs = @tabs.map{|tab| tab.to_hashy }
 
     respond_to do |format|
       format.html
@@ -53,14 +57,16 @@ class TabsController < ApplicationController
   # end
 
   def update
+    authorize @tab
     if @tab.update(tab_params)
-      render :show
+      redirect_to root_path
     else
       render_error
     end
   end
 
   def destroy
+    authorize @tab
     @tab.destroy
     redirect_to root_path
   end

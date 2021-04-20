@@ -10,6 +10,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
+import "../stylesheets/application.scss"
 import { expandSidebar } from '../scripts/sidebar'
 import { initChoices } from '../scripts/init-choices'
 import { search } from '../scripts/search'
