@@ -7,11 +7,11 @@ class UsersController < ApplicationController
     # Search this email in db
     # If exist, sign in (check devise method)
     if User.find_by(email: user_email)
-      user = User.find_by(email: user_email)
+      @user = User.find_by(email: user_email)
       # p user
       # p user_email
       p "User found"
-      sign_in(user)
+      sign_in(@user)
       p user_signed_in?
     # Else, create the user and then sign in
     else
@@ -23,9 +23,11 @@ class UsersController < ApplicationController
       p user_signed_in?
     end
 
+    # render json:@user
+
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.json { render json: { msg: 'success' } }
+      format.json { render msg: 'success', json: @user }
     end
 
   end
