@@ -37,14 +37,9 @@
 
   <div id="box-tabs">
     <div id="items">
-      <!-- <div class="item">Item 1</div>
-      <div class="item">Item 2</div>
-      <div class="item">Item 3</div>
-      <div class="item">Item 4</div>
-      <div class="item">Item 5</div> -->
       <% @folders.each do |folder| %>
-        <div class="home-tab">
-          <%= folder.name %>
+        <div class="item">
+          <h4><%= link_to folder.name, folder_path(folder)%></h4>
         </div>
       <% end  %>
     </div>
@@ -54,7 +49,7 @@
 
 <script>
   function select(element) {
-    console.log({element})
+    console.log("element", {element})
     const searchWrapper = document.querySelector(".search-input");
     const inputBox = document.getElementById("search");
     const suggBox = document.querySelector(".autocom-box");
@@ -66,8 +61,8 @@
 
     let selectData = element.textContent;
     inputBox.value = selectData;
-    console.log(5678, selectData)
-    window.location.href = `/folders`//"https://www.google.com/search?q=" + selectData
+    // console.log(5678, selectData)
+    // window.location.href = `/folders`//"https://www.google.com/search?q=" + selectData
     // icon.onclick = () => {
     //   console.log(8888)
     //   webLink = "https://www.google.com/search?q=" + selectData;
