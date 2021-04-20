@@ -55,11 +55,14 @@ class FoldersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @folder
+  end
 
   def update
+    authorize @folder
     if @folder.update(folder_params)
-      redirect_to root_path
+      redirect_to folder_path(@folder)
     else
       render :index
     end
