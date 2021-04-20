@@ -4,6 +4,15 @@ class TabsController < ApplicationController
 
   def index
     @tabs = Tab.all
+
+    @tabs = Tab.search_tab(params[:query]) if params[:query].present?
+
+    tabs = @tabs.map{|tab| tab.to_hashy }
+
+    respond_to do |format|
+      format.html
+      format.json { render json: tabs }
+    end
   end
 
   def show; end

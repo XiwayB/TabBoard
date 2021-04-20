@@ -10,10 +10,13 @@
   <div class="wrapper">
     <div class="search-input">
       <a href="" target="_blank" hidden></a>
-      <form action="/folders" class="form-pink" method="get">
+      <form id="search-tabs" action="/folders" class="form-pink" method="get">
         <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
          <i class="fa fa-search"></i>
-        <div class="autocom-box"></div>
+        <div class="autocom-box">
+          <ul id="results">
+          </ul>
+        </div>
 
       </form>
     </div>
@@ -31,26 +34,12 @@
     <div id="bottom"></div>
   </div>
 
-<!--   <div id="box-tabs">
-    <div id="items">
-        <div class="item">Item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1</div>
-        <div class="item">Item 2</div>
-        <div class="item">Item 3</div>
-        <div class="item">Item 4</div>
-        <div class="item">Item 5</div>
-    </div>
-  </div> -->
 
   <div id="box-tabs">
     <div id="items">
-      <!-- <div class="item">Item 1</div>
-      <div class="item">Item 2</div>
-      <div class="item">Item 3</div>
-      <div class="item">Item 4</div>
-      <div class="item">Item 5</div> -->
       <% @folders.each do |folder| %>
-        <div class="home-tab">
-          <%= folder.name %>
+        <div class="item">
+          <h4><%= link_to folder.name, folder_path(folder)%></h4>
         </div>
       <% end  %>
     </div>
@@ -60,18 +49,20 @@
 
 <script>
   function select(element) {
+    console.log("element", {element})
     const searchWrapper = document.querySelector(".search-input");
     const inputBox = document.getElementById("search");
     const suggBox = document.querySelector(".autocom-box");
     const icon = document.querySelector(".fa");
+
     let linkTag = document.querySelector("a");
     let webLink;
 
 
     let selectData = element.textContent;
     inputBox.value = selectData;
-    console.log(5678, selectData)
-    window.location.href = "https://www.google.com/search?q=" + selectData
+    // console.log(5678, selectData)
+    // window.location.href = `/folders`//"https://www.google.com/search?q=" + selectData
     // icon.onclick = () => {
     //   console.log(8888)
     //   webLink = "https://www.google.com/search?q=" + selectData;
