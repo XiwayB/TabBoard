@@ -27,7 +27,9 @@ class TabsController < ApplicationController
   def edit; end
 
   def create
+    puts "current_user : #{current_user.email}"
     @tab = Tab.new(tab_params)
+    authorize @tab
     if @tab.save
       # render root_path
       respond_to do |format|
