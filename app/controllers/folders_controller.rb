@@ -37,7 +37,10 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
+    @folder.user_id = current_user.id
     authorize @folder
+
+
     if @folder.save
       # returns a response to the post request
       # to confirm success. To create new folder
