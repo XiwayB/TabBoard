@@ -39,8 +39,21 @@ class TabsController < ApplicationController
     end
   end
 
-  # def create
+  def save_all
+    tabs = params.require(:tabs)[:content]
+    puts "tabs?? #{tabs}"
+    @tabs = tabs.map do |tab|
+      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl], folder_id: tab[:folder_id])
+      @tab.save
+    end
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: { msg: 'success', tabs: @tabs } }
+    end
+  end
 
+# DO NOT REMOVE COMMENT BELOW - INVISIBLE BUG
+  # def create
   # end
 
   def update
@@ -71,5 +84,9 @@ class TabsController < ApplicationController
   def render_error
     render json: { errors: @tab.errors.full_messages },
       status: :unprocessable_entity
+  end
+
+  def many_tabs_params
+    params.require(:tabs).permit(:content => [])
   end
 end
