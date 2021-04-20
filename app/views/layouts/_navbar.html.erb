@@ -37,9 +37,10 @@
 
   <div id="box-tabs">
     <div id="items">
-      <% @folders.each do |folder| %>
+      <% @unsaved_tabs.each do |tab| %>
         <div class="item">
-          <h4><%= link_to folder.name, folder_path(folder)%></h4>
+          <h4><%= link_to tab.title, tab.url%></h4>
+          <p class="delete_unsaved_tab">Delete</p>
         </div>
       <% end  %>
     </div>

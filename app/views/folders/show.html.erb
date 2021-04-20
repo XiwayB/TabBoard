@@ -1,4 +1,4 @@
-<%= render 'layouts/navbar_showpage' %>
+<%= render 'layouts/navbar' %>
 <div class="show-page">
 
   <div class="show-page">
@@ -17,7 +17,8 @@
 
     <div class="container-tabs" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
       <% @folder.tabs.each do |tab|  %>
-        <%= link_to URI::HTTP.build({:host => tab.url }).to_s, target: "_blank", class: "tab"  do %>
+        <% link = tab.url.include?("http") ? tab.url : URI::HTTP.build({:host => tab.url }).to_s %>
+        <%= link_to link, target: "_blank", class: "tab"  do %>
           <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
           <%= tab.icon %>
           <%= tab.title %> -
