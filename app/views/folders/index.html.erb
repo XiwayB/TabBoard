@@ -1,51 +1,27 @@
-<%= render 'layouts/navbar' %>
+<div class="testnav">
+</div>
 
-<div class="container-cards">
-  <%= link_to destroy_user_session_path, method: :delete do  %>
-    <button>Sign out</button>
-  <% end %>
-  <button class="btn-primary btn-lg" id="show-folder-form">Create a folder</button>
-  <div id="new-folder-form" class="hidden">
-    <div class="form">
-      <button id="close-folder-form" class="btn-primary btn-sm">close</button>
-      <h3>Create Folder</h3>
-      <%= simple_form_for(@folder) do |f| %>
-        <%= f.input :name, placeholder: 'Add a folder name' %>
-        <%= f.input :photo, as: :file %>
-        <%= f.submit "Add folder", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <% @folders.each do |folder| %>
-      <%= link_to folder_path(folder) do  %>
-        <div class="col-4">
-          <% if folder.photo.attached? %>
-          <!-- added delete folde functionality -->
-            <%= cl_image_tag folder.photo.key, alt: "Folder Cover Image", class: 'card' %>
-              <h3><%= folder.name %></h3>
-              <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
-            </div>
-          <% else %>
-            <%= cl_image_tag "crk75x1ehaaea4ienrod", alt: "alttext" , class: 'card' %>
-              <h3><%= folder.name %></h3>
-              <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
-            </div>
-          <% end %>
+<div class="cards">
+  <% @folders.each do |folder| %>
+    <%= link_to folder_path(folder), :action => 'go' do %>
+      <div class="card">
+        <% if folder.photo.attached? %>
+          <%= cl_image_tag folder.photo.key, alt: "coverimg" %>
+        <% else %>
+          <%= cl_image_tag "crk75x1ehaaea4ienrod", alt: "alttext"  %>
+        <% end %>
+        <div class="goto-view">
+            View
         </div>
-      <% end %>
+        <div class = "goto-name">
+            <%= folder.name %>
+        </div>
+        <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
+        <div class="fav-heart">
+          <%= image_tag "heart.png", :class => 'heart-pic'%>
+      </div>
+      </div>
     <% end %>
-  </div>
-
-
-  <div class="row">
-    <div class="col-12">
-      <hr>
-
-
-      <!-- insert hidden class -->
-
-    </div>
-  </div>
+  <% end %>
 </div>
 
