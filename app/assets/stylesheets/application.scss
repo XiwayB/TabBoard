@@ -14,4 +14,10 @@
 @import "pages/show";
 @import "components/tabs";
 @import "components/header";
-@import "components/cards"
+@import "components/cards";
+@import "components/fontfamily";
+@import "components/footer";
+
+body {
+  background: white;
+}
