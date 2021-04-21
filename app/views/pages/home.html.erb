@@ -1,2 +1,41 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<!-- <div id="UniqueDropzone" class="UniqueDropzone">
+ -->
+
+<!--   <div class="BlockLayout BlockLayout--typeFlex" style="background-color: red;" data-dropzone="1">
+    <div class="Block--isDraggable" >
+      <p>is Draggable</p>
+    </div>
+
+  </div>
+
+  <div class="BlockLayout BlockLayout--typeGrid" data-dropzone="1">
+    <div class="BlockWrapper--isDropzone" >
+      <p>Is dropzone</p>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- !!!!!!!!!!! exactely like example html -->
+
+<div id="UniqueDropzone" class="UniqueDropzone">
+
+
+  <div  class="BlockLayout BlockLayout--typeFlex" style="background-color: red;" tabindex="0">
+    <div id="draggable-item" class="Block--isDraggable BlockWrapper BlockWrapper--isDropzone draggable-dropzone--occupied" data-dropzone="1" >
+      <p>is Draggable</p>
+    </div>
+
+  </div>
+
+  <div id="droppable-folder" class="BlockLayout BlockLayout--typeGrid" tabindex="0">
+    <div class="BlockWrapper BlockWrapper--isDropzone" data-dropzone="1">
+      <p>Is dropzone</p>
+    </div>
+  </div>
+
+</div>
+

@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
   get 'auth/request', to:'users#google_oauth2'
   resources :tabs, only: [:index]
+  get 'pages/home', to: 'pages#home'
 end

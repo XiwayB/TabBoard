@@ -1,49 +1,72 @@
-<%= render 'layouts/navbar' %>
 <div class="show-page">
-
-  <div class="show-page">
     <div class="container-folder">
       <div class="show-header">
         <div class="show-title">
           <h1><%= @folder.name %></h1>
-          <%= link_to "Delete", folder_path(@folder), class:"btn btn-warning", method: :delete, data: {confirm: "Are you sure to delete the folder and all of its contents?"}  %>
-          <%= link_to "Edit", edit_folder_path(@folder), class:"btn btn-warning" %>
         </div>
       </div>
-      <a class="share" href="#">
-        <i class="fas fa-share"></i>
-      </a>
-    </div>
 
-    <hr class="show-line">
-
-    <div class="container-tabs" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
-      <% @folder.tabs.each do |tab|  %>
-        <% link = tab.url.include?("http") ? tab.url : URI::HTTP.build({:host => tab.url }).to_s %>
-        <%= link_to link, target: "_blank", class: "tab"  do %>
-          <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
-          <%= tab.icon %>
-          <%= tab.title %> -
-          <%= tab.url %>
-          <%= link_to "Delete", tab_path(tab), class:"btn btn-warning", method: :delete, data: {confirm: "Are you sure to delete this tab?"}  %>
-          <%= link_to "Edit title", edit_tab_path(tab.id), class:"btn btn-warning" %>
-          <div class="preview"></div>
-        <% end  %>
-      <% end  %>
-
-      <button class="btn-primary" id="show-share-form">Share</button>
-      <div id="new-share-form" class="hidden">
-        <button id="close-share-form" class="btn-primary btn-sm">close</button>
-        <h3>Who to share with?</h3>
-        <%= simple_form_for([@folder, @share]) do |f| %>
-          <select name="share[user_id]" id="" data_behavior="choicesjs">
-            <%= @users.each do |user| %>
-             <option value="<%= user.id %>"><%= user.email %></option>
+      <div class="show-content">
+        <div id="show-tabs-folder">
+          <% @folder.tabs.each do |tab|  %>
+              <div class="show-tab-card">
+                <% link = tab.url %>
+                <%= link_to link, target: "_blank", class: "show-tab"  do %>
+                  <div class="show-tab-content">
+                      <div class="show-tab-title">
+                          <% if tab.icon %>
+                            <img src="<%= tab.icon %>" class="tab-icon">
+                          <% else %>
+                            <img src="https://res.cloudinary.com/xiway/image/upload/v1618988418/Capture_d_e%CC%81cran_2021-04-21_a%CC%80_12.05.16_xnc1er.png" alt="default-icon" class="tab-icon">
+                          <% end %>
+                        <h3> <%= tab.title %> </h3>
+                      </div>
+                        <div class="show-tab-actions">
+                          <div class="tab-edit">
+                            <%= link_to edit_tab_path(tab.id) do %>
+                              <i class="fas fa-pen"></i>
+                            <% end  %>
+                          </div>
+                          <div class="tab-delete">
+                            <%= link_to tab_path(tab), method: :delete, data: {confirm: "Are you sure to delete this tab?"} do %>
+                              <i class="far fa-trash-alt"></i>
+                            <% end  %>
+                          </div>
+                        </div>
+                      <div class="show-tab-url">
+                        <%= tab.url.truncate(80, seperator: '', omission: '...') %>
+                      </div>
+                    </div>
+              </div>
             <% end %>
-          </select>
-          <%= f.submit "Add folder", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
+
+        <div class="show-folder-action">
+          <div class="show-share">
+            <div class="show-btn">
+                <div id="show-share-form">Share</div>
+              </div>
+              <div id="new-share-form" class="hidden">
+                <button id="close-share-form" class="btn-primary btn-sm">close</button>
+                <h3>Who to share with?</h3>
+                <%= simple_form_for([@folder, @share]) do |f| %>
+                  <select name="share[user_id]" id="" data_behavior="choicesjs">
+                    <%= @users.each do |user| %>
+                     <option value="<%= user.id %>"><%= user.email %></option>
+                    <% end %>
+                  </select>
+                  <%= f.submit "Add folder", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+          </div>
+            <div class="show-btn">
+              <%= link_to "Edit", edit_folder_path(@folder), class:"show-btn" %>
+            </div>
+            <div class="show-btn">
+              <%= link_to "Delete", folder_path(@folder), class:"show-btn", method: :delete, data: {confirm: "Are you sure to delete the folder and all of its contents?"}  %>
+            </div>
+          </div>
     </div>
   </div>
 </div>
