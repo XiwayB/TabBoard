@@ -20,6 +20,7 @@ import { search } from '../scripts/search'
 import { toggleSearchContainer } from '../scripts/toggle-search-container'
 import { sharePopup, closeSharePopup } from '../scripts/show_share'
 import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -32,6 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   initChoices();
   // draggable function
   uniqueDropzone();
+
   showFolderForm();
   toggleSearchContainer();
 
