@@ -1,19 +1,25 @@
+<!-- THIS IS YOUR SEARCH DIV CONTAINER -->
+<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0; display: block;">
+  <button class="home-but">Home</button>
+  <!-- ALL SEARCHES HAPPENING HERE -->
 
-<div class="position-absolute vh-100" style="z-index:100;left: 0; top:0; margin-right: 100px; width: fit-content; background: white">
+  <!-- SEARCH BAR FORM -->
+   <div class="wrapper ">
+    <div class="search-input d-flex w-100 justify-content-center">
+      <!-- <form id="search-tabs" action="/folders" class="form-pink" method="get"> -->
+      <form id="search-tabs" action="/folders" class="d-flex w-50 justify-content-center" method="get">
+        <div style="position: relative; width: 100%;">
+          <input class="py-6" style="
+            padding-left: 45px; padding-right: 10px;
+            padding-top: 20px; padding-bottom: 20px;
+            width: 100%; border-radius: 40px;"
+            id="search" type="text"
+            placeholder="Type to search"
+            autocomplete="chrome-off">
 
-   <div class="back-home">
-      <%= link_to root_path, class: "home-tab" do %>
-        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
-      <% end %>
-    </div>
+          <i class="fa fa-search" style="font-size: 30px; position: absolute; left: 12px; top: 18px; z-index: 99;" id="icon"></i>
+        </div>
 
-  <div class="wrapper">
-    <div class="search-input">
-      <a href="" target="_blank" hidden></a>
-      <form id="search-tabs" action="/folders" class="form-pink" method="get">
-        <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
-         <i class="fa fa-search"></i>
-         <!-- <button class="close-icon" type="reset"></button> -->
         <div class="autocom-box">
           <ul id="results">
 
@@ -25,7 +31,122 @@
   </div>
 
 
-  <div id="btn-tabs">
+  <!-- CONTAINER THAT HOLDS THE SEARCH RESULTS HERE -->
+
+
+
+
+</div>
+
+<div class="body">
+  <nav>
+      <div class="logo">
+          <h4>TA.B</h4>
+      </div>
+      <ul class="nav-links">
+          <li><a href="#">Favourite</a></li> |
+          <li><a href="#" class="search-nav">Seach</a></li>
+          <li><a href="#"><%= image_tag "add.png", class:"addButton"%></a></li>
+      </ul>
+      <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+      </div>
+  </nav>
+</div>
+
+<script type="text/javascript">
+  const searchBtn = document.querySelector('.search-nav')
+  if (searchBtn) {
+    document.querySelector('.search-nav').addEventListener('click',(event)=>{
+      console.log(12345)
+      const searchContainer = document.getElementById('search-container')
+      console.log({searchContainer})
+      if (searchContainer) {
+        searchContainer.style.display = 'block'
+        event.preventDefault();
+      }
+
+      // document.querySelector('.onButton').classList.toggle("show");
+    });
+  }
+
+  const homeBut = document.querySelector('.home-but');
+  if (homeBut) {
+    document.querySelector('.home-but').addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('homebut')
+      const searchContainer = document.getElementById('search-container')
+      if (searchContainer) {
+        searchContainer.style.display = 'none'
+
+      }
+    })
+  }
+
+</script>
+
+
+
+
+<script src="#">
+  const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    burger.addEventListener('click', () => {
+        //Toggle Lav
+        nav.classList.toggle('nav-active');
+        //Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+            link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        })
+        //Burger Animation
+        burger.classList.toggle('toggle');
+    })
+}
+
+  navSlide();
+</script>
+
+
+
+
+
+
+
+<!-- <div class="position-absolute vh-100" style="z-index:100;left: 0; top:0; margin-right: 100px; width: fit-content; background: white">
+
+   <div class="back-home">
+      <%= link_to root_path, class: "home-tab" do %>
+        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
+      <% end %>
+    </div> -->
+
+ <!--  <div class="wrapper">
+    <div class="search-input">
+      <a href="" target="_blank" hidden></a>
+      <form id="search-tabs" action="/folders" class="form-pink" method="get">
+        <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
+         <i class="fa fa-search"></i>
+        <div class="autocom-box">
+          <ul id="results">
+
+          </ul>
+        </div>
+
+      </form>
+    </div>
+  </div> -->
+
+
+<!--   <div id="btn-tabs">
     <div id="top"></div>
     <div id="middle"></div>
     <div id="bottom"></div>
@@ -52,7 +173,7 @@
     </div>
   </div>
 
-</div>
+</div> -->
 
 <script>
   function select(element) {
@@ -72,11 +193,7 @@
     }
 </script>
 
-<style>
-  input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: searchfield-cancel-button;
-  }
-</style>
+
 
 
 
