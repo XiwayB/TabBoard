@@ -19,7 +19,7 @@
 
     <div class="container-tabs" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
       <% @folder.tabs.each do |tab|  %>
-        <% link = tab.url.include?("http") ? tab.url : URI::HTTP.build({:host => tab.url }).to_s %>
+        <% link = tab.url %>
         <%= link_to link, target: "_blank", class: "tab"  do %>
           <%= cl_image_tag "rzsdio5itrq0re59qkgb", alt: "icon", :class => "icon" %>
           <%= tab.icon %>
