@@ -1,5 +1,5 @@
 <!-- THIS IS YOUR SEARCH DIV CONTAINER -->
-<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0; display: block;">
+<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0; display: none;">
   <button class="home-but">Home</button>
   <!-- ALL SEARCHES HAPPENING HERE -->
 
@@ -39,13 +39,13 @@
 </div>
 
 <div class="body">
-  <nav>
+  <nav style="z-index: 999;">
       <div class="logo">
           <h4>TA.B</h4>
       </div>
       <ul class="nav-links">
           <li><a href="#">Favourite</a></li> |
-          <li><a href="#" class="search-nav">Seach</a></li>
+          <li><a id="search-nav" href="#">Search</a></li> |
           <li><a href="#"><%= image_tag "add.png", class:"addButton"%></a></li>
       </ul>
       <div class="burger">
@@ -55,39 +55,6 @@
       </div>
   </nav>
 </div>
-
-<script type="text/javascript">
-  const searchBtn = document.querySelector('.search-nav')
-  if (searchBtn) {
-    document.querySelector('.search-nav').addEventListener('click',(event)=>{
-      console.log(12345)
-      const searchContainer = document.getElementById('search-container')
-      console.log({searchContainer})
-      if (searchContainer) {
-        searchContainer.style.display = 'block'
-        event.preventDefault();
-      }
-
-      // document.querySelector('.onButton').classList.toggle("show");
-    });
-  }
-
-  const homeBut = document.querySelector('.home-but');
-  if (homeBut) {
-    document.querySelector('.home-but').addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log('homebut')
-      const searchContainer = document.getElementById('search-container')
-      if (searchContainer) {
-        searchContainer.style.display = 'none'
-
-      }
-    })
-  }
-
-</script>
-
-
 
 
 <script src="#">
@@ -116,14 +83,8 @@
 </script>
 
 
-<div class="position-absolute vh-100" style="z-index:100;left: 0; top:0; margin-right: 100px; width: fit-content; background: white">
 
-   <div class="back-home">
-      <%= link_to root_path, class: "home-tab" do %>
-        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
-      <% end %>
-    </div> -->
-</div>
+
 
 <div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
 
@@ -133,7 +94,7 @@
   </div>
 
 
-  <div id="box-tabs">
+  <div id="box-tabs" style="margin-top: 100px;">
     <div class="box-tab-header">Clean Tabs</div>
     <div id="items">
       <% @unsaved_tabs.each do |tab| %>
@@ -168,7 +129,7 @@
     <div class="box-tab-header">Relax Minds</div>
   </div>
 
-</div> -->
+</div>
 
 <script>
   function select(element) {
