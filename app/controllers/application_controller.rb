@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  # Prevent CSRF attacks, except for JSON requests (API clients)
+  protect_from_forgery unless: -> { request.format.json? }
+
+  # Require authentication and do not set a session cookie for JSON requests (API clients)
+  before_action :authenticate_user!, :do_not_set_cookie, if: -> { request.format.json? }
+
   skip_before_action :verify_authenticity_token
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -27,12 +32,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
+  private
 
   def unsaved_tabs
     @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
   end
 
-  private
+  # Do not generate a session or session ID cookie
+  # See https://github.com/rack/rack/blob/master/lib/rack/session/abstract/id.rb#L171
+  def do_not_set_cookie
+    request.session_options[:skip] = true
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/

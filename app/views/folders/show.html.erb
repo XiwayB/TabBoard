@@ -6,6 +6,8 @@
       <div class="show-header">
         <div class="show-title">
           <h1><%= @folder.name %></h1>
+          <%= link_to "Delete", folder_path(@folder), class:"btn btn-warning", method: :delete, data: {confirm: "Are you sure to delete the folder and all of its contents?"}  %>
+          <%= link_to "Edit", edit_folder_path(@folder), class:"btn btn-warning" %>
         </div>
       </div>
       <a class="share" href="#">
@@ -23,6 +25,8 @@
           <%= tab.icon %>
           <%= tab.title %> -
           <%= tab.url %>
+          <%= link_to "Delete", tab_path(tab), class:"btn btn-warning", method: :delete, data: {confirm: "Are you sure to delete this tab?"}  %>
+          <%= link_to "Edit title", edit_tab_path(tab.id), class:"btn btn-warning" %>
           <div class="preview"></div>
         <% end  %>
       <% end  %>

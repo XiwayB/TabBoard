@@ -8,7 +8,7 @@ class FoldersController < ApplicationController
     #   @folders = Folder.joins(:shares).where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
 
     # else
-      @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
+      @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
 
       # @folders = Folder.where(user_id: 4).or(Folder.where(user_id: 1))
     # end
@@ -37,7 +37,10 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
+    @folder.user_id = current_user.id
     authorize @folder
+
+
     if @folder.save
       # returns a response to the post request
       # to confirm success. To create new folder
@@ -52,11 +55,14 @@ class FoldersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @folder
+  end
 
   def update
+    authorize @folder
     if @folder.update(folder_params)
-      redirect_to root_path
+      redirect_to folder_path(@folder)
     else
       render :index
     end

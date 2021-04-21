@@ -1,5 +1,5 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: [:show, :update, :destroy]
+  before_action :set_tab, only: [:show, :update, :edit, :destroy]
   # after_action :verify_authorized, except: [:index]
   # skip_before_action :verify_authenticity_token
 
@@ -24,10 +24,14 @@ class TabsController < ApplicationController
     @tab = Tab.new
   end
 
-  def edit; end
+  def edit
+    authorize @tab
+  end
 
   def create
+    puts "current_user : #{current_user.email}"
     @tab = Tab.new(tab_params)
+    authorize @tab
     if @tab.save
       # render root_path
       respond_to do |format|
@@ -58,18 +62,34 @@ class TabsController < ApplicationController
 
   def update
     authorize @tab
-    if @tab.update(tab_params)
-      redirect_to root_path
-    else
-      render_error
+    respond_to do |format|
+      if @tab.update(tab_params)
+        format.html { redirect_to root_path, notice: 'Tab was successfully updated.' }
+        format.json { render :show, status: :ok, location: @tab }
+      else
+        format.html { render :edit }
+        format.json { render json: @tab.errors, status: :unprocessable_entity }
+      end
     end
+    # if @tab.update(tab_params)
+    #   redirect_to root_path
+    # else
+    #   render_error
+    # end
   end
 
   def destroy
     authorize @tab
     @tab.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Tab was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+
+    # @tab.destroy
+    # redirect_to folder_tabs_path notice: 'Tab was successfully destroyed.'
   end
+
 
   private
 

@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  # skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def login_from_ext
     # Receive the email
+    authorize :user, :login_from_ext?
     user_email = params[:user][:email]
     # Search this email in db
     # If exist, sign in (check devise method)
@@ -24,16 +25,19 @@ class UsersController < ApplicationController
     end
 
     # render json:@user
+    token = Tiddle.create_and_return_token(@user, request)
 
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.json { render msg: 'success', json: @user }
+      format.json { render json: { msg: 'success', user: @user, token: token } }
     end
 
   end
 
   def google_oauth2
-     url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{params["id_token"]}"
+    # original:
+     # url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{params["id_token"]}"
+      url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{params["id_token"]}"
      response = RestClient.get(url)
      @user = User.create_user_for_google(response.parsed_response)
      tokens = @user.create_new_auth_token
