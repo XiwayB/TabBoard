@@ -11,7 +11,8 @@ require("channels")
 
 import "bootstrap";
 import "../stylesheets/application.scss"
-import { expandSidebar } from '../scripts/sidebar'
+import { expandSidebar, showFolderForm } from '../scripts/sidebar'
+// import { showFolderForm } from '../scripts/show_sidebar_folder'
 import { initChoices } from '../scripts/init-choices'
 // drag and drop
 import { uniqueDropzone } from '../scripts/init-draggable'
@@ -30,6 +31,7 @@ document.addEventListener('turbolinks:load', () => {
   initChoices();
   // draggable function
   uniqueDropzone();
+  showFolderForm();
 
 });
 
