@@ -20,14 +20,14 @@
     <% @folders.each do |folder| %>
       <%= link_to folder_path(folder) do  %>
         <div class="col-4">
-          <% if folder.coverimg.nil? %>
+          <% if folder.photo.attached? %>
           <!-- added delete folde functionality -->
-            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2040&q=80')">
+            <%= cl_image_tag folder.photo.key, alt: "Folder Cover Image", class: 'card' %>
               <h3><%= folder.name %></h3>
               <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
             </div>
           <% else %>
-            <div class="card" style= "background-image: url('<%= folder.coverimg %>')">
+            <%= cl_image_tag "crk75x1ehaaea4ienrod", alt: "alttext" , class: 'card' %>
               <h3><%= folder.name %></h3>
               <p><%= link_to 'Delete 🗑️', folder_path(folder), method: :delete %></p>
             </div>
