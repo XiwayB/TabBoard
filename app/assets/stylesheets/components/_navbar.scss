@@ -343,10 +343,17 @@ nav {
   margin-left: 20px;
 }
 
+#results {
+  overflow-y: scroll;
+  height: 80vh;
+
+}
+
 #results li {
   color: #fff;
   padding: 20px 10px;
   list-style: none;
+
 }
 
 #results li a {
@@ -356,6 +363,9 @@ nav {
 // testing
 // search button
 
+.autocom-box {
+  // overflow-y: scroll;
+}
 
 
 // #btn-tabs {

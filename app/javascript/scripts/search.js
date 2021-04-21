@@ -23,7 +23,7 @@ const search = () => {
       .then((data) => {
         // console.log(123, data)
         results.innerHTML = '';
-        let listString = ''
+        let listString = '<li style="font-size: 36px; font-weight: 500; margin-top: 20px; fontcolour: white">Search Results:</li>'
         data.forEach((result) => {
 
           // console.log(result)
@@ -31,10 +31,19 @@ const search = () => {
           let url = result.url.includes("http") ? result.url : `https://${result.url}`
 
           const list = `
+
           <li onclick="select(this)" data-folder-id="${result.folder_id}">
-          ${result.title} | <a rel="stylesheet" target="_blank" href="${url}">${url}</a>
-          <i class="fas fa-folder-plus mx-2" style="color: white;"></i>
-          <a rel="stylesheet" href="${folderUrl}/${result.folder.id}">${result.folder.name}</a>
+
+            <div style="display: flex; align-items: center;">
+              <div style="width: 80%">
+                <span style="font-weight: medium; font-size: 1.2em">${result.title}</span><br>
+                <a style="word-break: break-all;" target="_blank" href="${url}">${url}</a>
+              </div>
+            <div style="">
+              <a onMouseOver="this.style.background='white', this.style.color='black'" onMouseOut="this.style.background='black', this.style.color='white'" style=" height: 37px; padding: 4px 18px; border-radius: 20px; border: 2.7px solid white; margin-left: 30px; font-family: 'Poppins', sans-serif; font-weight: medium;" rel="stylesheet" href="${folderUrl}/${result.folder.id}">
+                ${result.folder.name}
+              </a>
+            </div>
           </li>`
           listString += list
           })
