@@ -1,7 +1,7 @@
 class Folder < ApplicationRecord
   belongs_to :user
   has_many :tabs, dependent: :destroy
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true;
   has_one_attached :photo
 
   # sharing
