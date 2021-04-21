@@ -32,7 +32,8 @@ const search = () => {
 
           const list = `
           <li onclick="select(this)" data-folder-id="${result.folder_id}">
-          <p>${result.title} | <a rel="stylesheet" target="_blank" href="${url}">${url}</a></p>
+          ${result.title} | <a rel="stylesheet" target="_blank" href="${url}">${url}</a>
+          <i class="fas fa-folder-plus mx-2" style="color: white;"></i>
           <a rel="stylesheet" href="${folderUrl}/${result.folder.id}">${result.folder.name}</a>
           </li>`
           listString += list

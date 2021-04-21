@@ -219,7 +219,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     min-height: 7vh;
-    background-color: grey;
+    background-color: #F5F5F5;
     font-family: "Poppins", sans-serif;
 }
 
@@ -236,15 +236,24 @@ nav {
 .nav-links {
     display: flex;
     justify-content: space-around;
-    width: 15%;
+    align-items: center;
+    // width: 15%;
+    margin-top: 0 !important; margin-bottom: 0 !important;
 }
 
 .nav-links li {
     list-style: none;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .nav-links a {
-    color: rgb(226, 226, 226);
+    // color: rgb(226, 226, 226);
+    color: #000;
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
@@ -334,6 +343,15 @@ nav {
   margin-left: 20px;
 }
 
+#results li {
+  color: #fff;
+  padding: 20px 10px;
+  list-style: none;
+}
+
+#results li a {
+  color: #fff;
+}
 
 // testing
 // search button
