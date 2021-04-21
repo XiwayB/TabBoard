@@ -1,55 +1,46 @@
 
-<div class="position-absolute vh-100" style="z-index:100;left: 0; top:0; margin-right: 100px; width: fit-content; background: white">
+<div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
 
-   <div class="back-home">
-      <%= link_to root_path, class: "home-tab" do %>
-        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
-      <% end %>
-    </div>
-
-  <div class="wrapper">
-    <div class="search-input">
-      <a href="" target="_blank" hidden></a>
-      <form id="search-tabs" action="/folders" class="form-pink" method="get">
-        <input id="search" type="text" placeholder="Type to search" autocomplete="chrome-off">
-         <i class="fa fa-search"></i>
-         <!-- <button class="close-icon" type="reset"></button> -->
-        <div class="autocom-box">
-          <ul id="results">
-
-          </ul>
-        </div>
-
-      </form>
-    </div>
-  </div>
 
 
   <div id="btn-tabs">
-    <div id="top"></div>
-    <div id="middle"></div>
-    <div id="bottom"></div>
+    <div id="folder-ridge">Save Your Tabs</div>
   </div>
 
 
   <div id="box-tabs">
+    <div class="box-tab-header">Clean Tabs</div>
     <div id="items">
       <% @unsaved_tabs.each do |tab| %>
         <div class="item">
-          <h4><%= link_to tab.title, tab.url, target: '_blank' %></h4>
-          <p class="unsaved_tabs_options"><%= link_to '🗑️', tab_path(tab), method: :delete %></p>
-          <p class="unsaved_tabs_options">Add to folder</p>
-          <div style="display: block;">
+          <div class="unsaved_tabs unsaved-title">
+            <% if tab.icon  %>
+              <div class="icon" style="background: url(<%= tab.icon %>);"></div>
+            <% else  %>
+              <div class="icon"><i class="fas fa-dice-d6"></i></div>
+            <% end  %>
+            <div class="title" ><%= link_to tab.title.truncate(25, separator: '', omission: '...'), tab.url, target: '_blank' %></div>
+          </div>
+          <div class="unsaved_tabs unsaved-link">
+            <div class="link"><%= link_to tab.url.truncate(50, separator: '', omission: '...'), tab.url, target: '_blank' %></div>
+            <div class="options">
+              <%= link_to tab_path(tab), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
+            <div id="add_to_folder" data-id="<%= tab.id %>" class="options"><i class="fas fa-folder-plus"></i></div>
+            <!-- <div id="test-button" class="options"><i class="fas fa-folder-plus"></i></div> -->
+          </div>
+          <div id="add_folder_form_<%= tab.id %>" class="unsaved_tabs form hidden2">
             <%= form_with(model: tab) do |f| %>
               <%= f.collection_select :folder_id, policy_scope(Folder), :id, :name, { prompt: "Select..."}, { 'data-behavior' => 'choicesjs' } %>
-              <%= f.submit 'Save to folder' %>
+              <%= f.submit 'Add to folder' %>
             <% end %>
-
           </div>
-
         </div>
       <% end  %>
     </div>
+    <div class="box-tab-header">Relax Minds</div>
   </div>
 
 </div>
