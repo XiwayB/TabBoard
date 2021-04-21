@@ -13,6 +13,8 @@ import "bootstrap";
 import "../stylesheets/application.scss"
 import { expandSidebar } from '../scripts/sidebar'
 import { initChoices } from '../scripts/init-choices'
+// drag and drop
+import { uniqueDropzone } from '../scripts/init-draggable'
 import { search } from '../scripts/search'
 import { sharePopup, closeSharePopup } from '../scripts/show_share'
 import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
@@ -26,6 +28,8 @@ document.addEventListener('turbolinks:load', () => {
   folderPopup();
   closeFolderPopup();
   initChoices();
+  // draggable function
+  uniqueDropzone();
 
 });
 

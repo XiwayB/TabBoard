@@ -10,7 +10,8 @@ let webLink;
 
 
 const search = () => {
-  inputBox.onkeyup = (e) => {
+  if (inputBox) {
+   inputBox.onkeyup = (e) => {
     console.log("eee",e)
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
@@ -46,6 +47,8 @@ const search = () => {
 
 
   }
+  }
+
 }
 
 
