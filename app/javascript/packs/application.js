@@ -18,6 +18,7 @@ import { uniqueDropzone } from '../scripts/init-draggable'
 import { search } from '../scripts/search'
 import { sharePopup, closeSharePopup } from '../scripts/show_share'
 import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -30,7 +31,6 @@ document.addEventListener('turbolinks:load', () => {
   initChoices();
   // draggable function
   uniqueDropzone();
-
 });
 
 

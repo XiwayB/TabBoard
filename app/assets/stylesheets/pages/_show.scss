@@ -1,22 +1,182 @@
 body {
-  background-color: #E5E5E5
+  background-color: #FFFFFF;
+
 }
 
-.show-page {
-  margin-left: 266px;
+.container-folder {
+  margin: 12px;
 }
 
-.share {
-  color: #DF4B14;
-  opacity: 50%;
-  margin-top: -56px;
-  margin-left: 951px;
-  position: absolute;
-  font-size: 25px;
+.show-header {
+  margin-top: 25px;
+  margin-bottom: 62px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
-.share:hover{
-  color: #FF6D37;
+.show-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#show-tabs-folder {
+  margin-left: 45px;
+  width: 150px;
+}
+
+.show-tab-card {
+  display: flex;
+  font-family: Avenir Next;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 32px;
+  width: 804px;
+  color: black;
+  padding: 8px;
+    &:hover{
+      background: #F5F5F5;
+      border-radius: 15px;
+    }
+}
+
+.tab-edit {
+  margin-right: 10px;
+}
+.tab-edit a {
+  color: black;
+  opacity: 0.8
+}
+
+.tab-delete a {
+  color: black;
+  opacity: 0.8
+
+}
+
+.tab-edit a:hover {
+  opacity: 0.95;
+  font-size: 1.1em;
+}
+
+.tab-delete a:hover {
+  opacity: 0.95;
+  font-size: 1.1em;
+
+
+}
+
+  // .fa-trash-alt:hover{
+  //     opacity: 1;
+  //     color: red;
+  //   }
+
+  //   .tab-edit{
+  //     opacity: 1;
+  //   }
+
+// .show-tab-content:hover .show-tab-actions{
+//     opacity: 1;
+//     color: black;
+//     margin-right: 12px;
+// }
+
+.show-tab-title {
+  display: flex;
+  color: black;
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 12px;
+      margin-top: 2px;
+    }
+}
+
+.show-tab-url {
+  margin-left: 43px;
+  color: black;
+  width: 100%;
+  overflow: scroll;
+}
+
+.show-tab-actions {
+  margin-top: -41px;
+  margin-bottom: 12px;
+  margin-left: 722px;
+  display: flex;
+  font-size: 22px;
+  color: black;
+}
+
+
+.show-folder-action {
+  margin-top: 152px;
+  margin-right: 211px;
+}
+
+.show-tabs-folder-actions {
+  margin-top: 152px;
+  margin-right: 211px;
+}
+
+.show-share-form {
+
+}
+
+.show-btn {
+  margin-top: 24px;
+  padding-top: 28px;
+  width: 336px;
+  height: 87px;
+  background: #F5F5F5;
+  border-radius: 15px;
+  font-family: Futura;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 37px;
+  border: none;
   opacity: 1;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    a {
+      color: black;
+      margin-left: 134px;
+    }
 }
+
+#show-share-form{
+  margin-left: 134px;
+
+}
+
+
+.show-share {
+  margin-bottom: 24px;
+}
+
+.show-edit-folder {
+  margin-bottom: 24px;
+}
+
+.show-delete-folder {
+
+}
+
+.tab-icon {
+  border-radius: 50%;
+}
+
+
 
