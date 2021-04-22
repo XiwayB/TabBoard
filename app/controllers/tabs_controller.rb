@@ -92,9 +92,10 @@ class TabsController < ApplicationController
 
   def destroy
     authorize @tab
+    @folder = @tab.folder_id
     @tab.destroy
     respond_to do |format|
-      # format.html { redirect_to root_path, notice: 'Tab was successfully destroyed.' }
+      format.html { redirect_to folder_path(@folder), notice: 'Tab was successfully destroyed.' }
       format.json { render json: {msg: 'Deleted'} }
     end
 
