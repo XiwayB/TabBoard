@@ -15,19 +15,18 @@
         </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
         <div class="fav-heart">
-
-          <%= image_tag "heart.png", :class => 'heart-pic'%>
-      </div>
+          <%#= link_to like_folder_path(folder) do %>
+            <%= image_tag "unlike.png", :class => 'heart-pic'%>
+          <%# end %>
+        </div>
       </div>
     <% end %>
   <% end %>
 </div>
 
-<script type="text/javascript">
-const favourite = document.querySelector('.heart-pic')
-document.querySelector('.heart-pic').addEventListener("click", () => {
+<!--  create a new route that goes to folder controller to like or unlike a folder
+  create the action in the controller to like or unlike a folder
+  add link tag to
+ -->
 
-})
-
-</script>
 
