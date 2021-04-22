@@ -13,7 +13,7 @@
         <% if folder.photo.attached? %>
           <%= cl_image_tag folder.photo.key, alt: "coverimg" %>
         <% else %>
-          <%= cl_image_tag "crk75x1ehaaea4ienrod", alt: "alttext"  %>
+          <img src="https://source.unsplash.com/1600x900/?nature" alt="Folder cover image">
         <% end %>
         <div class="goto-view">
             View
