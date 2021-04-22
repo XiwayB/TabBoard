@@ -11,7 +11,7 @@ class FoldersController < ApplicationController
     @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
 
     # end
-    # @folder = Folder.new
+    @folder = Folder.new
 
     # returns a response to the get request
     # to confirm success. To display all folders
