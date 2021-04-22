@@ -75,6 +75,11 @@
                  <% end %>
             </div>
           </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do  %>
+              <%= image_tag "sign_out.png", alt: "alttext", class: "ml-3 mb-1", style: "width: 25px; height: 25px" %>
+            <% end %>
+          </li>
       </ul>
     <!--   <div class="burger">
           <div class="line1"></div>
@@ -83,32 +88,6 @@
       </div> -->
   </nav>
 </div>
-
-
-<script src="#">
-  const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-
-    burger.addEventListener('click', () => {
-        //Toggle Lav
-        nav.classList.toggle('nav-active');
-        //Animate Links
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-            link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-            }
-        })
-        //Burger Animation
-        burger.classList.toggle('toggle');
-    })
-}
-
-  navSlide();
-</script>
 
 <script>
   function select(element) {
@@ -126,6 +105,32 @@
 
     searchWrapper.classList.remove("active");
     }
+
+    const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    if (burger) {
+      burger.addEventListener('click', () => {
+          //Toggle Lav
+          nav.classList.toggle('nav-active');
+          //Animate Links
+          navLinks.forEach((link, index) => {
+              if (link.style.animation) {
+              link.style.animation = '';
+              } else {
+                  link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+              }
+          })
+          //Burger Animation
+          burger.classList.toggle('toggle');
+      })
+
+    }
+}
+
+  navSlide();
 </script>
 
 

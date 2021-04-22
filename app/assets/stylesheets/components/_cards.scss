@@ -11,8 +11,9 @@
   grid-column-gap: 20px;
   grid-row-gap: 60px;
   width: 1163px;
-  height: 416px;
-  margin-top: 94px;
+  // min-height: 416px;
+  margin-top: calc(7vh + 60px);
+  min-height: calc(100vh - (7vh + 60px) - 150px);
   margin-left: 80px;
   margin-right: 80px;
   align-items: center;

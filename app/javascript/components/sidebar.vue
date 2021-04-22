@@ -13,13 +13,13 @@
         <div v-for="(tab, index) in tabs" :key="index">
           <div class="item">
             <div class="unsaved_tabs unsaved-title">
-              <img v-if="tab.icon" :src="tab.icon" class="icon" />
-              <div v-else class="icon" style="padding-top: 2px">
+              <img v-if="tab.icon" :src="tab.icon" class="icon-sidebar" />
+              <div v-else class="icon-sidebar" style="padding-top: 0">
                 <i class="fas fa-dice-d6"></i>
               </div>
               <div class="title">
                 <a :href="tab.url" target="_blank">
-                  {{ tab.title }}
+                  {{ tab.short_title }}
                 </a>
                 <!-- <%= link_to tab.title.truncate(25, separator: '', omission:
               '...'), tab.url, target: '_blank' %> -->
@@ -28,7 +28,7 @@
             <div class="unsaved_tabs unsaved-link">
               <div class="link">
                 <a :href="tab.url" target="_blank">
-                  {{ tab.url }}
+                  {{ tab.short_url }}
                 </a>
                 <!-- <%= link_to tab.url.truncate(50, separator: '', omission: '...'), -->
                 <!-- tab.url, target: '_blank' %> -->
@@ -71,6 +71,7 @@
                   type="submit"
                   class="add-folder-btn btn"
                   @click="addToFolder(tab)"
+                  style="margin: 0;"
                 >
                   Add
                 </div>
@@ -78,7 +79,7 @@
             </div>
 
             <!-- <div
-              
+
               class="unsaved_tabs form hidden2"
               <%="form_with(model:"
               tab)
