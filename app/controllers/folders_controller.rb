@@ -1,7 +1,8 @@
 class FoldersController < ApplicationController
-  before_action :set_folder, only: [:show, :edit, :update, :destroy]
+  before_action :set_folder, only: [:show, :edit, :update, :destroy, :like]
 
   def index
+
     @share = Share.all
     # if params[:query].present?
       # @folders = Folder.search_folder(params[:query])
@@ -72,6 +73,24 @@ class FoldersController < ApplicationController
     authorize @folder
     @folder.destroy
     redirect_to root_path
+  end
+
+  def like
+    authorize @folder
+
+    puts "liking a folder..."
+
+    if @folder.importance
+      @folder.update importance: false
+    else
+      @folder.update importance: true
+    end
+
+    # importance = !@folder.importance
+
+    # @folder.update importance: importance
+
+    redirect_back(fallback_location: root_path)
   end
 
   private
