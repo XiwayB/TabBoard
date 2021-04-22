@@ -64,7 +64,7 @@ class TabsController < ApplicationController
 
   def unsaved_tabs
     authorize :tab, :unsaved_tabs?
-    @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
+    @unsaved_tabs = current_user.tabs.joins(:folder).where(:folders => {name:'Default'})
     render json: { tabs: @unsaved_tabs }
   end
 

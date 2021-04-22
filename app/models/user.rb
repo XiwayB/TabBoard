@@ -7,6 +7,7 @@ has_many :authentication_tokens
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
   has_many :folders
+  has_many :tabs, through: :folders
   after_create :create_default_folder
 
   def create_default_folder

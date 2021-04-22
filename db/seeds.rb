@@ -27,10 +27,10 @@ desmond = User.create!(name: 'Desmond', email: 'desmond@gmail.com', password: '1
 
 xiway = User.create!(name: 'Xiway', email: 'xiway@gmail.com', password: '123456')
 
-Folder.destroy_all if Rails.env.development?
+# Folder.destroy_all if Rails.env.development?
 p "     Users are working ............"
 p "          Users are creating folders"
-default = Folder.create!(name: 'Default', importance: true, user: marshall, coverimg: "https://images.unsplash.com/photo-1492269682833-cd80f8a20b08?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80")
+# default = Folder.create!(name: 'Default', importance: true, user: marshall, coverimg: "https://images.unsplash.com/photo-1492269682833-cd80f8a20b08?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80")
 
 food = Folder.create!(name: 'Food', importance: true, user: kevin, coverimg: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg")
 
