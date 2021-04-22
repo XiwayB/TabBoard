@@ -1,0 +1,13 @@
+
+  <button class="btn-primary btn-lg" id="show-folder-form">Create a folder</button>
+  <div id="new-folder-form" class="hidden">
+    <div class="form">
+      <button id="close-folder-form" class="btn-primary btn-sm">close</button>
+      <h3>Create Folder</h3>
+      <%= simple_form_for(@folder) do |f| %>
+        <%= f.input :name, placeholder: 'Add a folder name' %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Add folder", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
