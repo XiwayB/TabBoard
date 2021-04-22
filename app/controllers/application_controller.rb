@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   # before_action :unsaved_tabs
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_new_folder
 
   include Pundit
