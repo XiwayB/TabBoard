@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
 
   # before_action :unsaved_tabs
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  before_action :set_new_folder
+
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -36,8 +38,12 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def set_new_folder
+    @folder = Folder.new
+  end
+
   private
-  
+
 
   # Do not generate a session or session ID cookie
   # See https://github.com/rack/rack/blob/master/lib/rack/session/abstract/id.rb#L171
