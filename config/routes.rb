@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  get 'unsaved_tabs', to: 'tabs#unsaved_tabs'
+
   post 'users/login_from_ext', to: 'users#login_from_ext'
   # namespace :api, defaults: { format: :json } do
   #   namespace :v1 do
@@ -20,4 +23,6 @@ Rails.application.routes.draw do
   get 'auth/request', to:'users#google_oauth2'
   resources :tabs, only: [:index]
   get 'pages/home', to: 'pages#home'
+
+  get 'folders/:id/like', to: 'folders#like', as: 'like_folder'
 end

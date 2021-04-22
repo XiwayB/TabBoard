@@ -1,10 +1,17 @@
-<div class="testnav">
-</div>
-
 <div class="cards">
+
+
+
+
+
+
+
+
   <% @folders.each do |folder| %>
+
     <%= link_to folder_path(folder)  do %>
-      <div class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://res.cloudinary.com/xiway/image/upload/v1618285398/crk75x1ehaaea4ienrod.jpg"%>)" >
+      <div class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://source.unsplash.com/1600x900/?nature"%>)" >
+
         <div class="goto-view">
             View
         </div>
@@ -13,10 +20,18 @@
         </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
         <div class="fav-heart">
-          <%= image_tag "heart.png", :class => 'heart-pic'%>
-      </div>
+          <%#= link_to like_folder_path(folder) do %>
+            <%= image_tag "unlike.png", :class => 'heart-pic'%>
+          <%# end %>
+        </div>
       </div>
     <% end %>
   <% end %>
 </div>
+
+<!--  create a new route that goes to folder controller to like or unlike a folder
+  create the action in the controller to like or unlike a folder
+  add link tag to
+ -->
+
 

@@ -17,15 +17,15 @@ p "Confirmed: database is in ruins"
 p "Planting seeds ............"
 p "Seeds will take root in database"
 p "     Moulding Users from dirt"
-marshall = User.create!(name: 'Marshall', email: 'marshall@sz573lw.com', password: '123456')
+marshall = User.create!(name: 'Marshall', email: 'marshall@gmail.com', password: '123456')
 
-kevin = User.create!(name: 'Kevin', email: 'kevin@sz573lw.com', password: '123456')
+kevin = User.create!(name: 'Kevin', email: 'kevin@gmail.com', password: '123456')
 
-nico = User.create!(name: 'Nico', email: 'nico@sz573lw.com', password: '123456')
+nico = User.create!(name: 'Nico', email: 'nico@gmail.com', password: '123456')
 
-desmond = User.create!(name: 'Desmond', email: 'desmond@sz573lw.com', password: '123456')
+desmond = User.create!(name: 'Desmond', email: 'desmond@gmail.com', password: '123456')
 
-xiway = User.create!(name: 'Xiway', email: 'xiway@sz573lw.com', password: '123456')
+xiway = User.create!(name: 'Xiway', email: 'xiway@gmail.com', password: '123456')
 
 Folder.destroy_all if Rails.env.development?
 p "     Users are working ............"

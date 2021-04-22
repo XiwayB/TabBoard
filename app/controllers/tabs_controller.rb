@@ -44,16 +44,28 @@ class TabsController < ApplicationController
   end
 
   def save_all
+    authorize :tab, :save_all?
     tabs = params.require(:tabs)[:content]
     puts "tabs?? #{tabs}"
     @tabs = tabs.map do |tab|
-      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl], folder_id: tab[:folder_id])
-      @tab.save
+      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl])
+      @tab.folder = current_user.folders.first
+      @tab.save!
+
+      unless @tab.valid?
+        puts "errors ===>> #{@tab.errors.full_messages}"
+      end
     end
     respond_to do |format|
       format.html { redirect_to root_path }
       format.json { render json: { msg: 'success', tabs: @tabs } }
     end
+  end
+
+  def unsaved_tabs
+    authorize :tab, :unsaved_tabs?
+    @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
+    render json: { tabs: @unsaved_tabs }
   end
 
 # DO NOT REMOVE COMMENT BELOW - INVISIBLE BUG
@@ -80,10 +92,11 @@ class TabsController < ApplicationController
 
   def destroy
     authorize @tab
+    @folder = @tab.folder_id
     @tab.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Tab was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to folder_path(@folder), notice: 'Tab was successfully destroyed.' }
+      format.json { render json: {msg: 'Deleted'} }
     end
 
     # @tab.destroy

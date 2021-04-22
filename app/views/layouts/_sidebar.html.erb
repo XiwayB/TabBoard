@@ -1,0 +1,44 @@
+<div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
+
+
+  <div id="btn-tabs">
+    <div id="folder-ridge">Save Your Tabs</div>
+  </div>
+
+
+  <div id="box-tabs" style="">
+    <div class="box-tab-header">Clean Tabs</div>
+    <div id="items">
+      <% @unsaved_tabs.each do |tab| %>
+        <div class="item">
+          <div class="unsaved_tabs unsaved-title">
+            <% if tab.icon  %>
+              <img src="<%= tab.icon %>" class="icon">
+            <% else  %>
+              <div class="icon" style="padding-top: 2px"><i class="fas fa-dice-d6"></i></div>
+            <% end  %>
+            <div class="title" ><%= link_to tab.title.truncate(25, separator: '', omission: '...'), tab.url, target: '_blank' %></div>
+          </div>
+          <div class="unsaved_tabs unsaved-link">
+            <div class="link"><%= link_to tab.url.truncate(50, separator: '', omission: '...'), tab.url, target: '_blank' %></div>
+            <div class="options trash">
+              <%= link_to tab_path(tab), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
+            <div id="add_to_folder" data-id="<%= tab.id %>" class="options folder"><i class="fas fa-folder-plus"></i></div>
+            <!-- <div id="test-button" class="options"><i class="fas fa-folder-plus"></i></div> -->
+          </div>
+          <div id="add_folder_form_<%= tab.id %>" class="unsaved_tabs form hidden2">
+            <%= form_with(model: tab) do |f| %>
+              <%= f.collection_select :folder_id, policy_scope(Folder), :id, :name, { prompt: "Select..."}, { 'data-behavior' => 'choicesjs' } %>
+              <%= f.submit 'Add to folder' %>
+            <% end %>
+          </div>
+        </div>
+      <% end  %>
+    </div>
+    <div class="box-tab-header" style="margin-top: 55px;">Relax Minds</div>
+  </div>
+
+</div>

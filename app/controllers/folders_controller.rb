@@ -1,18 +1,19 @@
 class FoldersController < ApplicationController
-  before_action :set_folder, only: [:show, :edit, :update, :destroy]
+  before_action :set_folder, only: [:show, :edit, :update, :destroy, :like]
 
   def index
+
     @share = Share.all
     # if params[:query].present?
       # @folders = Folder.search_folder(params[:query])
     #   @folders = Folder.joins(:shares).where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
 
     # else
-      @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
+    @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
 
-      # @folders = Folder.where(user_id: 4).or(Folder.where(user_id: 1))
     # end
     @folder = Folder.new
+
     # returns a response to the get request
     # to confirm success. To display all folders
     # in chrome extension
@@ -72,6 +73,24 @@ class FoldersController < ApplicationController
     authorize @folder
     @folder.destroy
     redirect_to root_path
+  end
+
+  def like
+    authorize @folder
+
+    puts "liking a folder..."
+
+    if @folder.importance
+      @folder.update importance: false
+    else
+      @folder.update importance: true
+    end
+
+    # importance = !@folder.importance
+
+    # @folder.update importance: importance
+
+    redirect_back(fallback_location: root_path)
   end
 
   private

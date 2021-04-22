@@ -1,11 +1,13 @@
 <!-- THIS IS YOUR SEARCH DIV CONTAINER -->
 <div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0; display: none;">
-  <button class="home-but">Home</button>
+  <div class="home-but" style="position: absolute; top: 65px; right: 135px;">
+    <%= image_tag "home.png", style: "width: 40px; height: 40px;" %>
+  </div>
   <!-- ALL SEARCHES HAPPENING HERE -->
 
   <!-- SEARCH BAR FORM -->
    <div class="wrapper ">
-    <div class="search-input d-flex w-100 justify-content-center">
+    <div class="search-input d-flex w-100 justify-content-center mt-5">
       <!-- <form id="search-tabs" action="/folders" class="form-pink" method="get"> -->
       <form id="search-tabs" action="/folders" class="d-flex w-50 justify-content-center" method="get">
         <div style="position: relative; width: 100%;">
@@ -20,13 +22,15 @@
           <i class="fa fa-search" style="font-size: 30px; position: absolute; left: 12px; top: 18px; z-index: 99;" id="icon"></i>
         </div>
 
-        <div class="autocom-box">
-          <ul id="results">
 
-          </ul>
-        </div>
 
       </form>
+    </div>
+
+    <div class="autocom-box w-full d-flex justify-content-center">
+      <ul id="results" class="w-50">
+
+      </ul>
     </div>
   </div>
 
@@ -38,21 +42,25 @@
 
 </div>
 
-<div class="body">
+<div class="nav-body">
+<!-- <div class="body-navbar"> -->
   <nav style="z-index: 999;">
       <div class="logo">
-          <h4>TA.B</h4>
+          <h4><%= link_to "TA.B", root_path%></h4>
       </div>
       <ul class="nav-links">
-          <li><a href="#">Favourite</a></li> |
-          <li><a id="search-nav" href="#">Search</a></li> |
-          <li><a href="#"><%= image_tag "add.png", class:"addButton"%></a></li>
+          <!-- <li class=""><a href="#">Favourite</a> <span class="ml-3">|</span></li> -->
+          <li id="search-nav" class="ml-3">
+            <i class="fa fa-search" style="font-size: 20px;"></i></li>
+          <li class="ml-3" id="add-folder-index">
+            <i class="fas fa-plus-circle" style="font-size: 20px;"></i>
+          </li>
       </ul>
-      <div class="burger">
+    <!--   <div class="burger">
           <div class="line1"></div>
           <div class="line2"></div>
           <div class="line3"></div>
-      </div>
+      </div> -->
   </nav>
 </div>
 
@@ -81,55 +89,6 @@
 
   navSlide();
 </script>
-
-
-
-
-
-<div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
-
-
-  <div id="btn-tabs">
-    <div id="folder-ridge">Save Your Tabs</div>
-  </div>
-
-
-  <div id="box-tabs" style="margin-top: 100px;">
-    <div class="box-tab-header">Clean Tabs</div>
-    <div id="items">
-      <% @unsaved_tabs.each do |tab| %>
-        <div class="item">
-          <div class="unsaved_tabs unsaved-title">
-            <% if tab.icon  %>
-              <div class="icon" style="background: url(<%= tab.icon %>);"></div>
-            <% else  %>
-              <div class="icon"><i class="fas fa-dice-d6"></i></div>
-            <% end  %>
-            <div class="title" ><%= link_to tab.title.truncate(25, separator: '', omission: '...'), tab.url, target: '_blank' %></div>
-          </div>
-          <div class="unsaved_tabs unsaved-link">
-            <div class="link"><%= link_to tab.url.truncate(50, separator: '', omission: '...'), tab.url, target: '_blank' %></div>
-            <div class="options">
-              <%= link_to tab_path(tab), method: :delete do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            </div>
-            <div id="add_to_folder" data-id="<%= tab.id %>" class="options"><i class="fas fa-folder-plus"></i></div>
-            <!-- <div id="test-button" class="options"><i class="fas fa-folder-plus"></i></div> -->
-          </div>
-          <div id="add_folder_form_<%= tab.id %>" class="unsaved_tabs form hidden2">
-            <%= form_with(model: tab) do |f| %>
-              <%= f.collection_select :folder_id, policy_scope(Folder), :id, :name, { prompt: "Select..."}, { 'data-behavior' => 'choicesjs' } %>
-              <%= f.submit 'Add to folder' %>
-            <% end %>
-          </div>
-        </div>
-      <% end  %>
-    </div>
-    <div class="box-tab-header">Relax Minds</div>
-  </div>
-
-</div>
 
 <script>
   function select(element) {

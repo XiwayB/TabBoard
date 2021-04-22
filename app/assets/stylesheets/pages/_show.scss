@@ -1,6 +1,5 @@
 body {
-  background-color: #FFFFFF;
-
+  background-color: #ffffff;
 }
 
 .container-folder {
@@ -8,22 +7,83 @@ body {
 }
 
 .show-header {
-  margin-top: 25px;
+  margin-top: 100px;
   margin-bottom: 62px;
   display: flex;
   justify-content: space-between;
   position: relative;
 }
 
+.show-page-content {
+  display:flex;
+}
+
 .show-content {
   display: flex;
   justify-content: space-between;
-
 }
 
-a {
-  text-decoration: none;
+.show-card {
+  width: 396.5px;
+  height: 558px;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%);
+  border: 0;
+  position: relative;
+  background-size: 300%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 25%;;
 }
+
+.show-card:hover {
+  // filter: brightness(70%);
+  transition: all 0.3s ease;
+  border: 0;
+  background-size: 320%;
+}
+
+.folder-btn:hover {
+  color: black;
+  background: white;
+    a {
+        color: black;
+      }
+}
+
+// .show-card:hover .edit-folder {
+//   color:black;
+//   background: white;
+// }
+
+// .show-card:hover .delete-folder {
+//   color:black;
+//   background: white;
+// }
+
+.folder-btn {
+  border-radius: 25px;
+  border: 4px solid white;
+  margin: 32px 0px;
+  height: 52px;
+  width: 220px;
+  font-size: 22px;
+  color: white;
+  font-weight: medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+}
+
 
 a:hover {
   text-decoration: none;
@@ -43,10 +103,10 @@ a:hover {
   width: 804px;
   color: black;
   padding: 8px;
-    &:hover{
-      background: #F5F5F5;
-      border-radius: 15px;
-    }
+  &:hover {
+    background: #f5f5f5;
+    border-radius: 15px;
+  }
 }
 
 .tab-edit {
@@ -54,13 +114,12 @@ a:hover {
 }
 .tab-edit a {
   color: black;
-  opacity: 0.8
+  opacity: 0.8;
 }
 
 .tab-delete a {
   color: black;
-  opacity: 0.8
-
+  opacity: 0.8;
 }
 
 .tab-edit a:hover {
@@ -71,18 +130,16 @@ a:hover {
 .tab-delete a:hover {
   opacity: 0.95;
   font-size: 1.1em;
-
-
 }
 
-  // .fa-trash-alt:hover{
-  //     opacity: 1;
-  //     color: red;
-  //   }
+// .fa-trash-alt:hover{
+//     opacity: 1;
+//     color: red;
+//   }
 
-  //   .tab-edit{
-  //     opacity: 1;
-  //   }
+//   .tab-edit{
+//     opacity: 1;
+//   }
 
 // .show-tab-content:hover .show-tab-actions{
 //     opacity: 1;
@@ -93,12 +150,12 @@ a:hover {
 .show-tab-title {
   display: flex;
   color: black;
-    img {
-      width: 30px;
-      height: 30px;
-      margin-right: 12px;
-      margin-top: 2px;
-    }
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    margin-top: 2px;
+  }
 }
 
 .show-tab-url {
@@ -117,7 +174,6 @@ a:hover {
   color: black;
 }
 
-
 .show-folder-action {
   margin-top: 152px;
   margin-right: 211px;
@@ -129,7 +185,6 @@ a:hover {
 }
 
 .show-share-form {
-
 }
 
 .show-btn {
@@ -137,7 +192,7 @@ a:hover {
   padding-top: 28px;
   width: 336px;
   height: 87px;
-  background: #F5F5F5;
+  background: #f5f5f5;
   border-radius: 15px;
   font-family: Futura;
   font-style: normal;
@@ -147,21 +202,19 @@ a:hover {
   border: none;
   opacity: 1;
 
-    &:hover {
-      opacity: 0.7;
-    }
+  &:hover {
+    opacity: 0.7;
+  }
 
-    a {
-      color: black;
-      margin-left: 134px;
-    }
+  a {
+    color: black;
+    margin-left: 134px;
+  }
 }
+
 
 #show-share-form{
-  margin-left: 134px;
-
 }
-
 
 .show-share {
   margin-bottom: 24px;
@@ -172,12 +225,142 @@ a:hover {
 }
 
 .show-delete-folder {
-
 }
 
 .tab-icon {
   border-radius: 50%;
 }
 
+#new-share-form {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  padding: 40px;
+    h3 {
+      position: absolute;
+      top: 34%;
+      left: 19%;
+    }
 
+    button {
+      background-color: #F5F5F5;
+      border: none;
+      position: absolute;
+      left: 87%;
+    }
+}
 
+.hidden{
+  display: none;
+}
+
+// #new-folder-form {
+//   height: 400px;
+//   width: 600px;
+//   position: absolute;
+//   left: 10%;
+//   top: 10%;
+//   border-radius: 5px;
+//   background-color: rgba(236, 169, 80, 0.8);
+//   padding: 40px;
+//   z-index: 10;
+// }
+
+.new_share {
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 45%;
+  left: 22%;
+}
+
+.share-select {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 3px black solid;
+}
+
+.share-btn {
+  text-align: center;
+  margin-top: 25px;
+
+    input {
+      border-radius: 12px;
+      background-color: white;
+      border: 3px black solid;
+      transition: all 0.3s ease;
+      padding: 8px 22px;
+    }
+
+    input:hover{
+      background-color: black;
+      color: white;
+    }
+}
+
+#show-edit-folder {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  padding: 40px;
+
+      h3 {
+      position: absolute;
+      top: 21%;
+      left: 35%;
+    }
+
+    button {
+      background-color: #F5F5F5;
+      border: none;
+      position: absolute;
+      left: 87%;
+    }
+}
+
+.edit-form {
+    position: absolute;
+    top: 37%;
+    left: 7%;
+}
+
+.edit-btn {
+  text-align: center;
+  margin-top: 55px;
+
+    input {
+      border-radius: 12px;
+      background-color: white;
+      border: 3px black solid;
+      transition: all 0.3s ease;
+      padding: 8px 22px;
+    }
+
+    input:hover{
+      background-color: black;
+      color: white;
+    }
+}
+
+.edit-name {
+  label {
+    font-weight: bold;
+  }
+  input{
+    border-radius: 12px;
+    background-color: white;
+    border: 3px black solid;
+    transition: all 0.3s ease;
+    padding: 8px 22px;
+  }
+}
+
+.edit-cover{
+    label {
+    font-weight: bold;
+  }
+}

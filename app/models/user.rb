@@ -6,6 +6,14 @@ has_many :authentication_tokens
          :recoverable, :rememberable, :validatable, :token_authenticatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
+  has_many :folders
+  after_create :create_default_folder
+
+  def create_default_folder
+    puts "creating default folder"
+    Folder.create!(name: "Default", user: self)
+  end
+
   def self.from_omniauth(auth)
     p auth
     # where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
