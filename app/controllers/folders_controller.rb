@@ -89,7 +89,7 @@ class FoldersController < ApplicationController
     # importance = !@folder.importance
 
     # @folder.update importance: importance
-    # redirect_to folders_path
+    # redirect_to root_path
     # redirect_back(fallback_location: root_path)
     render json: {
       msg: 'Success'
