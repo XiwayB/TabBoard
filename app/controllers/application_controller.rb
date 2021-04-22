@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :unsaved_tabs
+  # before_action :unsaved_tabs
 
   before_action :authenticate_user!
   include Pundit
@@ -32,11 +32,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
-  private
+  
 
-  def unsaved_tabs
-    @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
-  end
+  private
 
   # Do not generate a session or session ID cookie
   # See https://github.com/rack/rack/blob/master/lib/rack/session/abstract/id.rb#L171
