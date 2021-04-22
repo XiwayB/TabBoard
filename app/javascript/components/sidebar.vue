@@ -69,7 +69,7 @@
                 </div>
                 <div
                   type="submit"
-                  class="btn btn-primary"
+                  class="add-folder-btn btn"
                   @click="addToFolder(tab)"
                 >
                   Add
@@ -139,7 +139,7 @@ export default {
 
     fetchFolders() {
       console.log('fetching folders');
-      const url = `/folders?format=json`;
+      const url = `/fetch_folders?format=json`;
       this.$ax.get(url).then((res) => {
         // console.log('fetch folders res:', res.data);
         this.folders = res.data;

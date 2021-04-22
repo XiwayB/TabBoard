@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get 'unsaved_tabs', to: 'tabs#unsaved_tabs'
 
+  get 'fetch_folders', to: 'folders#fetch_folders'
+
+
   post 'users/login_from_ext', to: 'users#login_from_ext'
   # namespace :api, defaults: { format: :json } do
   #   namespace :v1 do

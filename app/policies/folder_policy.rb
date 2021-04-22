@@ -9,6 +9,10 @@ class FolderPolicy < ApplicationPolicy
     end
   end
 
+  def fetch_folders?
+    true
+  end
+
   def create?
     true
   end

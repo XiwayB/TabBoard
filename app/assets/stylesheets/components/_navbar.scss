@@ -50,8 +50,12 @@
 }
 
 #btn-tabs.active {
-  right: 282px;
+  right: 278px;
   z-index: -1;
+}
+
+#btn-tabs.active:hover {
+  right: 285px;
 }
 
 #btn-tabs.active div {
@@ -123,7 +127,8 @@
 #items .item:hover {
   padding: 35px 20px;
   padding-right: 15px;
-  background-color: rgba(52, 56, 56, 0.1);
+  background-color: white;
+  border-left: 1px solid #f5f5f5;
 }
 
 .unsaved_tabs {
@@ -237,6 +242,24 @@ nav {
 .logo a:hover {
   opacity: 0.7;
   text-shadow: 3px 3px 20px white;
+}
+
+.add-folder-btn {
+  border-radius: 20px;
+  height: 25px;
+  background-color: white;
+  border: 2.6px black solid;
+  transition: all 0.3s ease;
+  padding: 0 18px 10px 18px;
+  // margin-left: 200px;
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.add-folder-btn:hover {
+  background: black;
+  color: white;
 }
 
 .nav-links {
