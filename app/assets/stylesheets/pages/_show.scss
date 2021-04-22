@@ -364,3 +364,46 @@ a:hover {
     font-weight: bold;
   }
 }
+
+#tab-update {
+  position: absolute;
+  left: 6%;
+  background-color: #F5F5F5;
+  width: 804px;
+    label {
+      display: none;
+    }
+    button {
+      background-color: #F5F5F5;
+      border: none;
+      left: 90%;
+      position: absolute;
+    }
+}
+
+.tab-update-title {
+  display:flex;
+}
+
+.edit-tab-title {
+  input {
+    border-radius: 12px;
+    background-color: white;
+    border: 3px black solid;
+    transition: all 0.3s ease;
+    padding: 8px 22px;
+    margin-left: 35px;
+    margin-top: 12px;
+  }
+}
+
+.save-edit {
+  input {
+    border-radius: 12px;
+    background-color: white;
+    border: 3px black solid;
+    padding: 2px 22px;
+    left: 39%;
+    top: 23%;
+  }
+}
