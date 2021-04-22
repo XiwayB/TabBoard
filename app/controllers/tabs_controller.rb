@@ -56,6 +56,12 @@ class TabsController < ApplicationController
     end
   end
 
+  def unsaved_tabs
+    authorize :tab, :unsaved_tabs?
+    @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
+    render json: { tabs: @unsaved_tabs }
+  end
+
 # DO NOT REMOVE COMMENT BELOW - INVISIBLE BUG
   # def create
   # end
@@ -82,8 +88,8 @@ class TabsController < ApplicationController
     authorize @tab
     @tab.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Tab was successfully destroyed.' }
-      format.json { head :no_content }
+      # format.html { redirect_to root_path, notice: 'Tab was successfully destroyed.' }
+      format.json { render json: {msg: 'Deleted'} }
     end
 
     # @tab.destroy

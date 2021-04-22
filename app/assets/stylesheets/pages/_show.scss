@@ -1,6 +1,5 @@
 body {
-  background-color: #FFFFFF;
-
+  background-color: #ffffff;
 }
 
 .container-folder {
@@ -8,7 +7,7 @@ body {
 }
 
 .show-header {
-  margin-top: 25px;
+  margin-top: 100px;
   margin-bottom: 62px;
   display: flex;
   justify-content: space-between;
@@ -18,7 +17,6 @@ body {
 .show-content {
   display: flex;
   justify-content: space-between;
-
 }
 
 a {
@@ -43,10 +41,10 @@ a:hover {
   width: 804px;
   color: black;
   padding: 8px;
-    &:hover{
-      background: #F5F5F5;
-      border-radius: 15px;
-    }
+  &:hover {
+    background: #f5f5f5;
+    border-radius: 15px;
+  }
 }
 
 .tab-edit {
@@ -54,13 +52,12 @@ a:hover {
 }
 .tab-edit a {
   color: black;
-  opacity: 0.8
+  opacity: 0.8;
 }
 
 .tab-delete a {
   color: black;
-  opacity: 0.8
-
+  opacity: 0.8;
 }
 
 .tab-edit a:hover {
@@ -71,18 +68,16 @@ a:hover {
 .tab-delete a:hover {
   opacity: 0.95;
   font-size: 1.1em;
-
-
 }
 
-  // .fa-trash-alt:hover{
-  //     opacity: 1;
-  //     color: red;
-  //   }
+// .fa-trash-alt:hover{
+//     opacity: 1;
+//     color: red;
+//   }
 
-  //   .tab-edit{
-  //     opacity: 1;
-  //   }
+//   .tab-edit{
+//     opacity: 1;
+//   }
 
 // .show-tab-content:hover .show-tab-actions{
 //     opacity: 1;
@@ -93,12 +88,12 @@ a:hover {
 .show-tab-title {
   display: flex;
   color: black;
-    img {
-      width: 30px;
-      height: 30px;
-      margin-right: 12px;
-      margin-top: 2px;
-    }
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    margin-top: 2px;
+  }
 }
 
 .show-tab-url {
@@ -117,7 +112,6 @@ a:hover {
   color: black;
 }
 
-
 .show-folder-action {
   margin-top: 152px;
   margin-right: 211px;
@@ -129,7 +123,6 @@ a:hover {
 }
 
 .show-share-form {
-
 }
 
 .show-btn {
@@ -137,7 +130,7 @@ a:hover {
   padding-top: 28px;
   width: 336px;
   height: 87px;
-  background: #F5F5F5;
+  background: #f5f5f5;
   border-radius: 15px;
   font-family: Futura;
   font-style: normal;
@@ -147,21 +140,19 @@ a:hover {
   border: none;
   opacity: 1;
 
-    &:hover {
-      opacity: 0.7;
-    }
+  &:hover {
+    opacity: 0.7;
+  }
 
-    a {
-      color: black;
-      margin-left: 134px;
-    }
+  a {
+    color: black;
+    margin-left: 134px;
+  }
 }
 
-#show-share-form{
+#show-share-form {
   margin-left: 134px;
-
 }
-
 
 .show-share {
   margin-bottom: 24px;
@@ -172,12 +163,8 @@ a:hover {
 }
 
 .show-delete-folder {
-
 }
 
 .tab-icon {
   border-radius: 50%;
 }
-
-
-

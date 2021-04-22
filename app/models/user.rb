@@ -6,6 +6,8 @@ has_many :authentication_tokens
          :recoverable, :rememberable, :validatable, :token_authenticatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
+  has_many :folders
+
   def self.from_omniauth(auth)
     p auth
     # where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
