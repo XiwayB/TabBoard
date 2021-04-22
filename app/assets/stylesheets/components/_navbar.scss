@@ -663,3 +663,80 @@ nav {
 // .home-tab:hover {
 //   opacity: 1;
 // }
+
+#new-folder-form {
+  position: fixed;
+  right: 88px;
+  top: 41px;
+  z-index: 2000;
+  width: 340px;
+  height: 197px;
+  background: #FFFFFF;
+  border: 1px solid #F5F5F5;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 40px 40px 249px 40px;
+      button {
+      border: none;
+      position: absolute;
+      left: 87%;
+      background-color: white;
+      top: 4%;
+    }
+      h3 {
+        font-size: 22px;
+        margin-left: 46px;
+        margin-bottom: 16px;
+      }
+}
+.btn-add-folder {
+  border-radius: 20px;
+  background-color: white;
+  border: 2.6px black solid;
+  transition: all 0.3s ease;
+  padding: 4px 18px 4px 18px;
+  // margin-left: 200px;
+  margin-top: 13px;
+  margin-left: 76px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.btn-add-folder:hover {
+  background: black;
+  color: white;
+}
+.create-folder-name {
+  label {
+    display: none;
+  }
+  input {
+    border-radius: 12px;
+    background-color: white;
+    border: 3px black solid;
+    transition: all 0.3s ease;
+    padding: 8px 22px;
+    margin-top: 34px;
+  }
+  i {
+    margin-right: 2px;
+  }
+}
+.create-folder-cover {
+  border-radius: 12px;
+  font-size: 13px;
+  background-color: white;
+  border: 3px black solid;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  margin-left: 14px;
+  margin-top: 14px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+}
+#close-create-folder {
+  border-radius: 15px;
+  border: 3px solid black
+}
