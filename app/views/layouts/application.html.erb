@@ -16,14 +16,15 @@
 
   <body>
    <!--  <div class="d-flex vh-100 position-relative"> -->
-      
+
       <%= render 'layouts/navbar' %>
       <div data-behavior="vue">
         <sidebar>
         <%#= render 'layouts/sidebar' %>
-        
-       </div> 
+
+       </div>
        <%= yield %>
+      <%#= render 'shared/footer' %>
       <%#= render 'shared/footer' %>
   </body>
 </html>

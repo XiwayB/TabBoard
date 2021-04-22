@@ -19,11 +19,13 @@ import {
 // import { showFolderForm } from '../scripts/show_sidebar_folder'
 import { initChoices } from '../scripts/init-choices';
 // drag and drop
-import { uniqueDropzone } from '../scripts/init-draggable';
-import { search } from '../scripts/search';
-import { toggleSearchContainer } from '../scripts/toggle-search-container';
-import { sharePopup, closeSharePopup } from '../scripts/show_share';
-import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder';
+
+import { uniqueDropzone } from '../scripts/init-draggable'
+import { search } from '../scripts/search'
+import { toggleSearchContainer } from '../scripts/toggle-search-container'
+import { sharePopup, closeSharePopup } from '../scripts/show_share'
+import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
+import { editFolder, closeEditFolder } from '../scripts/edit_folder'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -40,4 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   // keepSidebarOpen();
   showFolderForm();
   toggleSearchContainer();
+  editFolder();
+  closeEditFolder();
+
 });

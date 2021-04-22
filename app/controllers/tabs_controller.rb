@@ -44,11 +44,17 @@ class TabsController < ApplicationController
   end
 
   def save_all
+    authorize :tab, :save_all?
     tabs = params.require(:tabs)[:content]
     puts "tabs?? #{tabs}"
     @tabs = tabs.map do |tab|
-      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl], folder_id: tab[:folder_id])
-      @tab.save
+      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl])
+      @tab.folder = current_user.folders.first
+      @tab.save!
+
+      unless @tab.valid?
+        puts "errors ===>> #{@tab.errors.full_messages}"
+      end
     end
     respond_to do |format|
       format.html { redirect_to root_path }

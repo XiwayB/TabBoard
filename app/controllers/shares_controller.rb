@@ -9,12 +9,15 @@ class SharesController < ApplicationController
 
   def new
     @share = Share.new
+    authorize @share, :new?
     @share.folder = @folder
 
   end
 
   def create
     @share = Share.new(share_params)
+    authorize @share, :create?
+
     # @share.user = User.find_by(email: share_params[:email])
     @share.user = User.find(share_params[:user_id])
     @share.folder = @folder

@@ -13,6 +13,10 @@ class TabPolicy < ApplicationPolicy
     true
   end
 
+  def save_all?
+    true
+  end
+
   def show?
     true
   end

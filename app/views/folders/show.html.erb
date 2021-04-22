@@ -1,11 +1,11 @@
-<div class="show-page">
-    <div class="container-folder">
-      <div class="show-header">
-        <div class="show-title">
-          <h1><%= @folder.name %></h1>
-        </div>
-      </div>
+<div class="show-header">
+  <div class="show-title">
+    <h1><%= @folder.name %></h1>
+  </div>
+</div>
 
+  <div class="show-page-content">
+    <div class="col-8">
       <div class="show-content">
         <div id="show-tabs-folder">
           <% @folder.tabs.each do |tab|  %>
@@ -41,33 +41,63 @@
             <% end %>
           <% end %>
         </div>
-
-        <div class="show-folder-action">
-          <div class="show-share">
-            <div class="show-btn">
-                <div id="show-share-form">Share</div>
-              </div>
-              <div id="new-share-form" class="hidden">
-                <button id="close-share-form" class="btn-primary btn-sm">close</button>
-                <h3>Who to share with?</h3>
-                <%= simple_form_for([@folder, @share]) do |f| %>
-                  <select name="share[user_id]" id="" data_behavior="choicesjs">
-                    <%= @users.each do |user| %>
-                     <option value="<%= user.id %>"><%= user.email %></option>
-                    <% end %>
-                  </select>
-                  <%= f.submit "Add folder", class: "btn btn-primary" %>
-                <% end %>
-              </div>
-          </div>
-            <div class="show-btn">
-              <%= link_to "Edit", edit_folder_path(@folder), class:"show-btn" %>
-            </div>
-            <div class="show-btn">
-              <%= link_to "Delete", folder_path(@folder), class:"show-btn", method: :delete, data: {confirm: "Are you sure to delete the folder and all of its contents?"}  %>
-            </div>
-          </div>
     </div>
   </div>
-</div>
+
+    <div class="col-4">
+      <div class="show-card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%), url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://res.cloudinary.com/xiway/image/upload/v1618285398/crk75x1ehaaea4ienrod.jpg" %>)">
+        <div id="show-share-form" class="folder-btn">
+              Share
+        </div>
+          <div id="new-share-form" class="hidden">
+            <button id="close-share-form">
+              <i class="fas fa-times"></i>
+            </button>
+              <h3>Who to share with?</h3>
+                <%= simple_form_for([@folder, @share]) do |f| %>
+                  <select name="share[user_id]" id="" data_behavior="choicesjs" class="share-select">
+                    <%= @users.each do |user| %>
+                     <option value="<%= user.id %>"><%= user.email %></option>
+                  <% end %>
+                  </select>
+                <div class="share-btn">
+                  <%= f.submit "Share" %>
+                </div>
+              <% end %>
+          </div>
+            <div id="edit-folder" class="folder-btn">
+              Edit
+            </div>
+
+            <div id="show-edit-folder" class="hidden">
+              <button id="close-edit-folder">
+                   <i class="fas fa-times"></i>
+              </button>
+                <h3>Edit folder</h3>
+                <div class="edit-form">
+                  <%= simple_form_for(@folder) do |f| %>
+                    <div class="edit-name">
+                      <%= f.input :name %>
+                    </div>
+                    <div class="edit-cover">
+                      <%= f.input :photo, as: :file %>
+                    </div>
+                    <div class="edit-btn">
+                      <%= f.submit %>
+                    </div>
+                  <% end %>
+                </div>
+            </div>
+<!--             <%= link_to edit_folder_path(@folder) do %>
+              <div class="folder-btn">
+                Edit
+              </div>
+            <% end %> -->
+          <%= link_to folder_path(@folder), method: :delete, data: {confirm: "Are you sure to delete the folder and all of its contents?"} do %>
+            <div class="folder-btn">
+              Delete
+            </div>
+          <% end %>
+      </div>
+    </div>
 
