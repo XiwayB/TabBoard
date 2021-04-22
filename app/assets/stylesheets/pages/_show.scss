@@ -15,15 +15,77 @@ body {
   position: relative;
 }
 
+.show-page-content {
+  display:flex;
+}
+
 .show-content {
   display: flex;
   justify-content: space-between;
 
 }
 
-a {
-  text-decoration: none;
+.show-card {
+  width: 396.5px;
+  height: 558px;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%);
+  border: 0;
+  position: relative;
+  background-size: 300%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 25%;;
 }
+
+.show-card:hover {
+  // filter: brightness(70%);
+  transition: all 0.3s ease;
+  border: 0;
+  background-size: 400%;
+}
+
+.folder-btn:hover {
+  color: black;
+  background: white;
+    a {
+        color: black;
+      }
+}
+
+// .show-card:hover .edit-folder {
+//   color:black;
+//   background: white;
+// }
+
+// .show-card:hover .delete-folder {
+//   color:black;
+//   background: white;
+// }
+
+.folder-btn {
+  border-radius: 25px;
+  border: 4px solid white;
+  margin: 32px 0px;
+  height: 52px;
+  width: 220px;
+  font-size: 22px;
+  color: white;
+  font-weight: medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+}
+
 
 a:hover {
   text-decoration: none;
@@ -158,8 +220,6 @@ a:hover {
 }
 
 #show-share-form{
-  margin-left: 134px;
-
 }
 
 
@@ -179,5 +239,55 @@ a:hover {
   border-radius: 50%;
 }
 
+#new-share-form {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  padding: 40px;
+    h3 {
+      position: absolute;
+      top: 34%;
+      left: 19%;
+    }
+}
 
+.hidden{
+  display: none;
+}
 
+#new-folder-form {
+  height: 400px;
+  width: 600px;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  border-radius: 5px;
+  background-color: rgba(236, 169, 80, 0.8);
+  padding: 40px;
+  z-index: 10;
+}
+
+.new_share {
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 45%;
+  left: 22%;
+}
+
+.share-select {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 3px black solid;
+}
+
+.share-btn {
+  text-align: center;
+  margin-top: 25px;
+
+    input {
+      background-color: white;
+    }
+}
