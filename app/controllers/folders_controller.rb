@@ -23,6 +23,11 @@ class FoldersController < ApplicationController
     end
   end
 
+  def fetch_folders
+    authorize :folder, :fetch_folders?
+    render json: policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id).where.not(folders: {name: 'Default'})
+  end
+
   def show
     @tab = Tab.new
     @share = Share.new
