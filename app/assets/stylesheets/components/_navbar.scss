@@ -215,12 +215,12 @@
 
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 7vh;
-    background-color: #F5F5F5;
-    font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 7vh;
+  background-color: #F5F5F5;
+  font-family: "Poppins", sans-serif;
 }
 
 
@@ -279,7 +279,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    .body {
+    .body-navbar {
         height: 100%;
         width: 100%;
         position: fixed;
