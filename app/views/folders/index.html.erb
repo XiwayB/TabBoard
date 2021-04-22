@@ -1,6 +1,3 @@
-<!-- <div class="testnav">
-</div>
- -->
 <div class="cards">
   <% @folders.each do |folder| %>
     <%= link_to folder_path(folder), :action => 'go' do %>
@@ -18,6 +15,7 @@
         </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
         <div class="fav-heart">
+
           <%= image_tag "heart.png", :class => 'heart-pic'%>
         </div>
       </div>
