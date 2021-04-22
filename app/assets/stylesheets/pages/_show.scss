@@ -47,7 +47,7 @@ body {
   // filter: brightness(70%);
   transition: all 0.3s ease;
   border: 0;
-  background-size: 400%;
+  background-size: 320%;
 }
 
 .folder-btn:hover {
@@ -251,23 +251,30 @@ a:hover {
       top: 34%;
       left: 19%;
     }
+
+    button {
+      background-color: #F5F5F5;
+      border: none;
+      position: absolute;
+      left: 87%;
+    }
 }
 
 .hidden{
   display: none;
 }
 
-#new-folder-form {
-  height: 400px;
-  width: 600px;
-  position: absolute;
-  left: 10%;
-  top: 10%;
-  border-radius: 5px;
-  background-color: rgba(236, 169, 80, 0.8);
-  padding: 40px;
-  z-index: 10;
-}
+// #new-folder-form {
+//   height: 400px;
+//   width: 600px;
+//   position: absolute;
+//   left: 10%;
+//   top: 10%;
+//   border-radius: 5px;
+//   background-color: rgba(236, 169, 80, 0.8);
+//   padding: 40px;
+//   z-index: 10;
+// }
 
 .new_share {
   transition: all 0.3s ease;
@@ -288,6 +295,80 @@ a:hover {
   margin-top: 25px;
 
     input {
+      border-radius: 12px;
       background-color: white;
+      border: 3px black solid;
+      transition: all 0.3s ease;
+      padding: 8px 22px;
     }
+
+    input:hover{
+      background-color: black;
+      color: white;
+    }
+}
+
+#show-edit-folder {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  padding: 40px;
+
+      h3 {
+      position: absolute;
+      top: 21%;
+      left: 35%;
+    }
+
+    button {
+      background-color: #F5F5F5;
+      border: none;
+      position: absolute;
+      left: 87%;
+    }
+}
+
+.edit-form {
+    position: absolute;
+    top: 37%;
+    left: 7%;
+}
+
+.edit-btn {
+  text-align: center;
+  margin-top: 55px;
+
+    input {
+      border-radius: 12px;
+      background-color: white;
+      border: 3px black solid;
+      transition: all 0.3s ease;
+      padding: 8px 22px;
+    }
+
+    input:hover{
+      background-color: black;
+      color: white;
+    }
+}
+
+.edit-name {
+  label {
+    font-weight: bold;
+  }
+  input{
+    border-radius: 12px;
+    background-color: white;
+    border: 3px black solid;
+    transition: all 0.3s ease;
+    padding: 8px 22px;
+  }
+}
+
+.edit-cover{
+    label {
+    font-weight: bold;
+  }
 }

@@ -9,11 +9,11 @@ class FoldersController < ApplicationController
     #   @folders = Folder.joins(:shares).where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
 
     # else
-      @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
+    @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
 
-      # @folders = Folder.where(user_id: 4).or(Folder.where(user_id: 1))
     # end
     @folder = Folder.new
+
     # returns a response to the get request
     # to confirm success. To display all folders
     # in chrome extension
