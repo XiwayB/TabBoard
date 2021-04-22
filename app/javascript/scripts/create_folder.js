@@ -1,5 +1,5 @@
 const createFolder = () => {
-  // console.log("share popping up");
+  console.log("share popping up");
     const addFolder = document.getElementById("create-folder");
     // console.log({showForm})
     if (addFolder) {
