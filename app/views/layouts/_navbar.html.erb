@@ -53,7 +53,27 @@
           <li id="search-nav" class="ml-3">
             <i class="fa fa-search" style="font-size: 20px;"></i></li>
           <li class="ml-3" id="add-folder-index">
-            <i class="fas fa-plus-circle" style="font-size: 20px;"></i>
+            <!-- you are here -->
+            <i id="create-folder"class="fas fa-plus-circle" style="font-size: 20px;"></i>
+              <div id="new-folder-form" class="hidden">
+              <button id="close-create-folder">
+                   <i class="fas fa-times"></i>
+              </button>
+                 <h3>Create Folder</h3>
+                <%= simple_form_for(@folder) do |f| %>
+                  <div class="create-folder-name">
+                    <%= f.input :name, placeholder: 'Add a folder name' %>
+                  </div>
+       <!--              <i class="far fa-image"></i> -->
+                    <label class="create-folder-cover">
+                        <i class="far fa-image"></i> Upload Cover Image
+                      <span style="display:none;">
+                        <%= f.input :photo, as: :file %>
+                      </span>
+                    </label>
+                  <%= f.submit "Add folder", class: "btn-add-folder" %>
+                 <% end %>
+            </div>
           </li>
       </ul>
     <!--   <div class="burger">
