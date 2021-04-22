@@ -1,15 +1,7 @@
 <div class="cards">
-
-
-
-
-
-
-
-
   <% @folders.each do |folder| %>
-    <%= link_to folder_path(folder), :action => 'go' do %>
-      <div class="card">
+    <%#= link_to folder_path(folder) do %>
+      <div id="folder-card" data-id="<%= folder.id %>" class="card">
         <% if folder.photo.attached? %>
           <%= cl_image_tag folder.photo.key, alt: "coverimg" %>
         <% else %>
@@ -18,17 +10,21 @@
         <div class="goto-view">
             View
         </div>
-        <div class = "goto-name">
+        <div class="goto-name">
             <%= folder.name %>
         </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
-        <div class="fav-heart">
-          <%#= link_to like_folder_path(folder) do %>
-            <%= image_tag "unlike.png", :class => 'heart-pic'%>
-          <%# end %>
-        </div>
+        <%#= link_to like_folder_path(folder) do %>
+          <div id="fav-heart" class="fav-heart" data-id="<%= folder.id %>">
+            <% if folder.importance? %>
+                <%= image_tag "heart.png", :class => 'heart-pic'%>
+            <% else %>
+                <%= image_tag "unlike.png", :class => 'heart-pic'%>
+            <% end %>
+          </div>
+        <%# end %>
       </div>
-    <% end %>
+    <%# end %>
   <% end %>
 </div>
 

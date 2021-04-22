@@ -22,6 +22,7 @@ import { initChoices } from '../scripts/init-choices';
 
 import { uniqueDropzone } from '../scripts/init-draggable'
 import { search } from '../scripts/search'
+import { favHeart, goToShow } from '../scripts/fav-heart'
 import { toggleSearchContainer } from '../scripts/toggle-search-container'
 import { sharePopup, closeSharePopup } from '../scripts/show_share'
 import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
@@ -44,5 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   toggleSearchContainer();
   editFolder();
   closeEditFolder();
-
+  favHeart();
+  goToShow();
 });
