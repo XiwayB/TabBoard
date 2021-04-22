@@ -1,5 +1,6 @@
 <%= simple_form_for(@folder) do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
 
