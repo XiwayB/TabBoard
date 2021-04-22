@@ -3,8 +3,8 @@ require 'open-uri'
 class Folder < ApplicationRecord
   belongs_to :user
   has_many :tabs, dependent: :destroy
-  validates :name, presence: true #, uniqueness: true;
-  validates :name, uniqueness: { scope: :user_id }
+  validates :name, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 15, too_long: "15 characters is the maximum allowed" }
+  # validates :name, uniqueness: { scope: :user_id }
   has_one_attached :photo
 
   # sharing
