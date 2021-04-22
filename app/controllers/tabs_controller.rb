@@ -64,7 +64,7 @@ class TabsController < ApplicationController
 
   def unsaved_tabs
     authorize :tab, :unsaved_tabs?
-    @unsaved_tabs = Tab.joins(:folder).where(:folders => {name:'Default'})
+    @unsaved_tabs = current_user.tabs.joins(:folder).where(:folders => {name:'Default'})
     render json: { tabs: @unsaved_tabs }
   end
 
@@ -92,9 +92,10 @@ class TabsController < ApplicationController
 
   def destroy
     authorize @tab
+    @folder = @tab.folder_id
     @tab.destroy
     respond_to do |format|
-      # format.html { redirect_to root_path, notice: 'Tab was successfully destroyed.' }
+      format.html { redirect_to folder_path(@folder), notice: 'Tab was successfully destroyed.' }
       format.json { render json: {msg: 'Deleted'} }
     end
 

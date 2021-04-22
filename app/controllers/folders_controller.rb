@@ -9,8 +9,8 @@ class FoldersController < ApplicationController
     #   @folders = Folder.joins(:shares).where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id)
 
     # else
-    @folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
-
+    folders = policy_scope(Folder).joins("LEFT JOIN shares ON shares.folder_id = folders.id").where("folders.user_id = :id OR shares.user_id = :id", id: current_user.id).order(:id)
+    @folders = folders.where.not(folders: {name: 'Default'})
     # end
     @folder = Folder.new
 
@@ -19,7 +19,7 @@ class FoldersController < ApplicationController
     # in chrome extension
     respond_to do |format|
       format.html
-      format.json { render json: @folders }
+      format.json { render json: folders }
     end
   end
 

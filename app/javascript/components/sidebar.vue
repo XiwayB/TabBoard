@@ -42,30 +42,38 @@
                 id="add_to_folder"
                 :data-id="`${tab.id}`"
                 class="options folder"
-                @click="showFolderForm"
+                @click="showFolderForm(tab.id)"
               >
                 <i class="fas fa-folder-plus"></i>
               </div>
               <!-- <div id="test-button" class="options"><i class="fas fa-folder-plus"></i></div> -->
             </div>
-            <div id="addFolderForm" class="unsaved_tabs form hidden2">
+            <div :id="tab.id" class="unsaved_tabs form hidden2">
               <form>
                 <div class="form-group">
                   <select
+                    v-model="folder_id"
                     class="form-control"
                     id="addFolder"
                     data-behavior="choicesjs"
                   >
-                    <div v-for="(folder, index) in folders" :key="index">
-                      <option class="folderChoice" :value="folder.id">{{
-                        folder.name
-                      }}</option>
-                    </div>
+                    <!-- you are here -->
+                    <option
+                      v-for="(folder, index) in folders"
+                      :key="index"
+                      class="folderChoice"
+                      :value="folder.id"
+                      >{{ folder.name }}</option
+                    >
                   </select>
                 </div>
-                <button class="btn btn-primary" @click="addToFolder(tab.id)">
+                <div
+                  type="submit"
+                  class="btn btn-primary"
+                  @click="addToFolder(tab)"
+                >
                   Add
-                </button>
+                </div>
               </form>
             </div>
 
@@ -100,6 +108,7 @@ export default {
       id: 1,
       tabs: [],
       folders: [],
+      folder_id: null,
     };
   },
   mounted() {
@@ -107,23 +116,24 @@ export default {
     this.fetchTabs();
     this.fetchFolders();
   },
-  ready() {
-    console.log('sidebar component is ready');
-  },
+  //   ready() {
+  //     console.log('sidebar component is ready');
+  //   },
   methods: {
     fetchTabs() {
       //   this.tabs = [];
-      console.log('fetching tabs');
+      //   console.log('fetching tabs');
       const url = `/unsaved_tabs`;
       this.$ax.get(url).then((res) => {
-        console.log('fetch unsaved tabs res:', res);
+        // console.log('fetch unsaved tabs res:', res);
         this.tabs = res.data.tabs;
       });
     },
 
-    showFolderForm() {
-      console.log('inshow folder form');
-      let form = document.getElementById('addFolderForm');
+    showFolderForm(id) {
+      console.log('inshow folder form', id);
+      //   let form = document.getElementById(`addFolderForm_${id}`);
+      let form = document.getElementById(`${id}`);
       form.classList.toggle('hidden2');
     },
 
@@ -131,16 +141,23 @@ export default {
       console.log('fetching folders');
       const url = `/folders?format=json`;
       this.$ax.get(url).then((res) => {
-        console.log('fetch folders res:', res.data);
+        // console.log('fetch folders res:', res.data);
         this.folders = res.data;
+        // console.log('this.folders', this.folders);
       });
     },
 
     addToFolder(tab) {
-      console.log('tab', tab);
-      const url = `/tabs/${tab}?format=json`;
-      this.$ax.delete(url).then((res) => {
-        console.log('deleted tab:', res);
+      console.log('folder_id', this.folder_id);
+      console.log('add to folder: folder, tab:', tab);
+      const url = `/tabs/${tab.id}?format=json`;
+      const body = {
+        tab: {
+          folder_id: this.folder_id,
+        },
+      };
+      this.$ax.put(url, body).then((res) => {
+        console.log('moved tab:', res);
         // this.tabs = res.data.tabs;
         this.fetchTabs();
       });

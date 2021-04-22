@@ -10,8 +10,6 @@
         <div id="show-tabs-folder">
           <% @folder.tabs.each do |tab|  %>
               <div class="show-tab-card">
-                <% link = tab.url %>
-                <%= link_to link, target: "_blank", class: "show-tab"  do %>
                   <div class="show-tab-content">
                       <div class="show-tab-title">
                           <% if tab.icon %>
@@ -22,17 +20,32 @@
                         <h3> <%= tab.title %> </h3>
                       </div>
                         <div class="show-tab-actions">
-                          <div class="tab-edit">
-                            <%= link_to edit_tab_path(tab.id) do %>
+                          <div id="tab-edit">
                               <i class="fas fa-pen"></i>
-                            <% end  %>
                           </div>
+                            <div id="tab-update" class="hidden">
+                              <div class="tab-update-title">
+                                <button id="close-edit-tab-show">
+                                  <i class="fas fa-times"></i>
+                                </button>
+                                  <%= simple_form_for (@tab) do |f| %>
+                                    <div class="edit-tab-title">
+                                      <%= f.input :title, placeholder: "Type your new title" %>
+                                    </div>
+                                    <div class="save-edit">
+                                      <%= f.button :submit, 'Save' %>
+                                    </div>
+                                  <% end %>
+                              </div>
+                            </div>
                           <div class="tab-delete">
                             <%= link_to tab_path(tab), method: :delete, data: {confirm: "Are you sure to delete this tab?"} do %>
                               <i class="far fa-trash-alt"></i>
                             <% end  %>
                           </div>
                         </div>
+                          <% link = tab.url %>
+                        <%= link_to link, target: "_blank"  do %>
                       <div class="show-tab-url">
                         <%= tab.url.truncate(80, seperator: '', omission: '...') %>
                       </div>
@@ -45,7 +58,7 @@
   </div>
 
     <div class="col-4">
-      <div class="show-card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%), url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://res.cloudinary.com/xiway/image/upload/v1618285398/crk75x1ehaaea4ienrod.jpg" %>)">
+      <div class="show-card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%), url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://source.unsplash.com/1600x900/?nature" %>)">
         <div id="show-share-form" class="folder-btn">
               Share
         </div>
@@ -88,11 +101,6 @@
                   <% end %>
                 </div>
             </div>
-<!--             <%= link_to edit_folder_path(@folder) do %>
-              <div class="folder-btn">
-                Edit
-              </div>
-            <% end %> -->
           <%= link_to folder_path(@folder), method: :delete, data: {confirm: "Are you sure to delete the folder and all of its contents?"} do %>
             <div class="folder-btn">
               Delete

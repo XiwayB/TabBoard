@@ -12,16 +12,20 @@
   grid-row-gap: 60px;
   width: 1163px;
   height: 416px;
-  margin: 94px 80px;
-  align-items: baseline;
+  margin-top: 94px;
+  margin-left: 80px;
+  margin-right: 80px;
+  align-items: center;
 }
 
 .card {
   width: 304.5px;
   height: 406px;
   border-radius: 12px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%);
+  // background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%);
   border: 0;
+  background-position: center;
+  background-size: 300%;
   // margin-bottom: 60px;
 }
 
@@ -36,12 +40,14 @@
 }
 
 .card:hover {
-  width: 312.5px;
-  height: 416px;
-  border-radius: 12px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0, rgba(0,0,0,0.55) 74.4%);
+  transform: scale(1.02);
+  transition: all .2s ease-in-out;
+  // background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0, rgba(0,0,0,0.55) 74.4%);
+  // background-color: linear-gradient(to bottom, rgba(0,0,0,0.2) 0, rgba(0,0,0,0.55) 74.4%);
+  background-position: center;
   border: 0;
-  margin-bottom: 60px;
+  background-size: 350%;
+  margin: 0;
 }
 
 // .card:hover > img {
@@ -90,6 +96,14 @@
   right: 26px;
 }
 
+.time {
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  bottom: 52px;
+  left: 26px;
+}
+
 .goto-name {
   position: absolute;
   top: 166px;
@@ -126,6 +140,8 @@
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 60px;
   }
 }
 
@@ -133,6 +149,8 @@
 @media (min-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 60px;
   }
 }
 

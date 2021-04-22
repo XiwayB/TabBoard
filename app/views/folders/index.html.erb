@@ -1,17 +1,16 @@
 <div class="cards">
   <% @folders.each do |folder| %>
-    <%#= link_to folder_path(folder) do %>
-      <div id="folder-card" data-id="<%= folder.id %>" class="card">
-        <% if folder.photo.attached? %>
-          <%= cl_image_tag folder.photo.key, alt: "coverimg" %>
-        <% else %>
-          <%= cl_image_tag "crk75x1ehaaea4ienrod", alt: "alttext"  %>
-        <% end %>
+    <%= link_to folder_path(folder)  do %>
+      <div class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://source.unsplash.com/1600x900/?nature"%>)" >
+
         <div class="goto-view">
             View
         </div>
         <div class="goto-name">
             <%= folder.name %>
+        </div>
+        <div class = "time">
+            <%= folder.created_at.strftime("%m/%d/%Y")%>
         </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
         <%#= link_to like_folder_path(folder) do %>

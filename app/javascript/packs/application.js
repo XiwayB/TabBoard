@@ -27,6 +27,7 @@ import { toggleSearchContainer } from '../scripts/toggle-search-container'
 import { sharePopup, closeSharePopup } from '../scripts/show_share'
 import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
 import { editFolder, closeEditFolder } from '../scripts/edit_folder'
+import { editTabShow, closeEditTabShow } from '../scripts/edit_show_tab'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -47,4 +48,6 @@ document.addEventListener('turbolinks:load', () => {
   closeEditFolder();
   favHeart();
   goToShow();
+  editTabShow();
+  closeEditTabShow();
 });
