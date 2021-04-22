@@ -4,15 +4,12 @@
 <div class="cards">
   <% @folders.each do |folder| %>
     <%= link_to folder_path(folder), :action => 'go' do %>
-<!--       <div class="card">
+      <div class="card">
         <% if folder.photo.attached? %>
           <%= cl_image_tag folder.photo.key, alt: "coverimg" %>
         <% else %>
           <%= cl_image_tag "crk75x1ehaaea4ienrod", alt: "alttext"  %>
         <% end %>
-
- -->
-        <div class="card" style="background-image: url(<%= @folder.photo.attached? ? @folder.photo.key : 'https://res.cloudinary.com/xiway/image/upload/v1618285398/crk75x1ehaaea4ienrod.jpg' %>)">
         <div class="goto-view">
             View
         </div>
@@ -21,9 +18,8 @@
         </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
         <div class="fav-heart">
-          <!-- <button></button> -->
           <%= image_tag "heart.png", :class => 'heart-pic'%>
-      </div>
+        </div>
       </div>
     <% end %>
   <% end %>
