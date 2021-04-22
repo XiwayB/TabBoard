@@ -10,12 +10,15 @@ let webLink;
 
 
 const search = () => {
+  // console.log(12345678901234567890)
   if (inputBox) {
-   inputBox.onkeyup = (e) => {
-    console.log("eee",e)
+    // console.log({inputBox})
+   // inputBox.onkeyup = (e) => {
+   inputBox.addEventListener('keydown', (e) => {
+    // console.log("eee",e)
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
-    console.log("target", e.target)
+    // console.log("target", e.target)
     const url =  `http://localhost:3000/tabs?format=json&query=${userData}`
     const folderUrl = `http://localhost:3000/folders`
     if(userData) {
@@ -24,7 +27,7 @@ const search = () => {
         // console.log(123, data)
         results.innerHTML = '';
         let listString = '<li style="font-size: 36px; font-weight: 500; margin-top: 20px; fontcolour: white">Search Results:</li>'
-        data.forEach((result) => {
+        data.forEach((result, index) => {
 
           // console.log(result)
 
@@ -32,7 +35,7 @@ const search = () => {
 
           const list = `
 
-          <li onclick="select(this)" data-folder-id="${result.folder_id}">
+          <li onclick="select(this)" data-index="${index}" data-folder-id="${result.folder_id}">
 
             <div style="display: flex; align-items: center;">
               <div style="width: 80%">
@@ -45,6 +48,7 @@ const search = () => {
               </a>
             </div>
           </li>`
+
           listString += list
           })
 
@@ -56,14 +60,10 @@ const search = () => {
       };
 
 
-  }
+    })
   }
 
 }
-
-
-
-
 
 // inputBox.onblur = function() {
 //   setTimeout(function() {

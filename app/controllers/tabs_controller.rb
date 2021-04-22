@@ -48,8 +48,8 @@ class TabsController < ApplicationController
     tabs = params.require(:tabs)[:content]
     puts "tabs?? #{tabs}"
     @tabs = tabs.map do |tab|
-      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:iconUrl])
-      @tab.folder = current_user.folders.first
+      @tab = Tab.new(title: tab[:title], url: tab[:url], icon: tab[:icon])
+      @tab.folder = Folder.find(params[:folder_id])
       @tab.save!
 
       unless @tab.valid?
@@ -65,7 +65,7 @@ class TabsController < ApplicationController
   def unsaved_tabs
     authorize :tab, :unsaved_tabs?
     @unsaved_tabs = current_user.tabs.joins(:folder).where(:folders => {name:'Default'})
-    render json: { tabs: @unsaved_tabs }
+    render json: { tabs: @unsaved_tabs.map{|tab| tab.to_hashy } }
   end
 
 # DO NOT REMOVE COMMENT BELOW - INVISIBLE BUG
