@@ -28,9 +28,9 @@
                                 <button id="close-edit-tab-show">
                                   <i class="fas fa-times"></i>
                                 </button>
-                                  <%= simple_form_for (@tab) do |f| %>
+                                  <%= simple_form_for (tab) do |f| %>
                                     <div class="edit-tab-title">
-                                      <%= f.input :title, placeholder: "Type your new title" %>
+                                      <%= f.input :title %>
                                     </div>
                                     <div class="save-edit">
                                       <%= f.button :submit, 'Save' %>

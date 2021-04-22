@@ -31,6 +31,7 @@ class TabsController < ApplicationController
   def create
     puts "current_user : #{current_user.email}"
     @tab = Tab.new(tab_params)
+    @folder = @tab.folder_id
     authorize @tab
     if @tab.save
       # render root_path
@@ -74,9 +75,10 @@ class TabsController < ApplicationController
 
   def update
     authorize @tab
+    @folder = @tab.folder_id
     respond_to do |format|
       if @tab.update(tab_params)
-        format.html { redirect_to root_path, notice: 'Tab was successfully updated.' }
+        format.html { redirect_to folder_path(@folder), notice: 'Tab was successfully updated.' }
         format.json { render :show, status: :ok, location: @tab }
       else
         format.html { render :edit }
