@@ -1,6 +1,6 @@
 <div class="cards">
   <% @folders.each do |folder| %>
-      <div id="folder-card" data-id="<%= folder.id %>" class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%= @folder.photo.attached? ? cl_image_path(@folder.photo.key) : "https://source.unsplash.com/1600x900/?nature"%>)" >
+      <div id="folder-card" data-id="<%= folder.id %>" class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%= folder.photo.attached? ? cl_image_path(folder.photo.key) : "https://source.unsplash.com/1600x900/?nature"%>)" >
 
         <div class="goto-view">
             View
