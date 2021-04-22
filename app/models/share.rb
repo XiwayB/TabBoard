@@ -4,6 +4,4 @@ class Share < ApplicationRecord
 
   validates :user, presence: true
   validates :folder, presence: true
-
-
 end

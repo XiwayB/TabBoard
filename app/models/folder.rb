@@ -6,7 +6,7 @@ class Folder < ApplicationRecord
   has_one_attached :photo
 
   # sharing
-  has_many :shares
+  has_many :shares, dependent: :destroy
   has_many :users, through: :shares
 
   include PgSearch::Model
