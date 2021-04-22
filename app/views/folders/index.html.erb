@@ -18,6 +18,9 @@
         <div class = "goto-name">
             <%= folder.name %>
         </div>
+        <div class = "time">
+            <%= folder.created_at.strftime("%m/%d/%Y")%>
+        </div>
         <!-- <img class="fav-heart" src="/assets/images/heart.png" alt="okkkkk"> -->
         <div class="fav-heart">
           <%#= link_to like_folder_path(folder) do %>
