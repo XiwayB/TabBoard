@@ -28,6 +28,7 @@
   background-position: center;
   background-size: 300%;
   // margin-bottom: 60px;
+  transition: all .2s ease-in-out;
 }
 
 
@@ -60,11 +61,13 @@
 .card:hover .goto-view {
   color:black;
   background: white;
+  transition: all .3s ease-in-out;
 }
 
 .card:hover .goto-name {
   top: 31px;
   left: 26px;
+  transition: all .3s ease-in-out;
 }
 
 .card:hover .heart-pic {
@@ -95,6 +98,7 @@
   position: absolute;
   bottom: 50px;
   right: 26px;
+  transition: all .3s ease-in-out;
 }
 
 .time {
@@ -112,10 +116,11 @@
   font-weight: bold;
   font-size: 24px;
   color: white;
+  transition: all .3s ease-in-out;
 }
 
 .heart-pic {
-  opacity: 0;
+  opacity: 0.5;
   position: absolute;
   top: 38px;
   right: 27px;
