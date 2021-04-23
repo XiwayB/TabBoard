@@ -11,7 +11,7 @@ class Folder < ApplicationRecord
   has_many :shares, dependent: :destroy
   has_many :users, through: :shares
 
-  after_create :attach_unsplash
+  after_create :run_photo_worker
 
   include PgSearch::Model
   pg_search_scope :search_folder,
@@ -23,6 +23,10 @@ class Folder < ApplicationRecord
     # partial words allowed
     tsearch: { prefix: true }
   }
+
+  def run_photo_worker
+    AttachPhotoWorker.perform_async(id)
+  end
 
   def attach_unsplash
     url = "https://source.unsplash.com/1600x900/?nature"
