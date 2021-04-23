@@ -19,8 +19,8 @@ const search = () => {
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
     // console.log("target", e.target)
-    const url =  `http://localhost:3000/tabs?format=json&query=${userData}`
-    const folderUrl = `http://localhost:3000/folders`
+    const url =  `/tabs?format=json&query=${userData}`
+    const folderUrl = `/folders`
     if(userData) {
       fetch(url).then(response => response.json())
       .then((data) => {

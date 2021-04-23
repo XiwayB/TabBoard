@@ -8,8 +8,7 @@ const favHeart = () => {
         // e.preventDefault();
         const id = e.currentTarget.dataset.id
 
-        // fetch to the route /folder/${id}/like?format=json
-        const url =  `http://localhost:3000/folders/${id}/like?format=json`
+        const url =  `/folders/${id}/like?format=json`
         // event.preventDefault();
         fetch(url)
         .then(response => response.json())
@@ -37,7 +36,7 @@ const goToShow = () => {
         console.log({id})
         window.location.href = `/folders/${id}`
         // fetch to the route /folder/${id}/like?format=json
-        // const url =  `http://localhost:3000/folders/${id}/like?format=json`
+        // const url =  `http://taboard.herokuapp.com/folders/${id}/like?format=json`
         // event.preventDefault();
 
         // on msg success, window.location.reload(true)
