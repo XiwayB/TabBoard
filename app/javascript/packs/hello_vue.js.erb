@@ -9,7 +9,6 @@ const csrf = document
 Vue.use({
   install(Vue) {
     Vue.prototype.$ax = axios.create({
-      // baseURL: 'http://taboard.herokuapp.com/',
       headers: { 'X-CSRF-TOKEN': csrf },
     });
   },
