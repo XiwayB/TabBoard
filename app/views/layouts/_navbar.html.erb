@@ -81,11 +81,11 @@
             <% end %>
           </li>
       </ul>
-    <!--   <div class="burger">
+      <div class="burger">
           <div class="line1"></div>
           <div class="line2"></div>
           <div class="line3"></div>
-      </div> -->
+      </div>
   </nav>
 </div>
 
@@ -106,31 +106,31 @@
     searchWrapper.classList.remove("active");
     }
 
-  //   const navSlide = () => {
-  //   const burger = document.querySelector('.burger');
-  //   const nav = document.querySelector('.nav-links');
-  //   const navLinks = document.querySelectorAll('.nav-links li');
+    const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
 
-  //   if (burger) {
-  //     burger.addEventListener('click', () => {
-  //         //Toggle Lav
-  //         nav.classList.toggle('nav-active');
-  //         //Animate Links
-  //         navLinks.forEach((link, index) => {
-  //             if (link.style.animation) {
-  //             link.style.animation = '';
-  //             } else {
-  //                 link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-  //             }
-  //         })
-  //         //Burger Animation
-  //         burger.classList.toggle('toggle');
-  //     })
+    if (burger) {
+      burger.addEventListener('click', () => {
+          //Toggle Lav
+          nav.classList.toggle('nav-active');
+          //Animate Links
+          navLinks.forEach((link, index) => {
+              if (link.style.animation) {
+              link.style.animation = '';
+              } else {
+                  link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+              }
+          })
+          //Burger Animation
+          burger.classList.toggle('toggle');
+      })
 
-  //   }
-  // }
+    }
+  }
 
-  // navSlide();
+  navSlide();
 </script>
 
 

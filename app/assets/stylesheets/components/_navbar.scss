@@ -302,7 +302,8 @@ nav {
 }
 
 .burger div {
-  background-color: rgb(226, 226, 226);
+  background-color: black;
+  // background-color: rgb(226, 226, 226);
   width: 25px;
   height: 3px;
   margin: 5px;
@@ -342,15 +343,17 @@ nav {
   .nav-links {
     position: absolute;
     right: 0px;
-    height: 92vh;
-    top: 8vh;
-    background-color: #5d4954;
+    height: 70px;
+    top: 0;
+
+    // background-color: pink;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     width: 50%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
+    padding-right: 50px;
   }
   .nav-links li {
     opacity: 0;
@@ -358,6 +361,7 @@ nav {
   .burger {
     cursor: pointer;
     display: block;
+
   }
 }
 
@@ -378,12 +382,15 @@ nav {
 
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
+  background-color: black;
 }
 .toggle .line2 {
   opacity: 0;
+  background-color: black;
 }
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
+  background-color: black;
 }
 
 .addButton {
