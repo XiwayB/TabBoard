@@ -1,0 +1,23 @@
+.sign-in-btn {
+  display: inline-flex;
+  color: black;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+
+}
+
+.sign-in-btn:hover {
+  margin-top: 17px;
+  font-size: 1.05em;
+  text-shadow: 0.1px 0.1px 0.1px black;
+}
+
+img {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+}
+

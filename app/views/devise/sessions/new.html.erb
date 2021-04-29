@@ -1,27 +1,30 @@
 <div class="row justify-content-center">
   <div class="col-lg-4 col-sm-10" style="margin-top: 100px;">
 
-    <h2 class="text-center">Log in</h2>
+    <h2 class="text-center">TABOARD WEBAPP</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-        <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
+    <div class="text-center">
 
-      <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "add-folder-btn btn" %>
-      </div>
-    <% end %>
+<!--       <button class="button sign-in-btn" style=""><h5>Sign in with</h5><img src="images/google.png" alt="" class="G"></button>
+ -->
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+              <div>
+                <div class="sign-in-btn mt-5">
+                  <h5>
+                    Sign in with
+                  </h5>
+                  <%= image_tag "google.png" %>
+                </div>
+              </div>
+          <% end %>
+        <% end %>
+      <% end %>
 
-    <div class="mt-5">
-      <%= render "devise/shared/links" %>
+      <a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Install the Chrome Extension</a>
+
     </div>
+
   </div>
 </div>
