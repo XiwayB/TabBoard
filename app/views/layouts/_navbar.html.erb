@@ -1,7 +1,7 @@
 <!-- THIS IS YOUR SEARCH DIV CONTAINER -->
-<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0; display: none;">
-  <div class="home-but" style="position: absolute; top: 65px; right: 135px;">
-    <%= image_tag "home.png", style: "width: 40px; height: 40px;" %>
+<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0;">
+  <div class="home-but" style="position: absolute; top: 58px; right: 20px;" >
+    <%= image_tag "home.png", style: "width: 45px; height: 45px;" %>
   </div>
   <!-- ALL SEARCHES HAPPENING HERE -->
 
@@ -14,11 +14,11 @@
           <input class="py-6" style="
             padding-left: 45px; padding-right: 10px;
             padding-top: 20px; padding-bottom: 20px;
-            width: 100%; border-radius: 40px;"
+            width: 100%; border-radius: 40px; border: 0;"
             id="search" type="text"
             placeholder="Type to search"
-            autocomplete="chrome-off">
-
+            autocomplete="chrome-off"
+            >
           <i class="fa fa-search" style="font-size: 30px; position: absolute; left: 12px; top: 18px; z-index: 99;" id="icon"></i>
         </div>
 
