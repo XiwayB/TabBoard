@@ -1,7 +1,7 @@
 <!-- THIS IS YOUR SEARCH DIV CONTAINER -->
-<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0; display: none;">
-  <div class="home-but" style="position: absolute; top: 65px; right: 135px;">
-    <%= image_tag "home.png", style: "width: 40px; height: 40px;" %>
+<div id="search-container" style="width: 100%; height: 100vh; background: black; z-index: 999; position: fixed; top: 0; left: 0;">
+  <div class="home-but" style="position: absolute; top: 58px; right: 20px;" >
+    <%= image_tag "home.png", style: "width: 45px; height: 45px;" %>
   </div>
   <!-- ALL SEARCHES HAPPENING HERE -->
 
@@ -14,11 +14,11 @@
           <input class="py-6" style="
             padding-left: 45px; padding-right: 10px;
             padding-top: 20px; padding-bottom: 20px;
-            width: 100%; border-radius: 40px;"
+            width: 100%; border-radius: 40px; border: 0;"
             id="search" type="text"
             placeholder="Type to search"
-            autocomplete="chrome-off">
-
+            autocomplete="chrome-off"
+            >
           <i class="fa fa-search" style="font-size: 30px; position: absolute; left: 12px; top: 18px; z-index: 99;" id="icon"></i>
         </div>
 
@@ -81,11 +81,11 @@
             <% end %>
           </li>
       </ul>
-    <!--   <div class="burger">
+      <div class="burger">
           <div class="line1"></div>
           <div class="line2"></div>
           <div class="line3"></div>
-      </div> -->
+      </div>
   </nav>
 </div>
 
@@ -106,31 +106,31 @@
     searchWrapper.classList.remove("active");
     }
 
-  //   const navSlide = () => {
-  //   const burger = document.querySelector('.burger');
-  //   const nav = document.querySelector('.nav-links');
-  //   const navLinks = document.querySelectorAll('.nav-links li');
+    const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
 
-  //   if (burger) {
-  //     burger.addEventListener('click', () => {
-  //         //Toggle Lav
-  //         nav.classList.toggle('nav-active');
-  //         //Animate Links
-  //         navLinks.forEach((link, index) => {
-  //             if (link.style.animation) {
-  //             link.style.animation = '';
-  //             } else {
-  //                 link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-  //             }
-  //         })
-  //         //Burger Animation
-  //         burger.classList.toggle('toggle');
-  //     })
+    if (burger) {
+      burger.addEventListener('click', () => {
+          //Toggle Lav
+          nav.classList.toggle('nav-active');
+          //Animate Links
+          navLinks.forEach((link, index) => {
+              if (link.style.animation) {
+              link.style.animation = '';
+              } else {
+                  link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+              }
+          })
+          //Burger Animation
+          burger.classList.toggle('toggle');
+      })
 
-  //   }
-  // }
+    }
+  }
 
-  // navSlide();
+  navSlide();
 </script>
 
 

@@ -15,6 +15,8 @@ const search = () => {
     // console.log({inputBox})
    // inputBox.onkeyup = (e) => {
    inputBox.addEventListener('keydown', (e) => {
+    // results.innerHTML = `<h2 style="font-size: 40px; color: #FFF;">LOADING...</h2>`
+    results.innerHTML = `<div class="loading-container"><img src="https://res.cloudinary.com/dztwrgpbi/image/upload/v1619166897/Spinner-1s-400px.svg" width="150"></div>`
     // console.log("eee",e)
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
@@ -24,7 +26,7 @@ const search = () => {
     if(userData) {
       fetch(url).then(response => response.json())
       .then((data) => {
-        // console.log(123, data)
+        console.log(123, data)
         results.innerHTML = '';
         let listString = '<li style="font-size: 36px; font-weight: 500; margin-top: 20px; fontcolour: white">Search Results:</li>'
         data.forEach((result, index) => {
