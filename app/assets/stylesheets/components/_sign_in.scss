@@ -21,3 +21,27 @@ img {
   margin-left: 8px;
 }
 
+.navbar-sign-in {
+  background-color: #F5F5F5!important;
+}
+
+.container-sign-in {
+
+}
+
+.banner {
+  height: 80vh;
+  background: grey;
+  // background-image: url("/images/sign_in_banner_img.jpg");
+}
+
+.sign-in-banner-btns {
+  position: absolute;
+  top: 500px;
+  right: 500px;
+}
+
+.sign-in-banner-btn{
+  display: block;
+  margin-top: 20px;
+}
