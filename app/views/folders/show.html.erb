@@ -23,21 +23,23 @@
                           <div id="tab-edit" data-id="<%= tab.id %>">
                               <i class="fas fa-pen"></i>
                           </div>
-                        <div id="tab-update" class="hidden">
-                          <div class="tab-update-title">
-                            <button id="close-edit-tab-show">
-                              <i class="fas fa-times"></i>
-                            </button>
-                           <%= simple_form_for(tab) do |f| %>
-                           <div class="edit-tab-title">
-                            <%= f.input :title %>
+                        <div class="tab-update">
+                          <div id="tab_update_<%= tab.id %>" class="hidden">
+                            <div class="tab-update-title">
+                              <button id="close-edit-tab-show" data-id="<%= tab.id %>">
+                                <i class="fas fa-times"></i>
+                              </button>
+                             <%= simple_form_for(tab) do |f| %>
+                             <div class="edit-tab-title">
+                              <%= f.input :title %>
+                            </div>
+                            <div class="save-edit">
+                              <%= f.button :submit, 'Save' %>
+                            </div>
+                            <% end %>
                           </div>
-                          <div class="save-edit">
-                            <%= f.button :submit, 'Save' %>
-                          </div>
-                        <% end %>
+                        </div>
                       </div>
-                    </div>
                           <div class="tab-delete">
                             <%= link_to tab_path(tab), method: :delete, data: {confirm: "Are you sure to delete this tab?"} do %>
                               <i class="far fa-trash-alt"></i>
