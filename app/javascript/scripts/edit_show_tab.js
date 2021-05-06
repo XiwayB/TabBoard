@@ -1,22 +1,26 @@
 const editTabShow = () => {
-  // console.log("share popping up");
-    const showTabEdit = document.getElementById("tab-edit");
-    // console.log({showForm})
-    if (showTabEdit) {
-      showTabEdit.addEventListener('click', ()=>{
-        console.log('showTabEdit is clicked')
-        document.getElementById("tab-update").removeAttribute("class");
+    const showTabEdit = document.querySelectorAll("#tab-edit");
+    if (showTabEdit.length) {
+      console.log(showTabEdit)
+      showTabEdit.forEach((tab) => {
+        tab.addEventListener('click', (e) => {
+          const currentTabId = e.currentTarget.dataset.id
+          document.getElementById(`tab_update_${currentTabId}`).removeAttribute("class");
+        })
       });
     }
 }
 
 const closeEditTabShow = () => {
   // console.log("closing share popup");
-  const closeEditTabShow = document.getElementById("close-edit-tab-show");
-  if (closeEditTabShow) {
-    closeEditTabShow.addEventListener('click', ()=>{
-      document.getElementById("tab-update").setAttribute("class", "hidden");
-    });
+  const closeEditTabShow = document.querySelectorAll("#close-edit-tab-show");
+  if (closeEditTabShow.length) {
+    closeEditTabShow.forEach((close) => {
+      close.addEventListener('click', (e) => {
+        const closeCurrentTabId = e.currentTarget.dataset.id
+        document.getElementById(`tab_update_${closeCurrentTabId}`).setAttribute("class", "hidden");
+      });
+    })
   }
 }
 
