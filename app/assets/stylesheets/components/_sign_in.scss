@@ -38,9 +38,9 @@
 }
 
 #hero {
-  background-image: url('/assets/sign_in_banner_img.jpg');
+  background-image: url('/assets/banner_img2.jpg');
   background-size: cover;
-  background-position: center bottom;
+  background-position: center left;
 }
 
 #hero h2 {
@@ -103,16 +103,35 @@ form {
 #searchForm .btn-danger {
   padding-top: 12px;
   padding-bottom: 12px;
-  background: #FF5A5F;
-  border-color: #FF5A5F;
-  width: 100%;
+  width: 80%;
 }
 
 .btn-danger {
   padding-top: 12px;
   padding-bottom: 12px;
-  background: #FF5A5F;
-  border-color: #FF5A5F;
+  background: black;
+  border: 2.6px solid white;
+  border-radius: 50px;
+  color: white;
+}
+
+.btn-danger a {
+  color: white;
+    font-weight: 600;
+
+}
+
+.btn-danger a:hover {
+  color: black;
+}
+
+.btn-danger:hover {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: white;
+  border-color: white;
+  color: black;
+  border-radius: 50px;
 }
 
 .container-features {
@@ -126,8 +145,12 @@ form {
 }
 
 .reviews {
-  background-image: url(../images/reviews.jpg);
-  height: 600px;
+  background-image: url('/assets/reviews.jpg');
+  background-size: cover;
+  background-position: center left;
+  height: 60vh;
+  width: 400px;
+  margin: 50px;
 }
 
 .three-section {
