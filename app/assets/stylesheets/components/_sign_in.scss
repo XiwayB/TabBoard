@@ -1,23 +1,174 @@
-.sign-in-btn {
-  display: inline-flex;
+
+@media (min-width: 576px) {
+  #navbarMenu {
+    display: none !important;
+  }
+}
+
+
+#xlNavbar .navbar-brand, #navbarMenuToggler, #xlNavbar .nav-link {
+  line-height: 80px;
+  color: #333;;
+}
+#xlNavbar .nav-link {
+  font-size: 14px;
+}
+#navbarMenuToggler, #navbarMenu .nav-link {
+  color: #333;
+}
+#navbarMenu .nav-link {
+  padding: 12px 0;
+  font-weight: 300;
+}
+
+.benefit {
+  height: 600px;
+}
+
+#first-benefit {
+  background-image: url('/assets/benefit1.png');
+  background-size: cover;
+  background-position: center bottom;
+}
+
+#second-benefit {
+  background-image: url('/assets/benefit2.png');
+  background-size: cover;
+  background-position: center bottom;
+}
+
+#hero {
+  background-image: url('/assets/banner_img2.jpg');
+  background-size: cover;
+  background-position: center left;
+}
+
+#hero h2 {
+  padding-top: 168px;
+}
+
+.container-fluid, .container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+  #hero {
+    height: 80vh;
+    min-height: 650px;
+  }
+
+form {
+      color: white;
+
+}
+
+@media (min-width: 768px) {
+  #searchForm {
+    position: absolute;
+    top: 200px;
+    right: 18%;
+
+  }
+}
+.fda {
+  background: #FF5A5F;
+}
+
+@media (max-width: 768px) {
+  #searchForm {
+    position: absolute;
+    top: 200px;
+    width: 100%
+  }
+  .header {
+  text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  #searchForm .container-fluid {
+    max-width: 1080px;
+  }
+}
+
+@media (min-width: 768px) {
+  #searchForm form {
+    padding: 32px;
+    // box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    max-width: 441px;
+  }
+}
+
+#searchForm .btn-danger {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 80%;
+}
+
+.btn-danger {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: black;
+  border: 2.6px solid white;
+  border-radius: 50px;
+  color: white;
+}
+
+.btn-danger a {
+  color: white;
+    font-weight: 600;
+
+}
+
+.btn-danger a:hover {
   color: black;
-  margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-
 }
 
-.sign-in-btn:hover {
-  margin-top: 17px;
-  font-size: 1.05em;
-  text-shadow: 0.1px 0.1px 0.1px black;
+.btn-danger:hover {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: white;
+  border-color: white;
+  color: black;
+  border-radius: 50px;
 }
 
-img {
-  width: 25px;
-  height: 25px;
-  margin-left: 8px;
+.container-features {
+  width: 10 0%;
+  padding: 10%;
 }
 
+.banner {
+  height: 60vh;
+  background: grey;
+}
+
+.reviews {
+  background-image: url('/assets/reviews.jpg');
+  background-size: cover;
+  background-position: center left;
+  height: 60vh;
+  width: 400px;
+  margin: 50px;
+}
+
+.three-section {
+  border: 1px solid grey;
+  background: red;
+}
+
+.footer {
+  background: #F5F5F5;
+}
+
+.borderx {
+  border-left: 3px solid black;
+}
+
+// Bootsrap media size
+    // xs = Extra small <576px. Max container width None (auto)
+    // sm = Small ≥576px. Max container width 540px.
+    // md = Medium ≥768px. Max container width 720px.
+    // lg = Large ≥992px. Max container width 960px.
+    // xl = Extra large ≥1200px. Max container width 1140px.
