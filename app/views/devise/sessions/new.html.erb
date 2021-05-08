@@ -1,56 +1,125 @@
-<div class="container container-sign-in">
-  <nav class="navbar navbar-sign-in navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- navbar -->
+<nav class="navbar navbar-expand-md py-0 w-100">
+  <!-- lg navbar -->
+  <div class="d-none d-md-flex flex-grow-1" id="xlNavbar">
+    <a class="navbar-brand" href="#">TaBoard</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link" href="#">About</a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Sign In</a>
     </div>
-  </nav>
+  </div>
+
+   <!-- button and collapsed menu -->
+  <a class="navbar-toggler navbar-brand" role="button" data-toggle="collapse" href="#navbarMenu" id="navbarMenuToggler">TaBoard <i class="fas fa-chevron-down"></i></a>
+  <div class="collapse navbar-collapse" id="navbarMenu">
+    <a class="nav-item nav-link" href="#">Home</a>
+    <hr/>
+    <a class="nav-item nav-link" href="#">About</a>
+    <a class="nav-item nav-link" href="#">Features</a>
+    <a class="nav-item nav-link" href="#">Sign In</a>
+  </div>
+</nav>
+
+<div id="hero">
 </div>
-<div class="banner">
-  <div class="content">
-    <div class="sign-in-banner-btns">
+
+<div id="searchForm">
+  <div class="container-fluid p-5">
+    <form class="py-4 rounded">
+      <h2 class="d-block header">Learn to love your browser again</h2>
+      <div class="d-flex flex-column align-items-md-end">
+        <button type="submit" class="btn btn-danger px-4 py-3 mt-2">Sign in with Google</button>
+      </div>
+      <div class="d-flex flex-column align-items-md-end mt-2">
+        <button type="submit" class="btn btn-danger px-4 py-3 mt-2">Download the Extension</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container-features">
+  <div class="row d-flex m-3 justify-content-center">
+    <div class="benefit col-md-12 col-lg-4 d-flex m-4 justify-content-center py-4">
+      <div>
+        <h2>Save all your tabs for later</h2>
+        <p>Easily save all your open tabs in a folder for later use</p>
+      </div>
+    </div>
+    <div id="first-benefit" class="benefit col-md-12 col-lg-6 d-flex m-4 justify-content-center py-4">
+      right
+    </div>
+  </div>
+  <div  class="benefit row d-flex m-3 justify-content-center">
+    <div id="second-benefit" class="col-md-12 col-lg-6 d-flex m-4 justify-content-center py-4">
+      left
+    </div>
+    <div class="col-md-12 col-lg-4 d-flex m-4 justify-content-center fda py-4">
+      <div>
+        <h2>Save all your tabs for later</h2>
+        <p>Easily save all your open tabs in a folder for later use</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="banner d-flex align-items-center justify-content-center">
+  <button type="submit" class="btn btn-danger px-4 py-3 mt-2">
+    <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+              <div>
+                <div class="sign-in-btn mt-5">
+                  <h5>
+                    Sign in with Google
+                  </h5>
+<!--                   <%= image_tag "google.png" %>
+ -->                </div>
+              </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </button>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center mt-5">
+      <div style="font-size: 30px;">⭐️ ⭐️ ⭐️ ⭐️ ⭐️</div>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <h2>5 Stars on Chrome Store</h2>
+    </div>
+    <div class="col-12 d-flex justify-content-center reviews">
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 banner d-flex align-items-center justify-content-center">
+  <button type="submit" class="btn btn-danger px-4 py-3 mt-2"><a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a></button>
+</div>
+
+<div class="container-features mb-4 mt-5">
+  <div class="row d-flex m-3 justify-content-center">
+    <div class="col-md-12 col-lg-3 d-flex justify-content-center fda py-4 borderx">
+      1
+    </div>
+    <div class="col-md-12 col-lg-3 d-flex justify-content-center fda py-4 borderx">
+      2
+    </div>
+    <div class="col-md-12 col-lg-3 d-flex justify-content-center fda py-4 borderx">
+      3
+    </div>
+  </div>
+</div>
+<!--
       <button class="btn btn-primary sign-in-banner-btn">
         Sign in with G
       </button>
       <button class="btn btn-primary sign-in-banner-btn">
         Get the chrome extension
-      </button>
-
-    </div>
-
-  </div>
-</div>
-
-
+      </button> -->
 
 <div class="row justify-content-center">
   <div class="col-lg-4 col-sm-10" style="margin-top: 100px;">
@@ -59,8 +128,8 @@
 
     <div class="text-center">
 
-<!--       <button class="button sign-in-btn" style=""><h5>Sign in with</h5><img src="images/google.png" alt="" class="G"></button>
- -->
+      <button class="button sign-in-btn" style=""><h5>Sign in with</h5><img src="images/google.png" alt="" class="G"></button>
+
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
             <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
@@ -81,4 +150,11 @@
     </div>
 
   </div>
+</div>
+
+
+<div class="footer d-flex justify-content-center mt-5">
+  <h2>
+    TaBoard Footer
+  </h2>
 </div>
