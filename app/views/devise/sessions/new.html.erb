@@ -41,24 +41,19 @@
   <div class="container-fluid p-5">
     <form class="py-4 rounded">
       <h2 class="d-block header">Learn to love your browser again</h2>
-      <div class="d-flex flex-column align-items-md-start">
-        <button type="submit" class="btn btn-danger px-4 py-3 mt-2">
-          <%- if devise_mapping.omniauthable? %>
-            <%- resource_class.omniauth_providers.each do |provider| %>
-                <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
-                  <div>
-                    <div class="sign-in-btn">
-                        Sign in with Google
-                    </div>
-                  </div>
-              <% end %>
+      <div class="d-flex flex-column align-items-sm-center align-items-md-start">
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+              <div class="btn btn-login px-4 py-3 mt-2">
+                Sign in with Google
+              </div>
             <% end %>
           <% end %>
-        </button>
+        <% end %>
       </div>
-      <div class="d-flex flex-column align-items-md-start mt-2">
-        <button type="submit" class="btn btn-danger px-4 py-3 mt-2">
-          <a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a></button>
+      <div class="d-flex flex-column align-items-sm-center align-items-md-start">
+        <a class="btn btn-login px-4 py-3 mt-2" href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a>
       </div>
     </form>
   </div>
@@ -89,24 +84,16 @@
   </div>
 </div>
 
-<div class="banner d-flex align-items-center justify-content-center">
-<!--   <h2>Start Creating your TaBoard</h2>
- -->  <button type="submit" class="btn btn-danger px-4 py-3 mt-2">
-    <%- if devise_mapping.omniauthable? %>
-        <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
-              <div>
-                <div class="sign-in-btn">
-                  <h5>
-                    Sign in with Google
-                  </h5>
-<!--                   <%= image_tag "google.png" %>
- -->                </div>
-              </div>
-          <% end %>
-        <% end %>
+<div class="banner banner1 d-flex align-items-center justify-content-center">
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+        <div class="btn btn-login px-4 py-3 mt-2">
+          Sign in with Google
+        </div>
       <% end %>
-  </button>
+    <% end %>
+  <% end %>
 </div>
 
 <div class="container">
@@ -122,8 +109,8 @@
   </div>
 </div>
 
-<div class="mt-4 banner d-flex align-items-center justify-content-center">
-  <button type="submit" class="btn btn-danger px-4 py-3 mt-2"><a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a></button>
+<div class="mt-4 banner banner2 d-flex align-items-center justify-content-center">
+  <a class="btn btn-login px-4 py-3 mt-2" href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a>
 </div>
 
 <div class="container-features mb-4 mt-5">
