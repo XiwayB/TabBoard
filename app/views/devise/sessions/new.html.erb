@@ -34,13 +34,39 @@
   </div>
 </nav>
 
-<div id="hero">
+<!-- SIDEBAR -->
+
+<div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
+
+
+  <div id="btn-tabs">
+    <div id="folder-ridge">What is TaBoard?</div>
+  </div>
+
+
+  <div id="box-tabs">
+    <div class="box-tab-header">Clean Tabs</div>
+    <div id="items">
+      <h3 class="hero-text px-4">TaBoard is a producivity tool to manage your browser tabs and store them in your personal folders</h3>
+      <h5 class="hero-text px-4">❤️ Save your tabs in the Extension</h5>
+      <h5 class="hero-text px-4">💻 Manage them in the WebApp</h5>
+    </div>
+    <div class="box-tab-header" style="margin-top: 55px;">Relax Minds</div>
+  </div>
+
+</div>
+
+
+
+<!-- HERO -->
+
+<div id="hero" class="d-flex align-items-end justify-content-center">
 </div>
 
 <div id="searchForm">
   <div class="container-fluid p-5">
     <form class="py-4 rounded">
-      <h2 class="d-block header">Learn to love your browser again</h2>
+      <h1 class="d-block header">Learn to love your browser again</h1>
       <div class="d-flex flex-column align-items-sm-center align-items-md-start">
         <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
@@ -59,7 +85,45 @@
   </div>
 </div>
 
-<div class="container-features">
+<!-- EXPLAINER SECTION -->
+
+<div class="container-features mb-1 mt-1">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <h2>
+        How it works
+      </h2>
+    </div>
+  </div>
+  <div class="row d-flex m-3 justify-content-center">
+    <div class="col-xs-12 col-sm-5 d-flex justify-content-center py-4 m-2">
+      <h4>1. Sign in into the extension with google account</h4>
+      <img class="explanation-img" src="/assets/extension-login.png" alt="">
+    </div>
+
+
+    <div class="col-xs-12 col-sm-5 d-flex justify-content-center py-4 m-2">
+      <h4>2. Sign in into the webapp with your google account</h4>
+      <img class="explanation-img" src="/assets/webapp-login.png" alt="">
+    </div>
+    
+    
+    <div class="col-xs-12 col-sm-5 d-flex justify-content-center py-4 m-2">
+      <h4>3. Browse to your heart's content, whenever you have a tab you want to save, open the extension and save tabs</h4>
+      <img class="explanation-img" src="/assets/extension.png" alt="">
+    
+    
+    </div>
+    <div class="col-xs-12 col-sm-5 d-flex justify-content-center py-4 m-2">
+    <h4>4. Browse to your heart's content, whenever you have a tab you want to save, open the extension and save tabs</h4>
+      <img class="explanation-img" src="/assets/webapp.png" alt="">
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+
+<div class="container-features pt-0">
   <div class="row d-flex m-3 justify-content-center">
     <div class="benefit col-md-12 col-lg-4 d-flex m-4 justify-content-center py-4">
       <div>
@@ -84,6 +148,8 @@
   </div>
 </div>
 
+<!-- BANNER 1 -->
+
 <div class="banner banner1 d-flex align-items-center justify-content-center">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
@@ -95,6 +161,8 @@
     <% end %>
   <% end %>
 </div>
+
+<!-- REVIEWS -->
 
 <div class="container">
   <div class="row">
@@ -109,23 +177,14 @@
   </div>
 </div>
 
+<!-- BANNER 2 -->
+
 <div class="mt-4 banner banner2 d-flex align-items-center justify-content-center">
   <a class="btn btn-login px-4 py-3 mt-2" href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a>
 </div>
 
-<div class="container-features mb-4 mt-5">
-  <div class="row d-flex m-3 justify-content-center">
-    <div class="col-md-12 col-lg-3 d-flex justify-content-center fda py-4 borderx">
-      1
-    </div>
-    <div class="col-md-12 col-lg-3 d-flex justify-content-center fda py-4 borderx">
-      2
-    </div>
-    <div class="col-md-12 col-lg-3 d-flex justify-content-center fda py-4 borderx">
-      3
-    </div>
-  </div>
-</div>
+
+<!-- FOOTER -->
 
 <div class="footer d-flex justify-content-center mt-5 pb-3 pt-5">
   <h2>
