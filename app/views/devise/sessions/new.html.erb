@@ -1,42 +1,24 @@
 <!-- navbar -->
-<nav class="navbar navbar-expand-md py-0 w-100">
+<nav class="navbar navbar-expand py-0 w-100">
   <!-- lg navbar -->
-  <div class="d-none d-md-flex flex-grow-1" id="xlNavbar">
-    <a class="navbar-brand" href="#">TaBoard</a>
+  <div class="d-flex flex-grow-1" id="xlNavbar">
+    <a class="navbar-brand" href="">TaBoard</a>
 
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#">About</a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Sign In</a>
+      <a class="nav-item nav-link" href="#about">About</a>
+      <a class="nav-item nav-link" href="#features">Features</a>
+      <a class="nav-item nav-link" href="#signin">Sign In</a>
     </div>
   </div>
 
    <!-- button and collapsed menu -->
-  <a class="navbar-toggler navbar-brand" role="button" data-toggle="collapse" href="#navbarMenu" id="navbarMenuToggler">TaBoard <i class="fas fa-chevron-down"></i></a>
-  <div class="collapse navbar-collapse" id="navbarMenu">
-    <a class="nav-item nav-link" href="#">Home</a>
-    <hr/>
-    <a class="nav-item nav-link" href="#">About</a>
-    <a class="nav-item nav-link" href="#">Features</a>
-    <a class="nav-item nav-link" href="#">
-      <%- if devise_mapping.omniauthable? %>
-        <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
-              <div>
-                <div class="sign-in-btn">
-                  <h5>
-                    Sign in
-                </div>
-              </div>
-          <% end %>
-        <% end %>
-      <% end %></a>
-  </div>
+  <a class="navbar-toggler navbar-brand" role="button" data-toggle="collapse" href="#navbarMenu" id="navbarMenuToggler">TaBoard</a>
+
 </nav>
 
 <!-- SIDEBAR -->
 
-<div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
+<!-- <div class="position-absolute vh-100" style="z-index:100;right: 0; top:0; margin-right: 20px; width: fit-content; background: white">
 
 
   <div id="btn-tabs">
@@ -54,7 +36,7 @@
     <div class="box-tab-header" style="margin-top: 55px;">Relax Minds</div>
   </div>
 
-</div>
+</div> -->
 
 
 
@@ -64,29 +46,31 @@
 </div>
 
 <div id="searchForm">
-  <div class="container-fluid p-5">
+  <div class="container p-5">
     <form class="py-4 rounded">
       <h1 class="d-block header">Learn to love your browser again</h1>
-      <div class="d-flex flex-column align-items-sm-center align-items-md-start">
-        <%- if devise_mapping.omniauthable? %>
-          <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
-              <div class="btn btn-login px-4 py-3 mt-2">
-                Sign in with Google
-              </div>
+      <div class="">
+        <div class="">
+          <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+                <div class="btn btn-login py-3 px-4 mt-2">
+                  Sign in with Google
+                </div>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div class="d-flex flex-column align-items-sm-center align-items-md-start">
-        <a class="btn btn-login px-4 py-3 mt-2" href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a>
+        </div>
+        <div class="">
+          <a class="btn btn-login px-4 py-3 mt-2" href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a>
+        </div>
       </div>
     </form>
   </div>
 </div>
 
 <!-- EXPLAINER SECTION -->
-
+<!-- 
 <div class="container-features mb-1 mt-1">
   <div class="row">
     <div class="col-12 d-flex justify-content-center">
@@ -119,38 +103,57 @@
       <img class="explanation-img" src="/assets/webapp.png" alt="">
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- FEATURES -->
+<div id="features" class="">
+  <div id="benefit-1">
+    <div class="benefit-content row d-flex justify-content-center mx-auto">
+      <div class="benefit col-md-12 col-lg-3 d-flex m-4 justify-content-center py-2">
+        <div>
+          <h2>Save all your tabs for later in the <a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">extension</a></h2>
+          <p>Easily save all your open tabs in a folder for later use on the webapp 💻</p>
+        </div>
+      </div>
+      <div class="benefit col-md-12 col-lg-6 d-flex m-4 justify-content-center py-2">
+        <div id="first-benefit"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="benefit-2" class="benefit-content row d-flex flex-row-reverse justify-content-center mx-auto">
 
-<div class="container-features pt-0">
-  <div class="row d-flex m-3 justify-content-center">
-    <div class="benefit col-md-12 col-lg-4 d-flex m-4 justify-content-center py-4">
+    <div class="col-md-12 col-lg-4 d-flex m-4 justify-content-center py-2">
       <div>
-        <h2>Save all your tabs for later in the extension</h2>
-        <p>Easily save all your open tabs in a folder for later use on the webapp</p>
+        <h2>Manage all your tabs in your personal folders on the
+          <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+                <div class="d-inline">
+                  webapp
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </h2>
+        <p>Easily create new folders ❤️</p>
       </div>
     </div>
-    <div id="first-benefit" class="benefit col-md-12 col-lg-6 d-flex m-4 justify-content-center py-4">
-      right
-    </div>
-  </div>
-  <div  class="benefit row d-flex m-3 justify-content-center">
-    <div id="second-benefit" class="col-md-12 col-lg-6 d-flex m-4 justify-content-center py-4">
-      left
-    </div>
-    <div class="col-md-12 col-lg-4 d-flex m-4 justify-content-center py-4">
-      <div>
-        <h2>Manage all your tabs in your personal folders on the webapp</h2>
-        <p>Easily create new folders</p>
+    <div class="col-md-12 col-lg-6 d-flex m-4 justify-content-center py-2">
+      <div id="second-benefit">
       </div>
     </div>
+    
   </div>
+
+
 </div>
+
+
 
 <!-- BANNER 1 -->
 
-<div class="banner banner1 d-flex align-items-center justify-content-center">
+<div id="signin" class="banner banner1 d-flex align-items-center justify-content-center">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
@@ -164,15 +167,17 @@
 
 <!-- REVIEWS -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12 d-flex justify-content-center mt-5">
+<div id="reviews" class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 d-flex justify-content-center">
+      <h2>Reviews on <a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Chrome Store</a></h2>
+    </div>
+    <div class="col-12 d-flex justify-content-center mb-2">
       <div style="font-size: 30px;">⭐️ ⭐️ ⭐️ ⭐️ ⭐️</div>
     </div>
-    <div class="col-12 d-flex justify-content-center">
-      <h2>5 Stars on <a href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Chrome Store</a></h2>
-    </div>
-    <div class="col-12 d-flex justify-content-center reviews">
+    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+      <div class="reviews">
+      </div>
     </div>
   </div>
 </div>
@@ -183,12 +188,49 @@
   <a class="btn btn-login px-4 py-3 mt-2" href="https://chrome.google.com/webstore/detail/taboard/nchjighemnpaocgbecjeokgejnjbhpgm" target="_blank">Download the Extension</a>
 </div>
 
+<div id="about" class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 d-flex justify-content-center">
+      <h2>About TaBoard</h2>
+    </div>
+    <div class="col-12 d-flex justify-content-center mb-2">
+      <div style="font-size: 30px;">💻</div>
+    </div>
+    <div class="col-sm-12 col-xl-10 mx-auto">
+      <div class="">
+        <ul id="about-list">
+          <li><span class="indent"></span>TaBoard is a productivity tool to organise your browser, save your time and clear your mind.
+          </li>
+          <li>
+
+            <span class="indent"></span>Have you ever worked on a project and felt swamped by the 100 tabs you opened in your browser?
+            
+            That happens to us all the time. We start to work on a project, start the first search on google, open a link and then another one and then another one. And soon we're faced with 20+ small tabs sticking to each other.
+            
+            It’s a real nightmare to find the tab you need. Most of the time we end up going back on google and typing the exact same key words that we typed before or having to go through my whole history
+            
+          </li>
+
+          <li><span class="indent"></span>That’s why we developed TaBoard. <strong>Taboard is a chrome extension that can not only save one tab but can also save all the tabs open in your browser in one click.</strong>
+          
+            In one click you can save all your tabs, close your browser and find all those tabs back the next morning.
+            
+            <strong>TaBoard enables you to have access to a webapp to organize your tabs in folders.</strong>
+            
+            But also, most of the time, we work with other people. With TaBoard, you can share your folder with all the relevant links to someone else and easily collaborate on a project.
+          </li>
+          <li>
+            <span class="indent"></span>Taboard enables you organise your workspace, save your time and clear your mind!
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- FOOTER -->
 
-<div class="footer d-flex justify-content-center mt-5 pb-3 pt-5">
-  <h2>
-    TaBoard Footer
-  </h2>
-  <p>@2021 by LeWagon#537-SZ</p>
-</div>
+<footer>
+  <%= render 'shared/footer' %>
+</footer>
