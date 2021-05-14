@@ -37,21 +37,22 @@ h5 {
   font-weight: 300;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .nav-link:hover {
   opacity: 0.8;
 }
 .navbar-brand {
   font-family: 'Nunito', 'Helvetica', 'sans-serif';
   font-size: 1.5em;
+  scroll-behavior: auto;
 }
-
 
 .navbar-brand:hover {
   opacity: 0.8;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 
