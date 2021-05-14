@@ -22,11 +22,11 @@ h5 {
 #xlNavbar .navbar-brand,
 #navbarMenuToggler,
 #xlNavbar .nav-link {
-  line-height: 80px;
+  line-height: 65px;
   color: #333;
 }
 #xlNavbar .nav-link {
-  font-size: 14px;
+  font-size: 16px;
 }
 #navbarMenuToggler,
 #navbarMenu .nav-link {
@@ -39,6 +39,20 @@ h5 {
 
 html {
   scroll-behavior: smooth;
+}
+
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+.navbar-brand {
+  font-family: 'Nunito', 'Helvetica', 'sans-serif';
+  font-size: 1.5em;
+  scroll-behavior: auto;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
 }
 
 
@@ -78,7 +92,7 @@ html {
     url('/assets/laptop2.jpg');
   background-size: cover;
   background-position: center center;
-  height: 80vh;
+  height: 78vh;
   min-height: 650px;
 }
 
