@@ -13,7 +13,7 @@ The Rails application has been generated using Le Wagon [Rails Template](https:/
  - Generated using [Rails](https://rubyonrails.org/)
  - [Bootstrap](https://getbootstrap.com/) for styling and responsiveness
  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) for overall functions
- - [VueJS](https://vuejs.org/v2/guide/) for now only for the sidebar to enable quick update of the page without refreshing it
+ - [VueJS](https://vuejs.org/v2/guide/) for the sidebar to enable quick update of the page without refreshing it
  - [PostgreSql](https://www.postgresql.org/) for database
 
 - [Prettier](https://github.com/prettier/prettier) for code formatting 
@@ -27,8 +27,8 @@ The Rails application has been generated using Le Wagon [Rails Template](https:/
 - Delete your tabs and/or folders
 
 
-## Screenshots
-![Example screenshot](./app/assets/images/webappGIF.gif)
+## Screenshot
+![WebApp screenshot](./app/assets/images/webappGIF.gif)
 
 
 ## Setup
@@ -51,7 +51,7 @@ bundle install
 brew install redis
 ```
 
-## Usage
+## Structure
 
 All CSS are in the ```app/assets``` folder:
   - Components: ```app/assets/stylesheets/components```
