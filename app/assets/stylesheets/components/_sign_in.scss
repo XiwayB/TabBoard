@@ -83,13 +83,13 @@ html {
 #second-benefit {
   padding-top: calc(2 / 3.6 * 100%); /* aspect ratio 3:2 */
   width: 100%;
-  background-image: url('../../assets/webappGIF.gif');
+  background-image: image-url('../../assets/webappGIF.gif');
   background-size: cover;
 }
 
 #hero {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../../assets/laptop2.jpg');
+    image-url('../../assets/laptop2.jpg');
   background-size: cover;
   background-position: center center;
   height: 78vh;
@@ -99,7 +99,7 @@ html {
 @media (max-width: 768px) {
   #hero {
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url('../../assets/laptop.jpg');
+    image-url('../../assets/laptop.jpg');
     background-size: cover;
     background-position: center center;
     height: 80vh;
@@ -207,7 +207,7 @@ form {
       rgba(0, 0, 0, 0.05),
       rgba(0, 0, 0, 0.05)
     ),
-    url('../../assets/office_happy1.jpg');
+    image-url('../../assets/office_happy1.jpg');
   background-size: cover;
   background-position: center left;
 }
@@ -220,7 +220,7 @@ form {
       rgba(0, 0, 0, 0.05),
       rgba(0, 0, 0, 0.05)
     ),
-    url('../../assets/office_happy2.jpg');
+    image-url('../../assets/office_happy2.jpg');
   background-size: cover;
   background-position: center center;
 }
@@ -243,7 +243,7 @@ form {
 
 .reviews {
   margin-top: 20px;
-  background-image: url('../../assets/reviews.jpg');
+  background-image: image-url('../../assets/reviews.jpg');
   background-size: cover;
   padding-top: calc(2 / 3 * 100%); /* aspect ratio 3:2 */
   width: 100%;
