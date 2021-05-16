@@ -4,6 +4,25 @@
   background: #f5f5f5;
 }
 
+.container-new{
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 76vh;
+  text-align: center;
+}
+.new-folder-heading {
+  margin-bottom: 50px;
+  opacity: 0.8;
+}
+
+.new-folder-gif {
+  padding-top: calc(2 / 3.6 * 100%); /* aspect ratio 3:2 */
+  width: 100%;
+  background-image: url('../../assets/AddNewFolder.gif');
+  background-size: cover;
+}
+
 .cards {
   display: grid;
   // display: flex;
