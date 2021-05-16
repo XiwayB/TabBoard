@@ -1,8 +1,16 @@
-<div class="cards">
-  <% @folders.each do |folder| %>
+<% if @folders.count < 1 %>
+  <div class="d-flex container-new justify-content-center align-items-center">
+    <div class="">
+      <h1 class="new-folder-heading">Get started by creating a new folder ⤴</h1>
+      <div class="new-folder-gif">
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="cards">
+    <% @folders.each do |folder| %>
       <!-- <div id="folder-card" data-id="<%= folder.id %>" class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%#= folder.photo.attached? ? cl_image_path(folder.photo.key) : "https://source.unsplash.com/1600x900/?nature"%>)" > -->
       <div id="folder-card" data-id="<%= folder.id %>" class="card" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url(<%= folder.photo.attached? ? folder.photo.service_url : "https://source.unsplash.com/1600x900/?nature"%>)" >
-
         <div class="goto-view">
             View
         </div>
@@ -23,8 +31,10 @@
           </div>
         <%# end %>
       </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
+
 
 <!--  create a new route that goes to folder controller to like or unlike a folder
   create the action in the controller to like or unlike a folder
