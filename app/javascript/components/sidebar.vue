@@ -9,7 +9,7 @@
 
     <div id="box-tabs" style="">
       <div class="box-tab-header">Clean Tabs</div>
-      <div class="box-tab-delete-all" @click="deleteAllTabs()">Delete All <i class="far fa-trash-alt"></i></div>
+      <div v-if="tabs.length > 2" class="box-tab-delete-all" @click="deleteAllTabs()">Delete All <i class="far fa-trash-alt"></i></div>
       <div id="items">
         <div v-for="(tab, index) in tabs" :key="index">
           <div class="item">
