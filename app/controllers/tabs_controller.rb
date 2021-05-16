@@ -69,6 +69,13 @@ class TabsController < ApplicationController
     render json: { tabs: @unsaved_tabs.map{|tab| tab.to_hashy } }
   end
 
+  def destroy_unsaved_tabs
+    authorize :tab, :unsaved_tabs?
+    @unsaved_tabs = current_user.tabs.joins(:folder).where(:folders => {name:'Default'})
+    @unsaved_tabs.destroy_all
+    render json: { tabs: @unsaved_tabs.map{|tab| tab.to_hashy } }
+  end
+
 # DO NOT REMOVE COMMENT BELOW - INVISIBLE BUG
   # def create
   # end
