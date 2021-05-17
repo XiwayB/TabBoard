@@ -6,8 +6,8 @@ class TabsController < ApplicationController
   def index
     # skip_authorization
     @tabs = policy_scope(Tab)
-
-    @tabs = @tabs.search_tab(params[:query]) if params[:query].present?
+    # current_user should allow user to only see their own folders/tabs
+    @tabs = current_user.tabs.search_tab(params[:query]) if params[:query].present? 
 
     tabs = @tabs.map{|tab| tab.to_hashy }
 
