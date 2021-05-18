@@ -433,6 +433,30 @@ nav {
   color: #fff;
 }
 
+.search-result-title-section {
+  width: 80%;
+}
+
+.search-result-folder-section{
+  display: flex; 
+  width: 20%;
+}
+
+.search-result-folder-btn {
+  padding: 4px 18px; 
+  border-radius: 20px; 
+  border: 2.7px solid white; 
+  margin-left: 30px; 
+  font-family: 'Poppins', sans-serif; 
+  font-weight: medium;
+}
+
+.search-result-folder-btn:hover {
+  background: white;
+  color: black;
+}
+
+
 // testing
 // search button
 

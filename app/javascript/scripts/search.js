@@ -22,8 +22,10 @@ const search = () => {
     let emptyArray = [];
     // console.log("target", e.target)
     const url =  `/tabs?format=json&query=${userData}`
+    
     const folderUrl = `/folders`
     if(userData) {
+
       fetch(url).then(response => response.json())
       .then((data) => {
         console.log(123, data)
@@ -34,20 +36,33 @@ const search = () => {
           // console.log(result)
 
           let url = result.url.includes("http") ? result.url : `https://${result.url}`
-
+          let shortUrl = () => {
+            if (url.length > 125) {
+              return url.substring(0, 100) + "...";
+            } else {
+              return url
+            }
+          }
+          let shortTitle = () => {
+            if (result.title.length > 100) {
+              return result.title.substring(0, 100) + "...";
+            } else {
+              return result.title
+            }
+          }
           const list = `
 
           <li onclick="select(this)" data-index="${index}" data-folder-id="${result.folder_id}">
 
             <div style="display: flex; align-items: center;">
-              <div style="width: 80%">
-                <span style="font-weight: medium; font-size: 1.2em">${result.title}</span><br>
-                <a style="word-break: break-all;" target="_blank" href="${url}">${url}</a>
+              <div class="search-result-title-section">
+                <span style="font-weight: medium; font-size: 1.2em">${shortTitle()}</span><br>
+                <a style="word-break: break-all;" target="_blank" href="${url}">${shortUrl()}</a>
               </div>
-            <div style="">
-              <a onMouseOver="this.style.background='white', this.style.color='black'" onMouseOut="this.style.background='black', this.style.color='white'" style=" height: 37px; padding: 4px 18px; border-radius: 20px; border: 2.7px solid white; margin-left: 30px; font-family: 'Poppins', sans-serif; font-weight: medium;" rel="stylesheet" href="${folderUrl}/${result.folder.id}">
-                ${result.folder.name}
-              </a>
+            <div class="search-result-folder-section">
+                <a rel="stylesheet" href="${folderUrl}/${result.folder.id}">
+                 <div class="search-result-folder-btn">${result.folder.name}</div>
+                </a>
             </div>
           </li>`
 
