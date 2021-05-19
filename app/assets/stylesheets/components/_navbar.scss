@@ -438,16 +438,16 @@ nav {
 }
 
 .search-result-folder-section{
-  display: flex; 
+  display: flex;
   width: 20%;
 }
 
 .search-result-folder-btn {
-  padding: 4px 18px; 
-  border-radius: 20px; 
-  border: 2.7px solid white; 
-  margin-left: 30px; 
-  font-family: 'Poppins', sans-serif; 
+  padding: 4px 18px;
+  border-radius: 20px;
+  border: 2.7px solid white;
+  margin-left: 30px;
+  font-family: 'Poppins', sans-serif;
   font-weight: medium;
 }
 
@@ -740,6 +740,33 @@ input:focus{             // has to put :focus for the input
         margin-bottom: 16px;
       }
 }
+
+#show-folder-form .contents{
+  position: fixed;
+  right: 88px;
+  top: 41px;
+  z-index: 2000;
+  width: 340px;
+  height: 197px;
+  background: #FFFFFF;
+  border: 1px solid #F5F5F5;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 40px 40px 249px 40px;
+      button {
+      border: none;
+      position: absolute;
+      left: 87%;
+      background-color: white;
+      top: 4%;
+    }
+      h3 {
+        font-size: 22px;
+        margin-left: 46px;
+        margin-bottom: 16px;
+      }
+}
 .btn-add-folder {
   border-radius: 20px;
   background-color: white;
@@ -791,4 +818,14 @@ input:focus{             // has to put :focus for the input
 #close-create-folder {
   border-radius: 15px;
   border: 3px solid black
+}
+
+#blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0,0,0,.5);
 }
