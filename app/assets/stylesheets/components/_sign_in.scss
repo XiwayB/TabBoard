@@ -1,23 +1,309 @@
-.sign-in-btn {
-  display: inline-flex;
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+
+// Define fonts for body and headers
+body {
+  font-family: 'Work Sans', 'Helvetica', 'sans-serif';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Nunito', 'Helvetica', 'sans-serif';
+}
+
+@media (min-width: 576px) {
+  #navbarMenu {
+    display: none !important;
+  }
+}
+
+#xlNavbar .navbar-brand,
+#navbarMenuToggler,
+#xlNavbar .nav-link {
+  line-height: 65px;
+  color: #333;
+}
+#xlNavbar .nav-link {
+  font-size: 16px;
+}
+#navbarMenuToggler,
+#navbarMenu .nav-link {
+  color: #333;
+}
+#navbarMenu .nav-link {
+  padding: 12px 0;
+  font-weight: 300;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+.navbar-brand {
+  font-family: 'Nunito', 'Helvetica', 'sans-serif';
+  font-size: 1.5em;
+  scroll-behavior: auto;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
+}
+
+
+#benefit-1 {
+  background-color: #f5f5f5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#benefit-2 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#first-benefit {
+  padding-top: calc(2 / 3.6 * 100%); /* aspect ratio 3:2 */
+  width: 100%;
+  background-image: url('../../assets/extensionGIF3.gif');
+  background-size: cover;
+}
+
+.aspectRatioBox {
+  height: calc(2 / 3 * 50%); /* aspect ratio 3:2 */
+  background-size: cover;
+  background-position: center;
+}
+
+#second-benefit {
+  padding-top: calc(2 / 3.6 * 100%); /* aspect ratio 3:2 */
+  width: 100%;
+  background-image: image-url('../../assets/webappGIF.gif');
+  background-size: cover;
+}
+
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-url('../../assets/laptop2.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 78vh;
+  min-height: 650px;
+}
+
+@media (max-width: 768px) {
+  #hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    image-url('../../assets/laptop.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 80vh;
+    min-height: 650px;
+  }
+}
+
+#hero h2 {
+  padding-top: 168px;
+  color: white;
+}
+
+.container-fluid,
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+form {
+  color: white;
+}
+
+@media (min-width: 1700px) {
+  #searchForm {
+    position: absolute;
+    top: 200px;
+    right: 18%;
+  }
+}
+
+@media (max-width: 1699px) {
+  #searchForm {
+    position: absolute;
+    top: 25vh;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .header {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  #searchForm {
+    position: absolute;
+    top: 23vh;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .header {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1700px) {
+  #searchForm form {
+    padding: 32px;
+    // box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    max-width: 441px;
+  }
+}
+
+.btn-login {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: black;
+  border: 2.6px solid white;
+  border-radius: 50px;
+  color: white;
+  width: 250px;
+  font-weight: 600;
+}
+
+// .btn-danger a {
+//   color: white;
+//   font-weight: 600;
+
+// }
+
+// .btn-danger a:hover {
+//   color: black;
+// }
+
+.btn-login:hover {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: white;
+  border-color: white;
   color: black;
+  border-radius: 50px;
+}
+
+#features {
+  padding: 0px;
+  margin: 0px;
+}
+
+.container-features {
+  padding: 5% 10% 10% 10%;
+}
+
+.banner {
+  height: 60vh;
+}
+
+.explanation-img {
+  height: 200px;
+  width: 100%;
+}
+
+.banner1 {
+  height: 60vh;
+  background: grey;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05)
+    ),
+    image-url('../../assets/office_happy1.jpg');
+  background-size: cover;
+  background-position: center left;
+}
+
+.banner2 {
+  height: 60vh;
+  background: grey;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05)
+    ),
+    image-url('../../assets/office_happy2.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+@media (max-width: 768px) {
+  .banner1 {
+    background-position: center center;
+  }
+}
+
+#reviews {
+  margin-top: 75px;
+  margin-bottom: 40px;
+}
+
+.reviews-header{
+  text-align: center;
+}
+
+#about {
+  margin-top: 75px;
+
+}
+
+.reviews {
   margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-
+  background-image: image-url('../../assets/reviews.jpg');
+  background-size: cover;
+  padding-top: calc(2 / 3 * 100%); /* aspect ratio 3:2 */
+  width: 100%;
 }
 
-.sign-in-btn:hover {
-  margin-top: 17px;
-  font-size: 1.05em;
-  text-shadow: 0.1px 0.1px 0.1px black;
+.three-section {
+  border: 1px solid grey;
+  background: red;
 }
 
-img {
-  width: 25px;
-  height: 25px;
-  margin-left: 8px;
+.footer {
+  background: #f5f5f5;
 }
+
+.borderx {
+  border-left: 3px solid black;
+}
+
+ul {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (min-width: 992px) {
+  #ul {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+#about-list li{
+  margin-bottom: 20px;
+  list-style-type: none;
+}
+
+.indent {
+  padding-left: 30px;
+}
+
+// Bootsrap media size
+// xs = Extra small <576px. Max container width None (auto)
+// sm = Small ≥576px. Max container width 540px.
+// md = Medium ≥768px. Max container width 720px.
+// lg = Large ≥992px. Max container width 960px.
+// xl = Extra large ≥1200px. Max container width 1140px.
 

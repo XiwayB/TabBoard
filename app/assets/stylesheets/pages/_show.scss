@@ -220,6 +220,7 @@ a:hover {
 
 .show-edit-folder {
   margin-bottom: 24px;
+  color: black;
 }
 
 .show-delete-folder {
@@ -347,6 +348,7 @@ a:hover {
 .edit-name {
   label {
     font-weight: bold;
+    color: black;
   }
   input{
     border-radius: 12px;
@@ -360,6 +362,7 @@ a:hover {
 .edit-cover{
     label {
     font-weight: bold;
+    color: black;
   }
 }
 
@@ -412,4 +415,8 @@ a:hover {
     background-color: black;
     color: white;
   }
+}
+
+.form {
+  color: black;
 }

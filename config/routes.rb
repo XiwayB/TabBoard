@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get 'unsaved_tabs', to: 'tabs#unsaved_tabs'
+  delete 'unsaved_tabs', to: 'tabs#destroy_unsaved_tabs'
+
 
   get 'fetch_folders', to: 'folders#fetch_folders'
 

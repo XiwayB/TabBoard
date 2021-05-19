@@ -9,6 +9,7 @@
 
     <div id="box-tabs" style="">
       <div class="box-tab-header">Clean Tabs</div>
+      <div v-if="tabs.length > 2" class="box-tab-delete-all" @click="deleteAllTabs()">Delete All <i class="far fa-trash-alt"></i></div>
       <div id="items">
         <div v-for="(tab, index) in tabs" :key="index">
           <div class="item">
@@ -163,7 +164,6 @@ export default {
         this.fetchTabs();
       });
     },
-
     deleteTab(tab) {
       console.log('tab', tab);
       const url = `/tabs/${tab}?format=json`;
@@ -173,6 +173,17 @@ export default {
         this.fetchTabs();
       });
     },
+    deleteAllTabs() {
+      this.tabs = [];
+      const url = `/unsaved_tabs`;
+      this.$ax.delete(url).then((res) => {
+        console.log('deleted tab:', res);
+        // this.tabs = res.data.tabs;
+        this.fetchTabs();
+      });
+    },
+
+    
   },
 };
 </script>

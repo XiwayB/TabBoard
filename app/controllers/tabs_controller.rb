@@ -6,8 +6,8 @@ class TabsController < ApplicationController
   def index
     # skip_authorization
     @tabs = policy_scope(Tab)
-
-    @tabs = @tabs.search_tab(params[:query]) if params[:query].present?
+    # current_user should allow user to only see their own folders/tabs
+    @tabs = current_user.tabs.search_tab(params[:query]) if params[:query].present? 
 
     tabs = @tabs.map{|tab| tab.to_hashy }
 
@@ -66,6 +66,13 @@ class TabsController < ApplicationController
   def unsaved_tabs
     authorize :tab, :unsaved_tabs?
     @unsaved_tabs = current_user.tabs.joins(:folder).where(:folders => {name:'Default'})
+    render json: { tabs: @unsaved_tabs.map{|tab| tab.to_hashy } }
+  end
+
+  def destroy_unsaved_tabs
+    authorize :tab, :unsaved_tabs?
+    @unsaved_tabs = current_user.tabs.joins(:folder).where(:folders => {name:'Default'})
+    @unsaved_tabs.destroy_all
     render json: { tabs: @unsaved_tabs.map{|tab| tab.to_hashy } }
   end
 
