@@ -1,8 +1,8 @@
-const createFolder = () => {
-  const addFolder = document.getElementById('create-folder');
-  if (addFolder) {
-    addFolder.addEventListener('click', () => {
-      console.log('addFolder is clicked');
+const createFirstFolder = () => {
+  const addFirstFolder = document.getElementById('create-first-folder');
+  if (addFirstFolder) {
+    addFirstFolder.addEventListener('click', () => {
+      console.log('addFirstFolder is clicked');
       document
         .getElementById('new-folder-form')
         .removeAttribute('class');
@@ -12,9 +12,23 @@ const createFolder = () => {
   }
 };
 
+const createFolder = () => {
+  const addFolder = document.getElementById('create-folder');
+  if (addFolder) {
+    addFolder.addEventListener('click', () => {
+      console.log('addFolder is clicked');
+      document
+        .getElementById('new-folder-form')
+        .removeAttribute('class');
+      const closeOnClick1 = document.getElementById('blocker-1');
+      closeOnClick1.removeAttribute('class', 'hidden')
+    });
+  }
+};
+
 const closeCreateFolder = () => {
   const closeCreate = document.getElementById('close-create-folder')
-  if (closeCreate || closeOnClick) {
+  if (closeCreate) {
     closeCreate.addEventListener('click', () => {
       document
         .getElementById('new-folder-form')
@@ -25,7 +39,20 @@ const closeCreateFolder = () => {
   }
 };
 
-// When I click somewhere else, it closes the add folder pop-up
+const closeCreateFolder1 = () => {
+  const closeCreate = document.getElementById('close-create-folder')
+  if (closeCreate) {
+    closeCreate.addEventListener('click', () => {
+      document
+        .getElementById('new-folder-form')
+        .setAttribute('class', 'hidden');
+      const closeOnClick1 = document.getElementById('blocker-1');
+      closeOnClick1.setAttribute('class', 'hidden')
+    });
+  }
+};
+
+// When I click somewhere else, it closes the add folder pop-up with no folder
 
 const closeFolderOnClick = (event) => {
   const closeOnClick = document.getElementById('blocker');
@@ -34,7 +61,21 @@ const closeFolderOnClick = (event) => {
     document
       .getElementById('new-folder-form')
       .setAttribute('class', 'hidden')
-    closeOnClick.setAttribute('class', 'hidden')
+      closeOnClick.setAttribute('class', 'hidden')
+    });
+  }
+};
+
+// When I click somewhere else, it closes the add folder pop-up with folder
+
+const closeFolderOnClick1 = (event) => {
+  const closeOnClick1 = document.getElementById('blocker-1');
+  if (closeOnClick1) {
+    closeOnClick1.addEventListener('click', () => {
+    document
+      .getElementById('new-folder-form')
+      .setAttribute('class', 'hidden')
+      closeOnClick1.setAttribute('class', 'hidden')
     });
   }
 };
@@ -47,4 +88,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
   loadFolderForm.id = 'new-folder-form';
 });
 
-export { createFolder, closeCreateFolder, closeFolderOnClick};
+export { createFirstFolder, createFolder, closeCreateFolder, closeFolderOnClick, closeFolderOnClick1, closeCreateFolder1 };
