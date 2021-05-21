@@ -28,7 +28,7 @@ import { sharePopup, closeSharePopup } from '../scripts/show_share'
 import { folderPopup, closeFolderPopup } from '../scripts/show_create_folder'
 import { editFolder, closeEditFolder } from '../scripts/edit_folder'
 import { editTabShow, closeEditTabShow } from '../scripts/edit_show_tab'
-import { createFolder, closeCreateFolder } from '../scripts/create_folder'
+import { createFolder, closeCreateFolder, closeFolderOnClick, closeCreateFolder1, closeFolderOnClick1, createFirstFolder} from '../scripts/create_folder'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -53,4 +53,8 @@ document.addEventListener('turbolinks:load', () => {
   closeEditTabShow();
   createFolder();
   closeCreateFolder();
+  closeFolderOnClick();
+  closeCreateFolder1();
+  closeFolderOnClick1();
+  createFirstFolder();
 });

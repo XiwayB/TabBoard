@@ -37,9 +37,6 @@
 
   <!-- CONTAINER THAT HOLDS THE SEARCH RESULTS HERE -->
 
-
-
-
 </div>
 
 <div class="nav-body">
@@ -52,10 +49,34 @@
           <!-- <li class=""><a href="#">Favourite</a> <span class="ml-3">|</span></li> -->
           <li id="search-nav" class="ml-3">
             <i class="fa fa-search" style="font-size: 20px;"></i></li>
-          <li class="ml-3" id="add-folder-index">
-            <!-- you are here -->
-            <i id="create-folder"class="fas fa-plus-circle" style="font-size: 20px;"></i>
-              <div id="new-folder-form" class="hidden">
+
+<!--  START ADD FOLDER POP UP -->
+
+<!--  ADD FOLDER POP UP IF NO FOLDER -->
+ <% if @folders.length < 1 %>
+    <li class="ml-3" id="add-folder-index">
+      <i id="create-first-folder"class="fas fa-plus-circle" style="font-size: 20px;"></i>
+      <div id="blocker"></div>
+        <div id="show-folder-form" class="hidden">
+          <button id="close-create-folder">
+            <i class="fas fa-times"></i>
+          </button>
+            <h3>Create Folder</h3>
+              <%= simple_form_for(@folder) do |f| %>
+                <div class="create-create-name">
+                  <%= f.input :name, placeholder: 'Add a folder name' %>
+                </div>
+                  <label class="create-folder-cover">
+                    <i class="far fa-image"></i> Upload Cover Image
+                    <span style="display:none;">
+                      <%= f.input :photo, as: :file %>
+                    </span>
+                  </label>
+                <%= f.submit "Add folder", class: "btn-add-folder" %>
+              <% end %>
+          </div>
+            <!-- COMMENT: ADDED SAME FORM IF THE USER QUITS THE FIRST TIME POP-UP OPENS -->
+            <div id="new-folder-form" class="hidden">
               <button id="close-create-folder">
                    <i class="fas fa-times"></i>
               </button>
@@ -64,7 +85,6 @@
                   <div class="create-folder-name">
                     <%= f.input :name, placeholder: 'Add a folder name' %>
                   </div>
-       <!--              <i class="far fa-image"></i> -->
                     <label class="create-folder-cover">
                         <i class="far fa-image"></i> Upload Cover Image
                       <span style="display:none;">
@@ -75,6 +95,33 @@
                  <% end %>
             </div>
           </li>
+
+<!--  ADD FOLDER POP UP IF FOLDER(S) -->
+
+        <% else %>
+          <li class="ml-3" id="add-folder-index">
+            <i id="create-folder"class="fas fa-plus-circle" style="font-size: 20px;"></i>
+            <div id="blocker-1" class="hidden"></div>
+              <div id="new-folder-form" class="hidden">
+              <button id="close-create-folder">
+                   <i class="fas fa-times"></i>
+              </button>
+                 <h3>Create Folder</h3>
+                <%= simple_form_for(@folder) do |f| %>
+                  <div class="create-folder-name">
+                    <%= f.input :name, placeholder: 'Add a folder name' %>
+                  </div>
+                    <label class="create-folder-cover">
+                        <i class="far fa-image"></i> Upload Cover Image
+                      <span style="display:none;">
+                        <%= f.input :photo, as: :file %>
+                      </span>
+                    </label>
+                  <%= f.submit "Add folder", class: "btn-add-folder" %>
+                 <% end %>
+            </div>
+          </li>
+         <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do  %>
               <%= image_tag "sign_out.png", alt: "alttext", class: "ml-3 mb-1", style: "width: 25px; height: 25px" %>

@@ -1,32 +1,139 @@
-<div class="position-absolute vh-100" style="z-index: 5; left: 0; top:0; margin-right: 100px; width: fit-content; background: white; opacity: 0.8">
-
-  <div class="back-home">
-      <%= link_to root_path, class: "home-tab" do %>
-        <%= image_tag "https://res.cloudinary.com/xiway/image/upload/v1618534994/home_xkrb5x.png", class: "home-icon", alt: "alttext" %>
-      <% end %>
+<!-- THIS IS YOUR SEARCH DIV CONTAINER -->
+<div id="search-container" style="width: 100%; height: 100vh; display: none; background: black; z-index: 999; position: fixed; top: 0; left: 0;">
+  <div class="home-but" style="position: absolute; top: 58px; right: 20px;" >
+    <%= image_tag "home.png", style: "width: 45px; height: 45px;" %>
   </div>
+  <!-- ALL SEARCHES HAPPENING HERE -->
 
-  <form action="/folders" class="form-pink" method="get">
-    <input type="search_query" placeholder="Type to search">
-    <i class="fa fa-search"></i>
-  </form>
-
-  <div id="btn-tabs">
-    <div id="top"></div>
-    <div id="middle"></div>
-    <div id="bottom"></div>
-  </div>
-
-  <div id="box-tabs">
-    <div id="items-show">
-      <% @folder.tabs.each do |tab| %>
-        <div class="show-tab">
-          <%= tab.icon %>
-          <%= tab.title %> -
-          <%= tab.url %>
+  <!-- SEARCH BAR FORM -->
+   <div class="wrapper ">
+    <div class="search-input d-flex w-100 justify-content-center mt-5">
+      <!-- <form id="search-tabs" action="/folders" class="form-pink" method="get"> -->
+      <form id="search-tabs" action="/folders" class="d-flex w-50 justify-content-center" method="get">
+        <div style="position: relative; width: 100%;">
+          <input class="py-6" style="
+            padding-left: 45px; padding-right: 10px;
+            padding-top: 20px; padding-bottom: 20px;
+            width: 100%; border-radius: 40px; border: 0;"
+            id="search" type="text"
+            placeholder="Type to search"
+            autocomplete="chrome-off"
+            >
+          <i class="fa fa-search" style="font-size: 30px; position: absolute; left: 12px; top: 18px; z-index: 99;" id="icon"></i>
         </div>
-      <% end  %>
+
+
+
+      </form>
+    </div>
+
+    <div class="autocom-box w-full d-flex justify-content-center">
+      <ul id="results" class="w-50">
+
+      </ul>
     </div>
   </div>
 
+
+  <!-- CONTAINER THAT HOLDS THE SEARCH RESULTS HERE -->
+
 </div>
+
+<div class="nav-body">
+<!-- <div class="body-navbar"> -->
+  <nav style="z-index: 999;">
+      <div class="logo">
+          <h4><%= link_to "TA.B", root_path%></h4>
+      </div>
+      <ul class="nav-links">
+          <!-- <li class=""><a href="#">Favourite</a> <span class="ml-3">|</span></li> -->
+          <li id="search-nav" class="ml-3">
+            <i class="fa fa-search" style="font-size: 20px;"></i></li>
+
+<!--  START ADD FOLDER POP UP -->
+          <li class="ml-3" id="add-folder-index">
+            <div id="blocker-1" class="hidden"></div>
+            <i id="create-folder"class="fas fa-plus-circle" style="font-size: 20px;"></i>
+              <div id="new-folder-form" class="hidden">
+              <button id="close-create-folder">
+                   <i class="fas fa-times"></i>
+              </button>
+                 <h3>Create Folder</h3>
+                <%= simple_form_for(@folder) do |f| %>
+                  <div class="create-folder-name">
+                    <%= f.input :name, placeholder: 'Add a folder name' %>
+                  </div>
+                    <label class="create-folder-cover">
+                        <i class="far fa-image"></i> Upload Cover Image
+                      <span style="display:none;">
+                        <%= f.input :photo, as: :file %>
+                      </span>
+                    </label>
+                  <%= f.submit "Add folder", class: "btn-add-folder" %>
+                 <% end %>
+            </div>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do  %>
+              <%= image_tag "sign_out.png", alt: "alttext", class: "ml-3 mb-1", style: "width: 25px; height: 25px" %>
+            <% end %>
+          </li>
+      </ul>
+      <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+      </div>
+  </nav>
+</div>
+
+<script>
+  function select(element) {
+    console.log("element", {element})
+    const searchWrapper = document.querySelector(".search-input");
+    const inputBox = document.getElementById("search");
+    const suggBox = document.querySelector(".autocom-box");
+    const icon = document.querySelector(".fa");
+
+    let linkTag = document.querySelector("a");
+    let webLink;
+
+
+    let selectData = element.textContent;
+
+    searchWrapper.classList.remove("active");
+    }
+
+    const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    if (burger) {
+      burger.addEventListener('click', () => {
+          //Toggle Lav
+          nav.classList.toggle('nav-active');
+          //Animate Links
+          navLinks.forEach((link, index) => {
+              if (link.style.animation) {
+              link.style.animation = '';
+              } else {
+                  link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+              }
+          })
+          //Burger Animation
+          burger.classList.toggle('toggle');
+      })
+
+    }
+  }
+
+  navSlide();
+</script>
+
+
+
+
+
+
+
