@@ -47,10 +47,6 @@ Install dependencies
 bundle install
 ```
 
-```
-brew install redis
-```
-
 ## Structure
 
 All CSS are in the ```app/assets``` folder:
