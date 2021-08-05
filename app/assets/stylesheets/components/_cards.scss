@@ -73,6 +73,7 @@
   border: 0;
   // background-size: 350%;
   margin: 0;
+  cursor: pointer;
 }
 
 // .card:hover > img {
@@ -84,6 +85,11 @@
 .card:hover .goto-view {
   color:black;
   background: white;
+  transition: all .3s ease-in-out;
+}
+
+.goto-view:hover {
+  transform: scale(1.05, 1.05);
   transition: all .3s ease-in-out;
 }
 
@@ -158,6 +164,13 @@
   width: 24px;
   object-fit: cover;
 }
+
+.unlike-heart:hover {
+  transform: translateY(-2px);
+    transition: all .1s ease-in-out;
+
+}
+
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
