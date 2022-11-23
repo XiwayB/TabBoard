@@ -33,7 +33,7 @@ const goToShow = () => {
         // e.stopPropagation();
         // e.preventDefault();
         const id = e.currentTarget.dataset.id
-        console.log({id})
+        //console.log({id})
         window.location.href = `/folders/${id}`
         // fetch to the route /folder/${id}/like?format=json
         // const url =  `http://taboard.herokuapp.com/folders/${id}/like?format=json`
