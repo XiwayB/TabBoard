@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # root to: 'main#index'
   root to: 'folders#index'
   # Devise routes for API clients (custom sessions controller)
   require "sidekiq/web"
@@ -21,10 +22,6 @@ Rails.application.routes.draw do
 
 
   post 'users/login_from_ext', to: 'users#login_from_ext'
-  # namespace :api, defaults: { format: :json } do
-  #   namespace :v1 do
-  #   end
-  # end
   resources :folders do
     resources :tabs, shallow: true
     post "saveall", to: 'tabs#save_all', as: 'save_all'
