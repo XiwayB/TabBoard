@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # root to: 'main#index'
   root to: 'folders#index'
   # Devise routes for API clients (custom sessions controller)
   require "sidekiq/web"
