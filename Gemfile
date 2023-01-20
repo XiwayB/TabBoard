@@ -36,7 +36,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
 # Use Devise for authentication
-gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'devise', github: 'heartcombo/devise'
+#removing the branch as merged to master , branch: 'ca-omniauth-2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0' # used for omniauth v2, extra security protection as the methods are using :post
 gem 'omniauth-google-oauth2'
 # Use Omniauth Google plugin
