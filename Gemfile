@@ -77,3 +77,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "prettier", "~> 1.5"
+
+gem 'psych', '< 4.0.0'
