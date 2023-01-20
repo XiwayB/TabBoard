@@ -11,7 +11,6 @@
     "bootstrap": "^4.6.0",
     "choices.js": "^9.0.1",
     "jquery": "^3.6.0",
-    "node-sass": "^8.0.0",
     "popper.js": "^1.16.1",
     "rails-erb-loader": "^5.5.2",
     "turbolinks": "^5.2.0",
@@ -22,6 +21,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "sass": "^1.57.1",
     "webpack-dev-server": "^3.11.2"
   }
 }
